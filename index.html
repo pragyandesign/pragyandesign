@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pragyan Chaudhary | Product designer who builds working prototypes</title>
+<meta name="description" content="Pragyan is a product designer with two years in brand identity, designing for early-stage startups and building working prototypes.">
+<meta name="theme-color" content="#F5EBE1">
+<meta property="og:title" content="Pragyan Chaudhary | Product designer">
+<meta property="og:description" content="Product designer who builds working prototypes.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Fonts: Sora (Google Fonts) and Switzer (Fontshare). For production, self-host both. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="site.css">
+<link rel="preload" as="image" href="portrait.webp" fetchpriority="high">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav__in">
+    <a class="brand" href="#top" aria-label="Pragyan Design, home"><img src="logo.svg" alt="Pragyan Design" width="246" height="40"></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#prototypes">Prototypes</a>
+      <a href="#work">Work</a>
+      <a href="#credentials" data-todo="dedicated Credentials page">Credentials</a>
+    </nav>
+    <!-- TODO: contact action is being designed. For now it jumps to the footer. -->
+    <a class="btn btn--primary" href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div>
+      <h1>Howdy, I’m Pragyan.</h1>
+      <p class="hero__tag">Product designer who builds working prototypes.</p>
+      <p class="hero__sub">Two years shaping brand identities, now designing products for early-stage startups and building them myself.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#prototypes">View Prototypes</a>
+        <a class="btn btn--secondary" href="#work">Read Case Studies</a>
+      </div>
+    </div>
+
+    <div class="portrait" id="portrait">
+      <img id="portraitImg" src="portrait.webp" width="872" height="1160" alt="Portrait of Pragyan smiling, wearing a dark hoodie" fetchpriority="high">
+      <canvas id="portraitFx" aria-hidden="true"></canvas>
+    </div>
+  </section>
+
+  <!-- ================= LIVE PROTOTYPES ================= -->
+  <section class="section" id="prototypes" aria-labelledby="proto-title">
+    <h2 class="section__title" id="proto-title">Live Prototypes built using AI.</h2>
+    <div class="pgrid">
+
+      <article class="pcard">
+        <div class="pcard__media">
+          <img src="decocoa.webp" width="1600" height="900" loading="lazy" alt="Decocoa website hero: The same chocolate, whether it's one bar or one million">
+          <span class="live"><span class="live__dot" aria-hidden="true"></span>Live</span>
+        </div>
+        <div class="pcard__body">
+          <div>
+            <h3 class="pcard__title">Decocoa (Chocolate Crafter)</h3>
+            <p class="pcard__desc">Decocoa is a chocolate crafter company who majorly deals in wholesale and custom orders</p>
+          </div>
+          <!-- TODO: replace # with the live prototype URL -->
+          <a class="pcard__go" href="#" aria-label="Open the Decocoa prototype">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard__media">
+          <img src="clearfleet.webp" width="1600" height="900" loading="lazy" alt="ClearFleet live fleet view dashboard with driver list, map and exception queue">
+          <span class="live"><span class="live__dot" aria-hidden="true"></span>Live</span>
+        </div>
+        <div class="pcard__body">
+          <div>
+            <h3 class="pcard__title">ClearFleet</h3>
+            <p class="pcard__desc">A dispatcher-first fleet operations platform for last-mile delivery teams</p>
+          </div>
+          <!-- TODO: replace # with the live prototype URL -->
+          <a class="pcard__go" href="#" aria-label="Open the ClearFleet prototype">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= CASE STUDIES ================= -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <h2 class="section__title section__title--bold" id="work-title">Case Studies and Branding Work</h2>
+
+    <div class="timeline">
+
+      <div class="case">
+        <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
+        <article class="ccard"><div class="ccard__in">
+          <div class="ccard__media"><img src="clearfleet.webp" width="1600" height="900" loading="lazy" alt="ClearFleet dashboard"></div>
+          <div class="ccard__body">
+            <h3 class="ccard__title">Clear Fleet</h3>
+            <p class="ccard__desc">Redesigned how fleet dispatchers catch problems, replacing fifteen phone calls a shift with one prioritized exception queue.</p>
+            <ul class="pills" aria-label="Project type"><li class="pill">Enterprise UX</li><li class="pill">Design System</li><li class="pill">Mobile + Web</li></ul>
+            <!-- TODO: link to the Clear Fleet case study page -->
+            <a class="btn btn--primary" href="#">Read Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+            </a>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="case">
+        <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
+        <article class="ccard"><div class="ccard__in">
+          <div class="ccard__media"><img src="decocoa.webp" width="1600" height="900" loading="lazy" alt="Decocoa website"></div>
+          <div class="ccard__body">
+            <h3 class="ccard__title">Decocoa</h3>
+            <p class="ccard__desc">Decocoa is a chocolate crafter company who majorly deals in wholesale and custom orders.</p>
+            <ul class="pills" aria-label="Project type"><li class="pill">Visual Design</li><li class="pill">Design System</li><li class="pill">Web Redesign</li></ul>
+            <!-- TODO: link to the Decocoa case study page -->
+            <a class="btn btn--primary" href="#">Read Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+            </a>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="case">
+        <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
+        <article class="ccard"><div class="ccard__in">
+          <!-- PLACEHOLDER: replace this .ph block with <img src="thresca.webp" alt="Thresca logo"> -->
+          <div class="ccard__media"><div class="ph ph--dark" role="img" aria-label="Thresca artwork placeholder">Thresca<small>Artwork goes here</small></div></div>
+          <div class="ccard__body">
+            <h3 class="ccard__title">Thresca</h3>
+            <p class="ccard__desc">AI Agent that listens to your meetings audio and converts important info to scheduled meetings and orders.</p>
+            <ul class="pills" aria-label="Project type"><li class="pill">Brand Identity</li><li class="pill">Design System</li></ul>
+            <!-- TODO: link to the Thresca project -->
+            <a class="btn btn--primary" href="#">View Project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+            </a>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="case">
+        <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2025</div>
+        <article class="ccard"><div class="ccard__in">
+          <!-- PLACEHOLDER: replace with the Sarthi Ayurvedic logo -->
+          <div class="ccard__media"><div class="ph ph--light" role="img" aria-label="Sarthi Ayurvedic artwork placeholder">Sarthi Ayurvedic<small>Artwork goes here</small></div></div>
+          <div class="ccard__body">
+            <h3 class="ccard__title">Sarthi Ayurvedic</h3>
+            <p class="ccard__desc">Created a fresh brand identity to bring modern clarity to its traditional roots while making treatments and approach easier to understand.</p>
+            <ul class="pills" aria-label="Project type"><li class="pill">Brand Identity</li><li class="pill">Healthcare</li></ul>
+            <!-- TODO: link to the Sarthi project -->
+            <a class="btn btn--primary" href="#">View Project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+            </a>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="case">
+        <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2024</div>
+        <article class="ccard"><div class="ccard__in">
+          <!-- PLACEHOLDER: replace with the Aurawear logo -->
+          <div class="ccard__media"><div class="ph ph--light" role="img" aria-label="Aurawear artwork placeholder">Aurawear<small>Artwork goes here</small></div></div>
+          <div class="ccard__body">
+            <h3 class="ccard__title">Aurawear</h3>
+            <p class="ccard__desc">Created complete brand system for fitness tracker watch and ring company.</p>
+            <ul class="pills" aria-label="Project type"><li class="pill">Brand Identity</li><li class="pill">Fitness</li></ul>
+            <!-- TODO: link to the Aurawear project -->
+            <a class="btn btn--primary" href="#">View Project
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+            </a>
+          </div>
+        </div></article>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<div class="footer-wrap">
+  <footer class="footer" id="contact">
+    <div>
+      <h2>On repeat</h2>
+      <!-- TODO: link to the track on Spotify, or swap this image for a live Spotify embed -->
+      <a class="spotify" href="#" aria-label="West Coast by Lana Del Rey, on Spotify"><img src="spotify.png" width="300" height="152" loading="lazy" alt="Spotify card: West Coast by Lana Del Rey"></a>
+    </div>
+    <nav aria-labelledby="fnav">
+      <h2 id="fnav">Navigation</h2>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#" data-todo="Fun Stuff page">Fun Stuff</a></li>
+        <li><a href="#" data-todo="About me page">About me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="flinks">
+      <h2 id="flinks">Links</h2>
+      <ul>
+        <li><a href="#" data-todo="resume file">Resume</a></li>
+        <li><a href="#" data-todo="LinkedIn URL" rel="noopener">Linkedin</a></li>
+        <li><a href="#" data-todo="Instagram URL" rel="noopener">Instagram</a></li>
+        <li><a href="#" data-todo="X URL" rel="noopener">X</a></li>
+      </ul>
+    </nav>
+  </footer>
+  <p class="copyright">2026 Pragyan Chaudhary. All rights reserved</p>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

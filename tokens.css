@@ -1,0 +1,263 @@
+/* ==========================================================
+   Pragyan brand tokens. Generated. Edit the generator, not this file.
+   Palette: bottle green, eggshell, pumpkin orange, salad green.
+   Rules that matter:
+   - Orange is a FILL. Text on it is bottle green, never white.
+   - Orange and salad never sit next to each other (they clash at 1.5:1).
+   - Text on gradients is only allowed where the guide says so.
+   ========================================================== */
+
+:root {
+  /* ---- 1. Primitives (scales, 50 to 950) ---- */
+  --bottle-50: #F4FCF9;
+  --bottle-100: #CBE8DB;
+  --bottle-200: #AED0C1;
+  --bottle-300: #93B8A8;
+  --bottle-400: #78A08F;
+  --bottle-500: #5E8977;
+  --bottle-600: #447360;
+  --bottle-700: #2B5D4A;
+  --bottle-800: #104836;
+  --bottle-900: #003223;
+  --bottle-950: #0D1914;
+  --sand-50: #FEF9F4;
+  --sand-100: #F5EBE1;
+  --sand-200: #D9D0C7;
+  --sand-300: #BEB6AD;
+  --sand-400: #A49C94;
+  --sand-500: #8A837C;
+  --sand-600: #716B64;
+  --sand-700: #59544E;
+  --sand-800: #433E39;
+  --sand-900: #2D2925;
+  --sand-950: #191512;
+  --orange-50: #FCF9F8;
+  --orange-100: #F6E2DA;
+  --orange-200: #F4C9B8;
+  --orange-300: #F6AD90;
+  --orange-400: #FA8D5F;
+  --orange-500: #FF6400;
+  --orange-600: #CB551A;
+  --orange-700: #9A4620;
+  --orange-800: #6C351E;
+  --orange-900: #442416;
+  --orange-950: #22110B;
+  --salad-50: #F7FCF4;
+  --salad-100: #D4F4BA;
+  --salad-200: #B3EA81;
+  --salad-300: #9ED966;
+  --salad-400: #8CC850;
+  --salad-500: #77A749;
+  --salad-600: #628740;
+  --salad-700: #4E6836;
+  --salad-800: #394B2A;
+  --salad-900: #25301C;
+  --salad-950: #12180E;
+  --red-50: #FEF9F8;
+  --red-100: #FDECE9;
+  --red-200: #FBD8D3;
+  --red-300: #F8BBB2;
+  --red-400: #F5998D;
+  --red-500: #F37163;
+  --red-600: #EC3932;
+  --red-700: #BF2D26;
+  --red-800: #901F1A;
+  --red-900: #64120F;
+  --red-950: #3E0806;
+  --amber-50: #FFF9F1;
+  --amber-100: #FEEED5;
+  --amber-200: #FCDDA8;
+  --amber-300: #FAC25B;
+  --amber-400: #E6AA34;
+  --amber-500: #C9942C;
+  --amber-600: #AA7D24;
+  --amber-700: #8A641B;
+  --amber-800: #674A11;
+  --amber-900: #463108;
+  --amber-950: #2A1C03;
+  --blue-50: #F8FAFE;
+  --blue-100: #E9F1FB;
+  --blue-200: #D3E3F8;
+  --blue-300: #B3CFF3;
+  --blue-400: #90B9ED;
+  --blue-500: #69A1E8;
+  --blue-600: #3E87E0;
+  --blue-700: #306CB5;
+  --blue-800: #225089;
+  --blue-900: #14365E;
+  --blue-950: #091F3B;
+
+  /* ---- 2. Semantic tokens: LIGHT (default) ---- */
+  --bg-page: #F5EBE1;
+  --bg-raised: #FEF9F4;
+  --bg-sunken: #D9D0C7;
+  --bg-inverse: #003223;
+  --bg-inverse-deep: #0D1914;
+  --text-primary: #003223;
+  --text-secondary: #59544E;
+  --text-inverse: #F5EBE1;
+  --text-link: #2B5D4A;
+  --text-on-action: #003223;
+  --text-on-accent: #003223;
+  --border-subtle: #BEB6AD;
+  --border-control: #8A837C;
+  --action-primary: #FF6400;
+  --action-primary-hover: #FA8D5F;
+  --action-primary-pressed: #FF6400;
+  --action-disabled-bg: #D9D0C7;
+  --action-disabled-text: #8A837C;
+  --accent: #8CC850;
+  --focus-ring: #003223;
+  --success-bg: #D4F4BA;
+  --success-text: #4E6836;
+  --success-border: #628740;
+  --danger-bg: #FDECE9;
+  --danger-text: #BF2D26;
+  --danger-border: #EC3932;
+  --warning-bg: #FEEED5;
+  --warning-text: #8A641B;
+  --warning-border: #AA7D24;
+  --info-bg: #E9F1FB;
+  --info-text: #306CB5;
+  --info-border: #3E87E0;
+
+  /* ---- 3. Gradients (interpolated in OKLCH so midpoints stay clean) ---- */
+  --grad-soft: linear-gradient(135deg in oklch, #F5EBE1, #8CC850);
+  --grad-warm: linear-gradient(135deg in oklch, #FEF9F4, #F4C9B8);
+  --grad-spark: linear-gradient(120deg in oklch, #FF6400, #8CC850);
+  --grad-deep: linear-gradient(160deg in oklch, #003223, #2B5D4A);
+  --grad-glow: radial-gradient(circle at 15% 10%, #FF6400 0%, rgb(255 100 0 / 0) 55%), #0D1914;
+
+  /* ---- 4. Spacing (4px base) ---- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  --space-9: 96px; --space-10: 128px;
+
+  /* ---- 5. Shape ---- */
+  --radius-xs: 6px; --radius-sm: 10px; --radius-md: 16px; --radius-lg: 24px; --radius-pill: 999px;
+  --radius-signature: 24px 24px 24px 4px;   /* the asymmetric corner used on cards and media */
+  --border-width: 1.5px;
+
+  /* ---- 6. Elevation (tinted with bottle green, never grey) ---- */
+  --shadow-sm: 0 1px 2px rgb(0 50 35 / 0.10);
+  --shadow-md: 0 6px 16px rgb(0 50 35 / 0.12);
+  --shadow-lg: 0 18px 40px rgb(0 50 35 / 0.16);
+
+  /* ---- 7. Motion ---- */
+  --dur-fast: 120ms; --dur-base: 200ms; --dur-slow: 360ms; --dur-hero: 700ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- 8. Layout (defaults: overwrite with your Figma values) ---- */
+  --container-max: 1360px;
+  --gutter: clamp(20px, 5vw, 64px);
+  /* Breakpoints (CSS variables cannot be used in media queries): 480, 768, 1024, 1440 */
+
+  /* ---- 9. Type slots: FILL THESE IN once you choose your fonts ---- */
+  --font-display: "YOUR-DISPLAY-FONT", system-ui, sans-serif;
+  --font-body: "YOUR-BODY-FONT", system-ui, sans-serif;
+  --font-utility: "YOUR-UTILITY-FONT", ui-monospace, monospace;   /* optional: delete if unused */
+  --text-hero-1: clamp(2.75rem, 6.4vw, 5.5rem);   /* 44 to 88px */
+  --text-hero-2: clamp(1.625rem, 3.3vw, 2.75rem); /* 26 to 44px */
+  --text-h2: clamp(1.875rem, 3.4vw, 2.75rem);     /* 30 to 44px */
+  --text-h3: clamp(1.3125rem, 2vw, 1.5rem);       /* 21 to 24px */
+  --text-body: clamp(1.0625rem, 1.1vw, 1.125rem); /* 17 to 18px */
+  --text-small: clamp(0.875rem, 1vw, 0.9375rem);  /* 14 to 15px */
+  --leading-tight: 1.05; --leading-heading: 1.15; --leading-body: 1.6;
+  --tracking-display: -0.03em; --tracking-heading: -0.02em; --tracking-body: 0;
+}
+
+/* Gradients fall back to plain sRGB stops where OKLCH interpolation is unsupported */
+@supports not (background: linear-gradient(in oklch, red, blue)) {
+  :root {
+    --grad-soft: linear-gradient(135deg, #F5EBE1, #F3E0C5, #EBD8A8, #DED18B, #CACD72, #B0CA5D, #8CC850);
+    --grad-warm: linear-gradient(135deg, #FFF8F6, #FEF0EB, #FCE8E1, #FAE1D7, #F8D9CC, #F6D1C2, #F4C9B8);
+    --grad-spark: linear-gradient(120deg, #FF6400, #EC8000, #DD9200, #D0A000, #C0AE00, #A9BC10, #8CC850);
+    --grad-deep: linear-gradient(160deg, #003223, #063929, #0F4030, #164736, #1D4E3D, #245643, #2B5D4A);
+    --grad-glow: radial-gradient(circle at 15% 10%, #FF6400 0%, rgb(255 100 0 / 0) 55%), #0D1914;
+  }
+}
+
+/* ---- Semantic tokens: DARK ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-page: #0D1914;
+    --bg-raised: #003223;
+    --bg-sunken: #07120D;
+    --bg-inverse: #F5EBE1;
+    --bg-inverse-deep: #FEF9F4;
+    --text-primary: #F5EBE1;
+    --text-secondary: #A49C94;
+    --text-inverse: #003223;
+    --text-link: #8CC850;
+    --text-on-action: #003223;
+    --text-on-accent: #003223;
+    --border-subtle: #104836;
+    --border-control: #5E8977;
+    --action-primary: #FF6400;
+    --action-primary-hover: #FA8D5F;
+    --action-primary-pressed: #FF6400;
+    --action-disabled-bg: #104836;
+    --action-disabled-text: #447360;
+    --accent: #8CC850;
+    --focus-ring: #8CC850;
+    --success-bg: #25301C;
+    --success-text: #77A749;
+    --success-border: #628740;
+    --danger-bg: #3E0806;
+    --danger-text: #F37163;
+    --danger-border: #EC3932;
+    --warning-bg: #2A1C03;
+    --warning-text: #C9942C;
+    --warning-border: #AA7D24;
+    --info-bg: #091F3B;
+    --info-text: #69A1E8;
+    --info-border: #3E87E0;
+  }
+}
+:root[data-theme="dark"] {
+  --bg-page: #0D1914;
+  --bg-raised: #003223;
+  --bg-sunken: #07120D;
+  --bg-inverse: #F5EBE1;
+  --bg-inverse-deep: #FEF9F4;
+  --text-primary: #F5EBE1;
+  --text-secondary: #A49C94;
+  --text-inverse: #003223;
+  --text-link: #8CC850;
+  --text-on-action: #003223;
+  --text-on-accent: #003223;
+  --border-subtle: #104836;
+  --border-control: #5E8977;
+  --action-primary: #FF6400;
+  --action-primary-hover: #FA8D5F;
+  --action-primary-pressed: #FF6400;
+  --action-disabled-bg: #104836;
+  --action-disabled-text: #447360;
+  --accent: #8CC850;
+  --focus-ring: #8CC850;
+  --success-bg: #25301C;
+  --success-text: #77A749;
+  --success-border: #628740;
+  --danger-bg: #3E0806;
+  --danger-text: #F37163;
+  --danger-border: #EC3932;
+  --warning-bg: #2A1C03;
+  --warning-text: #C9942C;
+  --warning-border: #AA7D24;
+  --info-bg: #091F3B;
+  --info-text: #69A1E8;
+  --info-border: #3E87E0;
+}
+
+/* ---- Base helpers ---- */
+:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; border-radius: 4px; }
+.u-grain { position: relative; isolation: isolate; }
+.u-grain::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity: 0.10; mix-blend-mode: multiply;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; --dur-slow: 0ms; --dur-hero: 0ms; }
+}
