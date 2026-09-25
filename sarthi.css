@@ -27,6 +27,7 @@
 /* ---------- Hero ---------- */
 .sa-hero { padding: 44px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
 .sa-title { font: 700 clamp(2.4rem, 6.2vw, 60px)/1.08 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 6px; }
+.sa-title .word { display: inline-block; white-space: nowrap; }
 .sa-title .ch { display: inline-block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; vertical-align: bottom; }
 .sa-title .ch > i { display: block; font-style: normal; transform: translate3d(0, 108%, 0); }
 .js.is-loaded .sa-title .ch > i { transform: none; transition: transform 1s var(--ease-out) calc(var(--i) * 28ms); }
@@ -44,7 +45,7 @@
 .sa-context { padding: 88px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 610px; gap: 40px; align-items: center; }
 .sa-context h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
 .sa-context p { font: 500 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 16px; max-width: 56ch; }
-.sa-oldlogo { position: relative; width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); overflow: hidden; }
+.sa-oldlogo { position: relative; width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: #FFFFFF; box-shadow: var(--shadow-sm); overflow: hidden; }
 .sa-oldlogo img { position: absolute; inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px); object-fit: contain; }
 
 /* ---------- Process cards: 1118 x 266 ---------- */

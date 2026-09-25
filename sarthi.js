@@ -4,13 +4,29 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ---------- hero: split the title into per-character spans, then reveal ----------
+  // Letters are grouped inside a per-word wrapper (.word, white-space: nowrap in CSS) so the
+  // browser can only break the line between words, never between two letters of the same word.
+  // Splitting flat (one .ch span per character with no word grouping) lets the browser treat
+  // every letter boundary as breakable, since adjacent inline-block siblings are always
+  // breakable between each other regardless of the actual character content.
   document.querySelectorAll(".sa-title[data-split]").forEach(function (el) {
     var text = el.textContent;
     el.textContent = "";
-    text.split("").forEach(function (ch, i) {
-      var wrap = document.createElement("span"); wrap.className = "ch"; wrap.style.setProperty("--i", i);
-      var inner = document.createElement("i"); inner.textContent = ch === " " ? "\u00A0" : ch;
-      wrap.appendChild(inner); el.appendChild(wrap);
+    var i = 0;
+    var words = text.split(" ");
+    words.forEach(function (word, wi) {
+      var wordWrap = document.createElement("span");
+      wordWrap.className = "word";
+      word.split("").forEach(function (ch) {
+        var wrap = document.createElement("span"); wrap.className = "ch"; wrap.style.setProperty("--i", i++);
+        var inner = document.createElement("i"); inner.textContent = ch;
+        wrap.appendChild(inner); wordWrap.appendChild(wrap);
+      });
+      el.appendChild(wordWrap);
+      if (wi < words.length - 1) {
+        i++; // keep the stagger timing the same as before, including the space's old index
+        el.appendChild(document.createTextNode(" "));
+      }
     });
   });
   requestAnimationFrame(function () { requestAnimationFrame(function () { doc.classList.add("is-loaded"); }); });
