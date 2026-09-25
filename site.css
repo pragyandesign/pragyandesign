@@ -242,6 +242,11 @@ ul { list-style: none; padding: 0; }
 .spotify img { width: 100%; height: 100%; object-fit: cover; }
 .copyright { max-width: 1058px; margin: 32px auto 0; font: 400 16px/1.5 var(--font-body); color: var(--text-secondary); }
 
+/* Opt in to cross-document View Transitions for same-origin navigations. */
+@view-transition {
+  navigation: auto;
+}
+
 /* ---------- Cross-document page transitions ---------- */
 /* Old page fades away quickly. The incoming page rises gently from below. */
 ::view-transition-old(root) {
