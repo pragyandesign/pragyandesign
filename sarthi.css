@@ -1,0 +1,168 @@
+/* ==========================================================
+   Sarthi Ayurvedic Hospital — branding case study
+   Every size below is taken directly from the spec. The one open item:
+   Visuelt Pro is a paid font (Grilli Type) with no free CDN, so it can't
+   be loaded here. General Sans (Fontshare, free) stands in as the closest
+   free match. Swap --font-display-alt below once you self-host the real file.
+   ========================================================== */
+
+:root {
+  --sw: 1118px;                 /* the one content width every section shares */
+  --font-display-alt: "General Sans", var(--font-display); /* placeholder for Visuelt Pro */
+  /* Sarthi's own three-colour palette */
+  --sa-green: #9BC53D;
+  --sa-brown: #443730;
+  --sa-wheat: #F3D9B1;
+}
+
+.sa { background: var(--bg-page); }
+.sa-wrap { max-width: var(--sw); margin: 0 auto; padding: 0 20px; }
+@media (max-width: 1158px) { .sa-wrap { padding: 0 20px; } }
+
+.sa-cap { font: 500 16px/1.4 var(--font-body); color: var(--text-secondary); }
+.sa-back { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text-secondary); margin-bottom: 28px; transition: color .2s; }
+.sa-back:hover { color: var(--action-primary); }
+.sa-back svg { width: 14px; height: 14px; }
+
+/* ---------- Hero ---------- */
+.sa-hero { padding: 44px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
+.sa-title { font: 700 clamp(2.4rem, 6.2vw, 60px)/1.08 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 6px; }
+.sa-title .ch { display: inline-block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; vertical-align: bottom; }
+.sa-title .ch > i { display: block; font-style: normal; transform: translate3d(0, 108%, 0); }
+.js.is-loaded .sa-title .ch > i { transform: none; transition: transform 1s var(--ease-out) calc(var(--i) * 28ms); }
+.sa-sub { font: 500 16px/1.5 var(--font-body); color: var(--text-secondary); margin-top: 14px; max-width: 60ch; }
+.sa-divider { width: 100%; max-width: 558px; height: 2px; background: var(--border-subtle); margin: 28px 0; border: 0; }
+.sa-facts { display: flex; flex-wrap: wrap; gap: 36px; }
+.sa-fact dt { font: 500 16px/1.3 var(--font-body); color: var(--text-secondary); margin-bottom: 6px; }
+.sa-fact dd { font: 400 14px/1.5 var(--font-body); margin: 0; max-width: 22ch; }
+
+.sa-logocard { position: relative; width: 100%; max-width: 500px; aspect-ratio: 500 / 400; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); overflow: hidden; }
+.sa-logocard img { position: absolute; inset: 28px; width: calc(100% - 56px); height: calc(100% - 56px); object-fit: contain; }
+.sa-logocap { text-align: center; margin-top: 12px; }
+
+/* ---------- Context ---------- */
+.sa-context { padding: 88px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 610px; gap: 40px; align-items: center; }
+.sa-context h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
+.sa-context p { font: 500 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 16px; max-width: 56ch; }
+.sa-oldlogo { position: relative; width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); overflow: hidden; }
+.sa-oldlogo img { position: absolute; inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px); object-fit: contain; }
+
+/* ---------- Process cards: 1118 x 266 ---------- */
+.sa-process { padding: 64px 0 0; }
+.sa-pcard {
+  position: sticky; top: calc(84px + var(--n, 0) * 18px); transform-origin: 50% 0; will-change: transform;
+  width: 100%; min-height: 266px; border-radius: 24px; padding: clamp(24px, 4vw, 44px); margin-bottom: 20px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: clamp(20px, 4vw, 40px); align-items: center;
+  box-shadow: 0 -10px 28px rgb(0 50 35 / 0.10);
+}
+.sa-pcard::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: #000; opacity: calc(var(--dim, 0) * 0.16); pointer-events: none; }
+.sa-pcard__no { font: 700 60px/1 var(--font-display-alt); letter-spacing: -0.02em; opacity: .9; }
+.sa-pcard__body h3 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; }
+.sa-pcard__body p { font: 400 16px/1.5 var(--font-body); margin-top: 8px; opacity: .88; max-width: 60ch; }
+.sa-pcard__body ul { margin-top: 12px; display: grid; gap: 6px; }
+.sa-pcard__body li { font: 400 16px/1.5 var(--font-body); opacity: .88; display: flex; gap: 10px; }
+.sa-pcard__body li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; margin-top: 9px; opacity: .7; }
+.sa-pcard__icon { width: 71px; height: 71px; flex: none; display: grid; place-items: center; }
+.sa-pcard__icon svg { width: 71px; height: 71px; }
+.sa-pcard--1 { background: var(--bg-raised); color: var(--bottle-900); }
+.sa-pcard--2 { background: var(--bg-inverse); color: var(--sand-100); }
+.sa-pcard--3 { background: var(--sa-green); color: var(--bottle-900); }
+.sa-pcard--4 { background: var(--red-100); color: var(--bottle-900); }
+@media (max-width: 760px) {
+  .sa-pcard { grid-template-columns: 1fr; text-align: left; }
+  .sa-pcard__icon { order: -1; }
+}
+
+/* ---------- Mark ---------- */
+.sa-mark { padding: 88px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 450px; gap: 48px; align-items: center; }
+.sa-mark h2 { font: 700 40px/1.15 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 10px; }
+.sa-mark > div > p.sa-lede { font: 400 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 14px; max-width: 54ch; }
+.sa-marknotes { margin-top: 26px; display: grid; gap: 0; }
+.sa-marknotes > div { padding: 16px 0; border-top: 1.5px solid var(--sa-green); }
+.sa-marknotes > div:first-child { border-top: 1.5px solid var(--sa-green); }
+.sa-marknotes dt { font: 500 16px/1.4 var(--font-body); }
+.sa-marknotes dd { font: 500 16px/1.5 var(--font-body); color: var(--text-secondary); margin: 4px 0 0; }
+.sa-markart { position: relative; width: 100%; max-width: 450px; aspect-ratio: 1; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); overflow: hidden; }
+.sa-markart img { position: absolute; inset: 32px; width: calc(100% - 64px); height: calc(100% - 64px); object-fit: contain; }
+
+/* ---------- Type & colour ---------- */
+.sa-palette { padding: 88px 0 0; }
+.sa-palette h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
+.sa-swatches { display: flex; gap: 16px; margin-top: 28px; height: 260px; }
+.sa-sw { flex: 1 1 0; min-width: 0; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; cursor: pointer; border: 0; text-align: left; font: inherit; overflow: hidden; transition: flex-grow .6s var(--ease-out); }
+.sa-sw[aria-expanded="true"] { flex-grow: 2.4; }
+.sa-sw b { font: 700 20px/1.2 var(--font-display-alt); white-space: nowrap; }
+.sa-sw span { font: 500 13px/1.4 var(--font-body); opacity: .8; white-space: nowrap; }
+.sa-sw code { font: 600 12px/1 var(--font-body); margin-top: 8px; opacity: .8; }
+.sa-sw__toast { position: absolute; top: 14px; right: 14px; font: 600 11px/1 var(--font-body); padding: 5px 9px; border-radius: 999px; background: rgb(0 0 0 / .25); opacity: 0; transform: translateY(-4px); transition: opacity .25s, transform .25s; }
+.sa-sw__toast.on { opacity: 1; transform: none; }
+.sa-sw { position: relative; }
+@media (max-width: 620px) { .sa-swatches { flex-direction: column; height: auto; } .sa-sw { min-height: 76px; transition: min-height .6s var(--ease-out); } .sa-sw[aria-expanded="true"] { min-height: 190px; } }
+.sa-type { margin-top: 44px; }
+.sa-type-demo { font-family: var(--font-display-alt); font-weight: 700; font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -0.03em; color: var(--bottle-900); line-height: 1.05; }
+.sa-type-note { margin-top: 10px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
+
+/* ---------- Visual identity: variant switcher ---------- */
+.sa-identity { padding: 88px 0 0; }
+.sa-identity h2 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
+.sa-switcher { margin-top: 32px; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); padding: clamp(20px, 5vw, 48px); }
+.sa-stage { position: relative; height: clamp(220px, 34vw, 340px); }
+.sa-frame {
+  position: absolute; inset: 20px;
+  opacity: 0; transform: scale(0.97); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); pointer-events: none;
+}
+.sa-frame.is-active { opacity: 1; transform: scale(1); }
+.sa-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.sa-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+.sa-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--border-subtle); transition: background-color .4s, transform .4s; }
+.sa-dots i.is-active { background: var(--sa-green); transform: scale(1.3); }
+
+/* ---------- Identity in action ---------- */
+.sa-action { padding: 64px 0 0; }
+/* Each row is a fixed height; every image's width is auto, derived from its own real aspect
+   ratio at that height. This is why nothing is cropped and nothing leaves empty space:
+   the box always matches the picture, instead of forcing pictures into equal columns. */
+.sa-grid { display: grid; gap: 16px; margin-top: 28px; }
+.sa-row { display: flex; gap: 16px; width: 100%; }
+.sa-row--1 { height: clamp(150px, 24vw, 268px); }
+.sa-row--2 { height: clamp(185px, 30vw, 335px); }
+.sa-row--3 { height: clamp(230px, 37vw, 410px); }
+.sa-row figure { margin: 0; height: 100%; border-radius: 12px; overflow: hidden; background: var(--bg-sunken); flex: 0 0 auto; }
+.sa-row--3 figure { flex: var(--grow, 1) 1 0; min-width: 0; }   /* row 3's two photos undersize by ~15% at natural aspect, so they stretch proportionally to fill the row instead of leaving a gap */
+.sa-row img { height: 100%; width: auto; max-width: 100%; object-fit: cover; display: block; }
+.sa-row--3 img { width: 100%; }
+@media (max-width: 760px) {
+  .sa-row { flex-wrap: wrap; height: auto !important; }
+  .sa-row figure { flex: 1 1 auto; height: clamp(140px, 45vw, 220px); }
+  .sa-row img { width: 100%; height: 100%; }
+}
+
+/* ---------- Next project: 1118 x 215 ---------- */
+.sa-next-wrap { padding: 88px 0 64px; }
+.sa-next {
+  width: 100%; min-height: 215px; border-radius: 24px; background: var(--bg-inverse); color: var(--text-inverse);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: clamp(24px, 4vw, 48px);
+  text-decoration: none;
+}
+.sa-next__top { font: 500 22px/1.2 var(--font-body); opacity: .75; }
+.sa-next__title { font: 700 clamp(2rem, 7vw, 60px)/1.05 var(--font-display-alt); letter-spacing: -0.02em; margin-top: 8px; }
+.sa-next svg { width: clamp(48px, 8vw, 80px); height: clamp(48px, 8vw, 80px); flex: none; transition: transform .35s var(--ease-standard); }
+.sa-next:hover svg { transform: translate(8px, -8px); }
+
+/* ---------- Reveal ---------- */
+.js [data-sr] { opacity: 0; transform: translateY(16px); transition: opacity .55s var(--ease-out), transform .55s var(--ease-out); }
+.js [data-sr].is-in { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .sa-hero, .sa-context, .sa-mark { grid-template-columns: 1fr; }
+  .sa-logocard, .sa-oldlogo, .sa-markart { max-width: 100%; justify-self: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-sr] { opacity: 1; transform: none; transition: none; }
+  .sa-title .ch > i { transform: none !important; transition: none !important; }
+  .sa-pcard { position: static; transform: none !important; box-shadow: none; }
+  .sa-pcard::after { display: none; }
+  .sa-frame { transition: none; }
+  .sa-frame.is-active { opacity: 1; transform: none; }
+  .sa-sw { transition: none; }
+}

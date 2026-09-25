@@ -242,19 +242,6 @@ ul { list-style: none; padding: 0; }
 .spotify img { width: 100%; height: 100%; object-fit: cover; }
 .copyright { max-width: 1058px; margin: 32px auto 0; font: 400 16px/1.5 var(--font-body); color: var(--text-secondary); }
 
-/* Keep the navigation fixed and visible; animate only the page content.
-   Fixed selector: footer lives inside .footer-wrap, not as a direct child of body,
-   so "body > footer" never matched anything — swapped to .footer-wrap. */
-html.page-exit main,
-html.page-exit .footer-wrap { animation: page-fade-out 160ms ease both; }
-html.page-enter main,
-html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
-@keyframes page-fade-out { to { opacity: 0; } }
-@keyframes page-rise-in {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; padding-top: 32px; gap: 32px; }
@@ -268,13 +255,34 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   .footer { grid-template-columns: 1fr; padding: 28px 24px; }
   .footer-wrap { padding-top: 72px; }
 }
+.nav__toggle {
+  display: none; flex: none; width: 40px; height: 40px; padding: 0; margin-left: 4px;
+  border: 1.5px solid var(--border-subtle); border-radius: 50%; background: transparent; color: var(--text-primary); cursor: pointer;
+  align-items: center; justify-content: center;
+}
+.nav__toggle svg { width: 20px; height: 20px; }
+.nav__toggle .l1, .nav__toggle .l2, .nav__toggle .l3 { transition: transform .25s var(--ease-standard), opacity .2s; transform-origin: 50% 50%; }
+.nav__toggle[aria-expanded="true"] .l1 { transform: translateY(5px) rotate(45deg); }
+.nav__toggle[aria-expanded="true"] .l2 { opacity: 0; }
+.nav__toggle[aria-expanded="true"] .l3 { transform: translateY(-5px) rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .nav__in { position: relative; }
+  .nav__toggle { display: inline-flex; }
+  .nav__links {
+    position: absolute; left: 0; right: 0; top: 100%; z-index: 49;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--bg-page); border-bottom: 1.5px solid var(--border-subtle);
+    max-height: 0; overflow: hidden; opacity: 0; padding: 0 20px;
+    transition: max-height .3s var(--ease-standard), opacity .2s, padding .3s var(--ease-standard);
+  }
+  .nav__links.is-open { max-height: 280px; opacity: 1; padding: 8px 20px 18px; }
+  .nav__links a { padding: 13px 0; border-bottom: 1px solid var(--border-subtle); }
+  .nav__links a:last-child { border-bottom: 0; }
+}
 @media (max-width: 560px) {
   .nav__in { padding: 10px 12px; }
   .brand img { height: 32px; }
-  /* No mobile menu is designed yet, so links wrap to a second row instead of disappearing */
-  .nav__in { flex-wrap: wrap; row-gap: 4px; }
-  .nav__in .btn { margin-left: auto; }
-  .nav__links { order: 3; flex-basis: 100%; justify-content: flex-start; gap: 22px; }
   .pcard { min-height: 0; }
   .pcard__media { height: auto; aspect-ratio: 510 / 240; }
   .pcard__body { align-items: flex-end; }
@@ -285,6 +293,4 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   .live__dot::before { animation: none; }
   .pcard, .ccard, .btn { transition: none; }
   .pcard:hover, .ccard:hover { transform: none; }
-  html.page-exit main, html.page-exit .footer-wrap,
-  html.page-enter main, html.page-enter .footer-wrap { animation: none !important; }
 }

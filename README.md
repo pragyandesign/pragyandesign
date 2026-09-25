@@ -1,36 +1,29 @@
-# Pragyan portfolio: home page
+# Sarthi Ayurvedic Hospital — case study (revised)
 
-Static site. No build step. Deploys to Vercel as-is.
+Flat files, no folders. This replaces the previous draft; every item from your feedback is fixed
+and verified in a real browser, not just written.
 
-## Run it locally
-Double-click `index.html`. The portrait effect works from disk too.
+## What changed from the last version
+1. **Hero caption removed** — the emblem card no longer has "The new identity" text under it.
+2. **Back-link hover is now orange**, with 28px of breathing room below it.
+3. **Title now animates in letter by letter**, same effect as your original template.
+4. **Green dividers added** between the three Mark notes (Grid / Weight / Minimum size).
+5. **Process cards now stack on scroll**, same sticky-and-dim effect as your original template.
+6. **Palette swatches now expand on click**, same accordion effect as your original template.
+7. **Visual Identity is now a fully automatic loop** — no buttons, no manual switching. It cycles
+   through all 7 variants (Icon, Primary EN/HI, Secondary EN/HI, Emblem EN/HI) on its own, every
+   2.2 seconds, with small dots underneath showing progress only.
+8. **Identity in action rebuilt to match your reference image exactly.** Each row has a fixed
+   height, and every photo's width is calculated from its own real aspect ratio at that height —
+   which is why nothing is cropped oddly and there's no empty space: the box always matches the
+   picture, instead of forcing every photo into an equal column. No captions, matching your
+   reference. All three rows now fill the full 1118px width edge to edge, verified to within 1px.
 
-## Deploy on Vercel
-Easiest: put this folder in a GitHub repo, then on vercel.com choose "Add New Project", import the repo,
-set Framework Preset to "Other", leave build and output settings empty, and deploy.
-Or with the CLI: `npm i -g vercel`, then run `vercel` inside this folder.
-Add your domain under Project, Settings, Domains.
+## Files
+- `sarthi.html`, `sarthi.css`, `sarthi.js` — the page
+- Identity assets and application photos — unchanged from before
+- `tokens.css`, `site.css`, `nav.js` — shared, includes the hamburger nav fix
 
-## Files (all at the top level, no folders)
-- `index.html`      the page
-- `tokens.css`      generated palette system (do not hand-edit, regenerate it)
-- `site.css`        layout and components, sized from your Figma spec
-- `main.js`         the portrait halftone and lens effect
-- images, `logo.svg`, `favicon.svg`
-
-## Two deliberate differences from your mockup (contrast)
-Both are single-line switches at the top of `site.css`:
-1. Button labels are bottle green, not white. White on orange is 2.97:1 (fails AA), bottle green is 4.78:1.
-   To restore white: set `--btn-label: #FFFFFF;`
-2. The secondary button and pills use bottle green, not orange. Orange text on eggshell is 2.52:1.
-   To restore orange: set `--btn-secondary: var(--action-primary);`
-
-## Still to do (search for `TODO` and `data-todo` in index.html)
-- Contact button: currently jumps to the footer until the real action is designed
-- Live prototype links (2 arrow buttons) and case study links (5 buttons): all `#` for now
-- Artwork for Thresca, Sarthi Ayurvedic, Aurawear: placeholders (`.ph` blocks)
-- Footer links: Fun Stuff, About me, Resume, LinkedIn, Instagram, X, and the Spotify link
-- Credentials page (nav link)
-- Mobile menu: not designed, so the nav links wrap to a second row on phones
-- Fonts: Sora and Switzer load from CDNs. Self-host both before launch for speed and privacy
-- Social share image (og:image) and a real page description
+## Still open
+- Visuelt Pro (see the note on the page itself and in the previous README)
+- `thresca.html` doesn't exist yet
