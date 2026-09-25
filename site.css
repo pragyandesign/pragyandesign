@@ -242,11 +242,13 @@ ul { list-style: none; padding: 0; }
 .spotify img { width: 100%; height: 100%; object-fit: cover; }
 .copyright { max-width: 1058px; margin: 32px auto 0; font: 400 16px/1.5 var(--font-body); color: var(--text-secondary); }
 
-/* Keep the navigation fixed and visible; animate only the page content. */
+/* Keep the navigation fixed and visible; animate only the page content.
+   Fixed selector: footer lives inside .footer-wrap, not as a direct child of body,
+   so "body > footer" never matched anything — swapped to .footer-wrap. */
 html.page-exit main,
-html.page-exit body > footer { animation: page-fade-out 160ms ease both; }
+html.page-exit .footer-wrap { animation: page-fade-out 160ms ease both; }
 html.page-enter main,
-html.page-enter body > footer { animation: page-rise-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 @keyframes page-fade-out { to { opacity: 0; } }
 @keyframes page-rise-in {
   from { opacity: 0; transform: translateY(24px); }
@@ -283,6 +285,6 @@ html.page-enter body > footer { animation: page-rise-in 420ms cubic-bezier(0.22,
   .live__dot::before { animation: none; }
   .pcard, .ccard, .btn { transition: none; }
   .pcard:hover, .ccard:hover { transform: none; }
-  html.page-exit main, html.page-exit body > footer,
-  html.page-enter main, html.page-enter body > footer { animation: none !important; }
+  html.page-exit main, html.page-exit .footer-wrap,
+  html.page-enter main, html.page-enter .footer-wrap { animation: none !important; }
 }

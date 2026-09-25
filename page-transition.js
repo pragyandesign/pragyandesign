@@ -5,16 +5,25 @@
   var KEY = "pragyan-page-transition";
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var destination = sessionStorage.getItem(KEY);
+
   if (destination) {
     sessionStorage.removeItem(KEY);
     if (!reduced) {
       document.documentElement.classList.add("page-enter");
+      // Let the enter animation run to completion on its own timeline, then clean up
+      // the class. Do NOT remove it early (e.g. via requestAnimationFrame) — that's the
+      // pattern for triggering CSS *transitions*, not for letting a keyframe *animation*
+      // finish. Removing it early cuts the animation off mid-flight and snaps the element
+      // to its default state, which reads as a stutter/jump.
       window.addEventListener("pageshow", function () {
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            document.documentElement.classList.remove("page-enter");
-          });
-        });
+        var main = document.querySelector("main");
+        var cleanup = function () { document.documentElement.classList.remove("page-enter"); };
+        if (main) {
+          main.addEventListener("animationend", cleanup, { once: true });
+        } else {
+          // Fallback if there's no <main> to listen on: match the CSS duration exactly.
+          window.setTimeout(cleanup, 420);
+        }
       }, { once: true });
     }
   }
