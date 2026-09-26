@@ -73,6 +73,14 @@
 .id-type-sample.font-body { font-family: var(--font-body); }
 .id-fontnote { margin-top: 24px; font: 500 14px/1.6 var(--font-body); color: var(--text-secondary); background: var(--bg-raised); padding: 16px 20px; border-radius: 12px; }
 
+/* ---------- Type reference table ---------- */
+.id-type-table-wrap { margin-top: 28px; overflow-x: auto; border-radius: 16px; box-shadow: var(--shadow-sm); }
+.id-type-table { width: 100%; border-collapse: collapse; background: var(--bg-raised); font: 500 14px/1.4 var(--font-body); }
+.id-type-table th, .id-type-table td { text-align: left; padding: 12px 20px; border-bottom: 1px solid var(--border-subtle); white-space: nowrap; }
+.id-type-table th { font: 600 13px/1.4 var(--font-display); color: var(--bottle-900); text-transform: uppercase; letter-spacing: 0.04em; background: var(--bg-sunken); }
+.id-type-table td:first-child { font: 600 14px/1.4 var(--font-display); color: var(--bottle-900); }
+.id-type-table tr:last-child td { border-bottom: none; }
+
 .id-footer-space { padding-bottom: 96px; }
 
 @media (prefers-color-scheme: dark) {

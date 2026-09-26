@@ -188,36 +188,92 @@
   </section>
 
   <!-- ============ TYPE HIERARCHY ============ -->
-  <section class="id-wrap id-section id-footer-space" aria-labelledby="type-title">
+  <section class="id-wrap id-section" aria-labelledby="type-title">
     <h2 class="id-section__title" id="type-title">Type Hierarchy</h2>
-    <p class="id-section__sub">Pulled directly from the --text-* scale in tokens.css — no separate type spec was supplied for this page, so this reflects what's actually live on the site today.</p>
+    <p class="id-section__sub">The token name for each style is what gets used to annotate text in any design handed to an LLM — e.g. "this heading is H3b." The table below is the unambiguous lookup; the rows above it are the same scale rendered live.</p>
     <div class="id-type">
       <div class="id-type-row">
-        <div class="id-type-meta"><b>Hero 1</b>Sora 700<br>clamp(2.75rem, 6.4vw, 5.5rem)</div>
-        <div class="id-type-sample font-display" style="font-size: clamp(2.75rem, 6.4vw, 5.5rem); font-weight:700; line-height:1.05;">Aa Pragyan</div>
+        <div class="id-type-meta"><b>Display</b>Sora &middot; Bold &middot; 60px</div>
+        <div class="id-type-sample font-display" style="font-size:60px; font-weight:700; line-height:1.15;">Aa Pragyan Design</div>
       </div>
       <div class="id-type-row">
-        <div class="id-type-meta"><b>Hero 2</b>Sora 600<br>clamp(1.625rem, 3.3vw, 2.75rem)</div>
-        <div class="id-type-sample font-display" style="font-size: clamp(1.625rem, 3.3vw, 2.75rem); font-weight:600; line-height:1.15;">Aa Pragyan</div>
+        <div class="id-type-meta"><b>H1</b>Sora &middot; Bold &middot; 40px</div>
+        <div class="id-type-sample font-display" style="font-size:40px; font-weight:700; line-height:1.15;">Aa Pragyan Design</div>
       </div>
       <div class="id-type-row">
-        <div class="id-type-meta"><b>Heading 2</b>Sora 600<br>clamp(1.875rem, 3.4vw, 2.75rem)</div>
-        <div class="id-type-sample font-display" style="font-size: clamp(1.875rem, 3.4vw, 2.75rem); font-weight:600; line-height:1.15;">Aa Pragyan</div>
+        <div class="id-type-meta"><b>H1b</b>Sora &middot; Semibold &middot; 40px</div>
+        <div class="id-type-sample font-display" style="font-size:40px; font-weight:600; line-height:1.15;">Aa Pragyan Design</div>
       </div>
       <div class="id-type-row">
-        <div class="id-type-meta"><b>Heading 3</b>Sora 600<br>clamp(1.3125rem, 2vw, 1.5rem)</div>
-        <div class="id-type-sample font-display" style="font-size: clamp(1.3125rem, 2vw, 1.5rem); font-weight:600; line-height:1.15;">Aa Pragyan</div>
+        <div class="id-type-meta"><b>H2</b>Sora &middot; Semibold &middot; 32px</div>
+        <div class="id-type-sample font-display" style="font-size:32px; font-weight:600; line-height:1.15;">Aa Pragyan Design</div>
       </div>
       <div class="id-type-row">
-        <div class="id-type-meta"><b>Body</b>Switzer 400<br>clamp(1.0625rem, 1.1vw, 1.125rem)</div>
-        <div class="id-type-sample font-body" style="font-size: clamp(1.0625rem, 1.1vw, 1.125rem); font-weight:400; line-height:1.6;">Aa Pragyan Design — the quick brown fox jumps over the lazy dog.</div>
+        <div class="id-type-meta"><b>H3</b>Sora &middot; Semibold &middot; 28px</div>
+        <div class="id-type-sample font-display" style="font-size:28px; font-weight:600; line-height:1.15;">Aa Pragyan Design</div>
       </div>
       <div class="id-type-row">
-        <div class="id-type-meta"><b>Small</b>Switzer 500<br>clamp(0.875rem, 1vw, 0.9375rem)</div>
-        <div class="id-type-sample font-body" style="font-size: clamp(0.875rem, 1vw, 0.9375rem); font-weight:500; line-height:1.6;">Aa Pragyan Design — the quick brown fox jumps over the lazy dog.</div>
+        <div class="id-type-meta"><b>H3b</b>Switzer &middot; Medium &middot; 28px</div>
+        <div class="id-type-sample font-body" style="font-size:28px; font-weight:500; line-height:1.15;">Aa Pragyan Design</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>H4</b>Switzer &middot; Medium &middot; 22px</div>
+        <div class="id-type-sample font-body" style="font-size:22px; font-weight:500; line-height:1.15;">Aa Pragyan Design</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>H5</b>Switzer &middot; Medium &middot; 16px</div>
+        <div class="id-type-sample font-body" style="font-size:16px; font-weight:500; line-height:1.15;">Aa Pragyan Design</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>H5b</b>Switzer &middot; Regular &middot; 16px</div>
+        <div class="id-type-sample font-body" style="font-size:16px; font-weight:400; line-height:1.15;">Aa Pragyan Design</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>Body</b>Switzer &middot; Regular &middot; 14px</div>
+        <div class="id-type-sample font-body" style="font-size:14px; font-weight:400; line-height:1.15;">Aa Pragyan Design</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>Bodyb</b>Switzer &middot; Medium &middot; 14px</div>
+        <div class="id-type-sample font-body" style="font-size:14px; font-weight:500; line-height:1.15;">Aa Pragyan Design</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>Caption / Button</b>Sora &middot; Semibold &middot; 14px</div>
+        <div class="id-type-sample font-display" style="font-size:14px; font-weight:600; line-height:1.15;">Aa Pragyan Design</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>Caption b</b>Switzer &middot; Medium &middot; 12px</div>
+        <div class="id-type-sample font-body" style="font-size:12px; font-weight:500; line-height:1.15;">Aa Pragyan Design</div>
       </div>
     </div>
-    <p class="id-fontnote">Display typeface: Sora (Google Fonts). Body typeface: Switzer (Fontshare). Tracking: -0.03em on display type, -0.02em on headings, 0 on body.</p>
+    <p class="id-fontnote">Display typeface: Sora (Google Fonts). Body typeface: Switzer (Fontshare).</p>
+  </section>
+
+  <!-- ============ TYPE REFERENCE TABLE (plain, LLM-parseable) ============ -->
+  <section class="id-wrap id-section id-footer-space" aria-labelledby="type-table-title">
+    <h2 class="id-section__title" id="type-table-title">Type Token Reference</h2>
+    <p class="id-section__sub">Plain reference table. Point any model at this page, or paste this table directly, and "H3b" resolves to one exact spec — no rendering or visual inference required.</p>
+    <div class="id-type-table-wrap">
+      <table class="id-type-table">
+        <thead>
+          <tr><th>Token</th><th>Font</th><th>Weight</th><th>Size</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Display</td><td>Sora</td><td>Bold (700)</td><td>60px</td></tr>
+          <tr><td>H1</td><td>Sora</td><td>Bold (700)</td><td>40px</td></tr>
+          <tr><td>H1b</td><td>Sora</td><td>Semibold (600)</td><td>40px</td></tr>
+          <tr><td>H2</td><td>Sora</td><td>Semibold (600)</td><td>32px</td></tr>
+          <tr><td>H3</td><td>Sora</td><td>Semibold (600)</td><td>28px</td></tr>
+          <tr><td>H3b</td><td>Switzer</td><td>Medium (500)</td><td>28px</td></tr>
+          <tr><td>H4</td><td>Switzer</td><td>Medium (500)</td><td>22px</td></tr>
+          <tr><td>H5</td><td>Switzer</td><td>Medium (500)</td><td>16px</td></tr>
+          <tr><td>H5b</td><td>Switzer</td><td>Regular (400)</td><td>16px</td></tr>
+          <tr><td>Body</td><td>Switzer</td><td>Regular (400)</td><td>14px</td></tr>
+          <tr><td>Bodyb</td><td>Switzer</td><td>Medium (500)</td><td>14px</td></tr>
+          <tr><td>Caption / Button</td><td>Sora</td><td>Semibold (600)</td><td>14px</td></tr>
+          <tr><td>Caption b</td><td>Switzer</td><td>Medium (500)</td><td>12px</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
 </main>
