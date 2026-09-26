@@ -1,0 +1,80 @@
+/* ==========================================================
+   Pragyan Design — brand identity page
+   Colours: exact values from tokens.css (Bottle, Sand, Orange, Salad primitives
+   and the gradient set). Type: the --text-* scale already defined in tokens.css,
+   since no separate type spec was supplied for this page.
+   ========================================================== */
+
+.id-wrap { max-width: 1090px; margin: 0 auto; padding: 0 20px; }
+.id-hero { padding: 64px 0 24px; text-align: center; }
+.id-hero img { max-width: 480px; width: 100%; margin: 0 auto; }
+.id-hero p { margin-top: 16px; font: 500 16px/1.5 var(--font-body); color: var(--text-secondary); }
+
+.id-section { padding: 72px 0 0; }
+.id-section__title { font: 700 32px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--bottle-900); }
+.id-section__sub { margin-top: 8px; font: 400 16px/1.5 var(--font-body); color: var(--text-secondary); max-width: 60ch; }
+
+/* ---------- Logos ---------- */
+.id-logos { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.id-logocard {
+  border-radius: 24px; padding: 48px 32px; display: flex; align-items: center; justify-content: center;
+  min-height: 220px; box-shadow: var(--shadow-sm);
+}
+.id-logocard--light { background: var(--bg-raised); }
+.id-logocard--dark { background: var(--bg-inverse); }
+.id-logocard img { max-width: 90%; max-height: 120px; object-fit: contain; }
+.id-logocard--icon img { max-height: 96px; }
+.id-logo-caption { margin-top: 10px; font: 500 14px/1.4 var(--font-body); color: var(--text-secondary); text-align: center; }
+@media (max-width: 700px) { .id-logos { grid-template-columns: 1fr; } }
+
+/* ---------- Color scales ---------- */
+.id-scales { margin-top: 40px; display: grid; gap: 28px; }
+.id-scale__label { font: 600 16px/1.4 var(--font-body); color: var(--bottle-900); margin-bottom: 10px; }
+.id-scale__strip { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 6px; }
+.id-sw {
+  aspect-ratio: 1; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 8px; font: 600 11px/1.3 var(--font-body);
+}
+.id-sw.on-light { color: var(--bottle-900); }
+.id-sw.on-dark { color: var(--sand-100); }
+.id-sw code { font: 500 9px/1.3 var(--font-body); opacity: 0.85; margin-top: 2px; }
+@media (max-width: 760px) {
+  .id-scale__strip { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .id-sw span, .id-sw code { font-size: 9px; }
+}
+
+/* ---------- Gradients ---------- */
+.id-gradients { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.id-grad { height: 140px; border-radius: 16px; }
+.id-grad__label { margin-top: 10px; font: 600 14px/1.4 var(--font-body); color: var(--bottle-900); }
+.id-grad__hex { font: 500 13px/1.4 var(--font-body); color: var(--text-secondary); }
+@media (max-width: 700px) { .id-gradients { grid-template-columns: 1fr; } }
+
+/* ---------- Semantic tokens (condensed) ---------- */
+.id-tokens { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.id-tokens h3 { font: 600 18px/1.3 var(--font-display); margin-bottom: 16px; }
+.id-token-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-subtle); }
+.id-token-swatch { flex: none; width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--border-subtle); }
+.id-token-name { font: 500 14px/1.3 var(--font-body); }
+.id-token-hex { font: 500 13px/1.3 var(--font-body); color: var(--text-secondary); margin-left: auto; }
+.id-tokens--dark { background: var(--bg-inverse); border-radius: 20px; padding: 24px; }
+.id-tokens--dark h3, .id-tokens--dark .id-token-name { color: var(--text-inverse); }
+.id-tokens--dark .id-token-hex { color: var(--on-dark-secondary, #A49C94); }
+@media (max-width: 760px) { .id-tokens { grid-template-columns: 1fr; } }
+
+/* ---------- Type hierarchy ---------- */
+.id-type { margin-top: 32px; display: grid; gap: 0; }
+.id-type-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 24px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--border-subtle); }
+.id-type-row:first-child { padding-top: 0; }
+.id-type-meta { font: 500 13px/1.4 var(--font-body); color: var(--text-secondary); }
+.id-type-meta b { display: block; font: 600 13px/1.4 var(--font-body); color: var(--bottle-900); margin-bottom: 2px; }
+.id-type-sample { color: var(--bottle-900); overflow-wrap: anywhere; }
+.id-type-sample.font-display { font-family: var(--font-display); }
+.id-type-sample.font-body { font-family: var(--font-body); }
+.id-fontnote { margin-top: 24px; font: 500 14px/1.6 var(--font-body); color: var(--text-secondary); background: var(--bg-raised); padding: 16px 20px; border-radius: 12px; }
+
+.id-footer-space { padding-bottom: 96px; }
+
+@media (prefers-color-scheme: dark) {
+  .id-sw.on-light { color: var(--bottle-900); }
+}
