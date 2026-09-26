@@ -18,9 +18,17 @@ export default async function middleware(request) {
 
   const target = new URL("/identity.html", "https://pragyan.design");
   const res = await fetch(target);
+  // res.body has already been decompressed by fetch(), but res.headers still
+  // claims the original content-encoding/content-length — passing those through
+  // unchanged tells the browser to decompress already-plain content, which
+  // fails silently and renders a blank page. Drop them and let the platform
+  // recompute correct values for what we're actually sending.
+  const headers = new Headers(res.headers);
+  headers.delete("content-encoding");
+  headers.delete("content-length");
   return new Response(res.body, {
     status: res.status,
-    headers: res.headers,
+    headers,
   });
 }
 
