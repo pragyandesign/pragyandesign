@@ -83,6 +83,10 @@
 
 .id-footer-space { padding-bottom: 96px; }
 
+@media (max-width: 560px) {
+  .id-wrap { padding: 0 24px; }
+}
+
 @media (prefers-color-scheme: dark) {
   .id-sw.on-light { color: var(--bottle-900); }
 }

@@ -158,6 +158,9 @@
   .sa-hero, .sa-context, .sa-mark { grid-template-columns: 1fr; }
   .sa-logocard, .sa-oldlogo, .sa-markart { max-width: 100%; justify-self: center; }
 }
+@media (max-width: 560px) {
+  .sa-wrap { padding: 0 24px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .js [data-sr] { opacity: 1; transform: none; transition: none; }
   .sa-title .ch > i { transform: none !important; transition: none !important; }
