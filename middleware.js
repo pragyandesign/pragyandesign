@@ -1,18 +1,22 @@
-// Runs on every request. If it arrives on identity.pragyan.design, serve the
-// content of identity.html instead of whatever path was requested, without
-// changing the URL the visitor sees. Every other host (pragyan.design, the
-// .vercel.app domain) is untouched and falls through to normal routing.
+// Runs on every request. If it arrives on identity.pragyan.design AND is the
+// root path, serve the content of identity.html without changing the URL the
+// visitor sees. Every other host, and every other path on this host (assets
+// like tokens.css, wordmark.svg, etc.), falls through to normal routing —
+// otherwise those asset requests would get swallowed the same way the page
+// itself was.
+//
+// The internal fetch below deliberately goes to pragyan.design, not this same
+// identity.pragyan.design host. Fetching the same host re-entered this exact
+// middleware and Vercel's loop protection killed the request. Fetching a
+// different host that this middleware doesn't act on can't loop, structurally.
 export default async function middleware(request) {
   const host = request.headers.get("host") || "";
   if (host !== "identity.pragyan.design") return;
 
   const url = new URL(request.url);
-  // Without this guard, the fetch() below is itself a new request to this same
-  // host, which re-triggers this middleware, which fetches again, forever.
-  // Once the path is already /identity.html, let it fall through to the real file.
-  if (url.pathname === "/identity.html") return;
+  if (url.pathname !== "/") return;
 
-  const target = new URL("/identity.html", url.origin);
+  const target = new URL("/identity.html", "https://pragyan.design");
   const res = await fetch(target);
   return new Response(res.body, {
     status: res.status,
