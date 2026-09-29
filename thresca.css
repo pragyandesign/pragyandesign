@@ -1,0 +1,155 @@
+/* ==========================================================
+   Thresca — brand identity case study
+   Same structural system as sarthi.css (type sizes, spacing, card
+   pattern, reveal/split animation) so every case study page reads
+   consistently. Only the brand accent values below are Thresca's own.
+
+   Font: the design note said "replace the placeholder font with Antonia"
+   but no font file was supplied. Using General Sans as a free stand-in,
+   same as sarthi.css does for Visuelt Pro — swap --font-display-alt
+   below once you have Antonia licensed and self-hosted.
+   ========================================================== */
+
+:root {
+  --sw: 1118px;
+  --font-display-alt: "General Sans", var(--font-display); /* placeholder for Antonia */
+  /* Thresca's own palette, sampled directly from the mockup's pixels (no hex codes were
+     given in the source file) — confirm against Figma if you have exact values. */
+  --th-void: #0F0E1A;
+  --th-signal: #7C6FCD;
+  --th-haze: #A89FEA;
+  --th-mist: #F0EEFF;
+  --th-forest: #1A2E1E;
+  --th-pulse: #4ADE80;
+  --th-chalk: #F5F4F0;
+}
+
+.th { background: var(--bg-page); }
+.th-wrap { max-width: var(--sw); margin: 0 auto; padding: 0 20px; }
+
+.th-cap { font: 500 16px/1.4 var(--font-body); color: var(--text-secondary); }
+.th-back { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text-secondary); margin-bottom: 28px; transition: color .2s; }
+.th-back:hover { color: var(--th-signal); }
+.th-back svg { width: 14px; height: 14px; }
+
+/* ---------- Hero ---------- */
+.th-hero { padding: 44px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
+.th-title { font: 700 clamp(2.4rem, 6.2vw, 60px)/1.08 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 6px; }
+.th-title .ch { display: inline-block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; vertical-align: bottom; }
+.th-title .ch > i { display: block; font-style: normal; transform: translate3d(0, 108%, 0); }
+.js.is-loaded .th-title .ch > i { transform: none; transition: transform 1s var(--ease-out) calc(var(--i) * 28ms); }
+.th-title .word { display: inline-block; white-space: nowrap; } /* keeps a word on one line across the per-letter split, see sarthi.js fix */
+.th-sub { font: 500 16px/1.5 var(--font-body); color: var(--text-secondary); margin-top: 14px; max-width: 60ch; }
+.th-divider { width: 100%; max-width: 558px; height: 2px; background: var(--border-subtle); margin: 28px 0; border: 0; }
+.th-facts { display: flex; flex-wrap: wrap; gap: 36px; }
+.th-fact dt { font: 500 16px/1.3 var(--font-body); color: var(--text-secondary); margin-bottom: 6px; }
+.th-fact dd { font: 400 14px/1.5 var(--font-body); margin: 0; max-width: 22ch; }
+
+/* aspect-ratio 1/1 matches the source SVG's real 500x500 canvas exactly, so object-fit:cover
+   below fills the box completely with zero cropping and zero stretching — a true 1:1 fit,
+   not an approximation. */
+.th-logocard { position: relative; width: 100%; max-width: 500px; aspect-ratio: 1 / 1; border-radius: 24px; background: var(--th-void); box-shadow: var(--shadow-sm); overflow: hidden; }
+.th-logocard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Context ---------- */
+.th-context { padding: 88px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 610px; gap: 40px; align-items: center; }
+.th-context h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
+.th-context p { font: 500 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 16px; max-width: 56ch; }
+/* No context image was supplied in the source — left as an empty card rather than an
+   invented placeholder. Fill with the real image if there is one; delete the box if not. */
+.th-context-empty { width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); }
+
+/* ---------- Process cards (identical color system to sarthi.css) ---------- */
+.th-process { padding: 64px 0 0; }
+.th-pcard {
+  position: sticky; top: calc(84px + var(--n, 0) * 18px); transform-origin: 50% 0; will-change: transform;
+  width: 100%; min-height: 266px; border-radius: 24px; padding: clamp(24px, 4vw, 44px); margin-bottom: 20px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: clamp(20px, 4vw, 40px); align-items: center;
+  box-shadow: 0 -10px 28px rgb(0 50 35 / 0.10);
+}
+.th-pcard::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: #000; opacity: calc(var(--dim, 0) * 0.16); pointer-events: none; }
+.th-pcard__no { font: 700 60px/1 var(--font-display-alt); letter-spacing: -0.02em; opacity: .9; }
+.th-pcard__body h3 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; }
+.th-pcard__body p { font: 400 16px/1.5 var(--font-body); margin-top: 8px; opacity: .88; max-width: 60ch; }
+.th-pcard__body ul { margin-top: 12px; display: grid; gap: 6px; }
+.th-pcard__body li { font: 400 16px/1.5 var(--font-body); opacity: .88; display: flex; gap: 10px; }
+.th-pcard__body li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; margin-top: 9px; opacity: .7; }
+.th-pcard__icon { width: 71px; height: 71px; flex: none; display: grid; place-items: center; }
+.th-pcard__icon svg { width: 71px; height: 71px; }
+.th-pcard--1 { background: var(--bg-raised); color: var(--bottle-900); }
+.th-pcard--2 { background: var(--bg-inverse); color: var(--sand-100); }
+.th-pcard--3 { background: var(--salad-400); color: var(--bottle-900); }
+.th-pcard--4 { background: var(--red-100); color: var(--bottle-900); }
+@media (max-width: 760px) {
+  .th-pcard { grid-template-columns: 1fr; text-align: left; }
+  .th-pcard__icon { order: -1; }
+}
+
+/* ---------- Mark ---------- */
+.th-mark { padding: 88px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 450px; gap: 48px; align-items: center; }
+.th-mark h2 { font: 700 40px/1.15 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 10px; }
+.th-mark > div > p.th-lede { font: 400 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 14px; max-width: 54ch; }
+.th-marknotes { margin-top: 26px; display: grid; gap: 0; }
+.th-marknotes > div { padding: 16px 0; border-top: 1.5px solid var(--th-signal); }
+.th-marknotes > div:first-child { border-top: 1.5px solid var(--th-signal); }
+.th-marknotes dt { font: 500 16px/1.4 var(--font-body); }
+.th-marknotes dd { font: 500 16px/1.5 var(--font-body); color: var(--text-secondary); margin: 4px 0 0; }
+.th-markart { position: relative; width: 100%; max-width: 450px; aspect-ratio: 1; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); overflow: hidden; display: grid; place-items: center; }
+.th-markart img { max-width: 68%; max-height: 68%; object-fit: contain; }
+
+/* ---------- Type & colour ---------- */
+.th-palette { padding: 88px 0 0; }
+.th-palette h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
+.th-swatches { display: flex; gap: 16px; margin-top: 28px; height: 260px; }
+.th-sw { flex: 1 1 0; min-width: 0; border-radius: 24px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
+.th-sw b { font: 700 20px/1.2 var(--font-display-alt); }
+@media (max-width: 620px) { .th-swatches { flex-direction: column; height: auto; } .th-sw { min-height: 76px; } }
+.th-type { margin-top: 44px; }
+.th-type-demo { font-family: var(--font-display-alt); font-weight: 700; font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -0.03em; color: var(--bottle-900); line-height: 1.05; }
+.th-type-note { margin-top: 10px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
+
+/* ---------- Complete Visual Identity (simpler than Sarthi's: no switcher, 4 real assets) ---------- */
+.th-identity { padding: 88px 0 0; }
+.th-identity h2 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
+.th-hero-shot { margin-top: 32px; width: 100%; aspect-ratio: 1118 / 460; border-radius: 24px; overflow: hidden; background: var(--th-void); box-shadow: var(--shadow-sm); display: grid; place-items: center; }
+.th-hero-shot img { max-width: 55%; }
+.th-row3 { margin-top: 16px; display: flex; gap: 16px; height: clamp(180px, 22vw, 268px); }
+.th-row3 figure { margin: 0; height: 100%; border-radius: 12px; overflow: hidden; background: var(--bg-sunken); flex: 1 1 0; min-width: 0; }
+.th-row3 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.th-laptop { margin-top: 16px; width: 100%; border-radius: 12px; overflow: hidden; background: var(--bg-sunken); }
+.th-laptop img { width: 100%; display: block; }
+@media (max-width: 760px) {
+  .th-row3 { flex-direction: column; height: auto; }
+  .th-row3 figure { height: clamp(160px, 45vw, 240px); }
+}
+
+/* ---------- Next project ---------- */
+.th-next-wrap { padding: 88px 0 64px; }
+.th-next {
+  width: 100%; min-height: 215px; border-radius: 24px; background: var(--bg-inverse); color: var(--text-inverse);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: clamp(24px, 4vw, 48px);
+  text-decoration: none;
+}
+.th-next__top { font: 500 22px/1.2 var(--font-body); opacity: .75; }
+.th-next__title { font: 700 clamp(2rem, 7vw, 60px)/1.05 var(--font-display-alt); letter-spacing: -0.02em; margin-top: 8px; }
+.th-next svg { width: clamp(48px, 8vw, 80px); height: clamp(48px, 8vw, 80px); flex: none; transition: transform .35s var(--ease-standard); }
+.th-next:hover svg { transform: translate(8px, -8px); }
+
+/* ---------- Reveal ---------- */
+.js [data-sr] { opacity: 0; transform: translateY(16px); transition: opacity .55s var(--ease-out), transform .55s var(--ease-out); }
+.js [data-sr].is-in { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .th-hero, .th-context, .th-mark { grid-template-columns: 1fr; }
+  .th-logocard, .th-markart { max-width: 100%; justify-self: center; }
+  .th-context-empty { max-width: 100%; justify-self: center; }
+}
+@media (max-width: 560px) {
+  .th-wrap { padding: 0 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-sr] { opacity: 1; transform: none; transition: none; }
+  .th-title .ch > i { transform: none !important; transition: none !important; }
+  .th-pcard { position: static; transform: none !important; box-shadow: none; }
+  .th-pcard::after { display: none; }
+}
