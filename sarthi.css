@@ -64,7 +64,7 @@
 .sa-pcard__body li { font: 400 16px/1.5 var(--font-body); opacity: .88; display: flex; gap: 10px; }
 .sa-pcard__body li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; margin-top: 9px; opacity: .7; }
 .sa-pcard__icon { width: 71px; height: 71px; flex: none; display: grid; place-items: center; }
-.sa-pcard__icon svg { width: 71px; height: 71px; }
+.sa-pcard__icon svg, .sa-pcard__icon img { width: 71px; height: 71px; object-fit: contain; }
 .sa-pcard--1 { background: var(--bg-raised); color: var(--bottle-900); }
 .sa-pcard--2 { background: var(--bg-inverse); color: var(--sand-100); }
 .sa-pcard--3 { background: var(--sa-green); color: var(--bottle-900); }
