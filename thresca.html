@@ -145,13 +145,41 @@
     <p class="th-cap" data-sr>Type &amp; Color Palette</p>
     <h2 data-sr>A calm, clear and Approachable system</h2>
     <div class="th-swatches" data-sr>
-      <div class="th-sw" style="background:var(--th-void); color:#fff"><b>Void</b></div>
-      <div class="th-sw" style="background:var(--th-signal); color:#fff"><b>Signal</b></div>
-      <div class="th-sw" style="background:var(--th-haze); color:var(--bottle-900)"><b>Haze</b></div>
-      <div class="th-sw" style="background:var(--th-mist); color:var(--bottle-900)"><b>Mist</b></div>
-      <div class="th-sw" style="background:var(--th-forest); color:#fff"><b>Forest</b></div>
-      <div class="th-sw" style="background:var(--th-pulse); color:var(--bottle-900)"><b>Pulse</b></div>
-      <div class="th-sw" style="background:var(--th-chalk); color:var(--bottle-900)"><b>Chalk</b></div>
+      <button type="button" class="th-sw" style="--c:#0F0E1A; --t:#fff" aria-expanded="true">
+        <span class="th-sw__toast"></span>
+        <b>Void</b>
+        <span class="th-sw__more"><span>Deepest neutral, used for body text and dark surfaces.</span><code class="th-sw__chip">0F0E1A</code></span>
+      </button>
+      <button type="button" class="th-sw" style="--c:#7C6FCD; --t:#fff" aria-expanded="false">
+        <span class="th-sw__toast"></span>
+        <b>Signal</b>
+        <span class="th-sw__more"><span>Primary accent — CTAs, links and highlights.</span><code class="th-sw__chip">7C6FCD</code></span>
+      </button>
+      <button type="button" class="th-sw" style="--c:#A89FEA; --t:#0F0E1A" aria-expanded="false">
+        <span class="th-sw__toast"></span>
+        <b>Haze</b>
+        <span class="th-sw__more"><span>Softer tint of Signal, used for secondary accents.</span><code class="th-sw__chip">A89FEA</code></span>
+      </button>
+      <button type="button" class="th-sw" style="--c:#F0EEFF; --t:#0F0E1A" aria-expanded="false">
+        <span class="th-sw__toast"></span>
+        <b>Mist</b>
+        <span class="th-sw__more"><span>Pale lavender background for light surfaces.</span><code class="th-sw__chip">F0EEFF</code></span>
+      </button>
+      <button type="button" class="th-sw" style="--c:#1A2E1E; --t:#fff" aria-expanded="false">
+        <span class="th-sw__toast"></span>
+        <b>Forest</b>
+        <span class="th-sw__more"><span>Dark neutral used for contrast panels.</span><code class="th-sw__chip">1A2E1E</code></span>
+      </button>
+      <button type="button" class="th-sw" style="--c:#4ADE80; --t:#0F0E1A" aria-expanded="false">
+        <span class="th-sw__toast"></span>
+        <b>Pulse</b>
+        <span class="th-sw__more"><span>Signal colour for success and live states.</span><code class="th-sw__chip">4ADE80</code></span>
+      </button>
+      <button type="button" class="th-sw" style="--c:#F5F4F0; --t:#0F0E1A" aria-expanded="false">
+        <span class="th-sw__toast"></span>
+        <b>Chalk</b>
+        <span class="th-sw__more"><span>Warm off-white used for page backgrounds.</span><code class="th-sw__chip">F5F4F0</code></span>
+      </button>
     </div>
     <div class="th-type" data-sr>
       <div>
@@ -172,7 +200,6 @@
       </div>
       <div class="th-aa" aria-hidden="true" data-weight-target>Aa</div>
     </div>
-    <p class="th-type-note">Typeface: Antonia H1, self-hosted across all seven weights (Light to Black, each with a matching italic). Antonia isn't a variable font, so the slider snaps to the nearest of the seven loaded weights rather than morphing continuously — with seven to choose from, that snap is fine-grained enough to feel close to smooth.</p>
   </section>
 
   <!-- ============ COMPLETE VISUAL IDENTITY ============ -->

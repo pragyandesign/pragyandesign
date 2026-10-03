@@ -57,6 +57,26 @@
     updateStack();
   }
 
+  // ---------- colour swatches: one open at a time, click to expand, click the chip to copy ----------
+  var swatches = document.querySelectorAll(".th-sw");
+  swatches.forEach(function (sw) {
+    sw.addEventListener("click", function (e) {
+      if (e.target.closest(".th-sw__chip")) return;
+      swatches.forEach(function (o) { o.setAttribute("aria-expanded", String(o === sw)); });
+    });
+    var chip = sw.querySelector(".th-sw__chip");
+    if (chip) {
+      chip.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var hex = chip.textContent.trim();
+        var toast = sw.querySelector(".th-sw__toast");
+        function flash(msg) { if (!toast) return; toast.textContent = msg; toast.classList.add("on"); setTimeout(function () { toast.classList.remove("on"); }, 1200); }
+        if (navigator.clipboard) navigator.clipboard.writeText(hex).then(function () { flash("Copied " + hex); }, function () { flash(hex); });
+        else flash(hex);
+      });
+    }
+  });
+
   // ---------- type weight slider: steps across all seven loaded Antonia H1 weights ----------
   var slider = document.querySelector("[data-weight-slider]");
   if (slider) {
