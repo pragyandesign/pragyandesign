@@ -5,9 +5,13 @@
    not Thresca's simpler 3+1 (only 4 images were available there).
 
    Font: Aquire, self-hosted below as three static weights (Light 300,
-   Regular 400, Bold 700). It is not a variable font — there is no
-   continuous axis between these — so the type-weight slider further
-   down snaps between the three loaded weights rather than interpolating.
+   Regular 400, Bold 700), used ONLY in the type-weight slider demo
+   (.aw-sample-text / .aw-aa) — that's the one place the supplied font
+   files were meant for. It is not a variable font, so the slider snaps
+   between the three loaded weights rather than interpolating. Every
+   other headline on the page keeps the site's existing display font,
+   referenced via --font-display-alt below (General Sans, the same
+   stand-in Sarthi/Thresca use).
    ========================================================== */
 
 @font-face { font-family: "Aquire"; src: url("Aquire_Light_300.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
@@ -16,7 +20,7 @@
 
 :root {
   --sw: 1118px;
-  --font-display-alt: "Aquire", var(--font-display);
+  --font-display-alt: "General Sans", var(--font-display); /* placeholder for AuraWear's real display face */
   /* AuraWear's own palette — hex values were printed directly on the source mockup. */
   --aw-navy: #294B7A;
   --aw-green: #00E394;
@@ -131,12 +135,12 @@
 .aw-slider { display: grid; gap: 8px; }
 .aw-slider label { font: 500 14px/1 var(--font-body); color: var(--text-secondary); display: flex; justify-content: space-between; }
 .aw-slider input { width: 100%; accent-color: var(--aw-green); height: 28px; }
-.aw-sample-text { font: 600 clamp(1.4rem, 3vw, 2.1rem)/1.2 var(--font-display-alt); font-weight: var(--w, 700); letter-spacing: -0.02em; margin-top: 22px; padding: 14px 16px; border: 1.5px dashed var(--border-subtle); border-radius: 16px; }
+.aw-sample-text { font: 600 clamp(1.4rem, 3vw, 2.1rem)/1.2 "Aquire", var(--font-display); font-weight: var(--w, 700); letter-spacing: -0.02em; margin-top: 22px; padding: 14px 16px; border: 1.5px dashed var(--border-subtle); border-radius: 16px; }
 .aw-scale { margin-top: 22px; display: grid; gap: 10px; }
 .aw-scale div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--border-subtle); padding-top: 10px; }
 .aw-scale span { font: 500 14px/1.4 var(--font-body); }
 .aw-scale small { font: 500 12px/1 var(--font-body); color: var(--text-secondary); }
-.aw-aa { font-family: var(--font-display-alt); font-size: clamp(6rem, 18vw, 13rem); line-height: .9; letter-spacing: -0.05em; font-weight: var(--w, 700); color: var(--aw-navy); text-align: center; transition: font-weight .15s linear; }
+.aw-aa { font-family: "Aquire", var(--font-display); font-size: clamp(6rem, 18vw, 13rem); line-height: .9; letter-spacing: -0.05em; font-weight: var(--w, 700); color: var(--aw-navy); text-align: center; transition: font-weight .15s linear; }
 .aw-type-note { margin-top: 26px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
 @media (max-width: 760px) {
   .aw-type { grid-template-columns: 1fr; }
