@@ -203,3 +203,22 @@
   .sa-frame.is-active { opacity: 1; transform: none; }
   .sa-sw { transition: none; }
 }
+
+/* ---------- Apple-style logo player ---------- */
+.sa-player{position:relative;display:flex;align-items:center;gap:10px;width:48px;height:48px;margin:18px auto 0;border-radius:999px;background:rgba(236,236,236,.92);box-shadow:0 8px 24px rgba(0,0,0,.08);overflow:hidden;transition:width .48s cubic-bezier(.22,1,.36,1),height .48s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;z-index:5}
+.sa-player.is-expanded{width:min(302px,calc(100% - 24px));height:70px;box-shadow:0 10px 30px rgba(0,0,0,.10)}
+.sa-player__reveal{position:absolute;inset:0;width:48px;height:48px;border:0;background:transparent;border-radius:50%;cursor:pointer}
+.sa-player__body{flex:1;min-width:0;opacity:0;transform:translateX(-10px);transition:opacity .24s ease .08s,transform .48s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.sa-player.is-expanded .sa-player__body{opacity:1;transform:none;pointer-events:auto}
+.sa-player__track{display:flex;align-items:center;justify-content:center;gap:8px;height:100%;padding:0 12px}
+.sa-player__track i{width:7px;height:7px;border-radius:50%;background:#b9b9b9;display:block;transition:width .35s cubic-bezier(.22,1,.36,1),background-color .3s ease}
+.sa-player__track i.is-active{width:62px;background:var(--sa-green);border-radius:999px}
+.sa-player__pause{flex:none;width:70px;height:70px;border:0;border-radius:50%;background:#ececec;display:grid;place-items:center;cursor:pointer;color:#111;opacity:0;transform:translateX(10px);transition:opacity .24s ease .08s,transform .48s cubic-bezier(.22,1,.36,1),background-color .2s ease}
+.sa-player.is-expanded .sa-player__pause{opacity:1;transform:none}
+.sa-player__pause:hover{background:#e3e3e3}
+.sa-player__pause svg{width:26px;height:26px;fill:currentColor;display:block}
+.sa-player__pause .play{display:none}
+.sa-player.is-paused .sa-player__pause .pause{display:none}
+.sa-player.is-paused .sa-player__pause .play{display:block}
+@media (max-width:620px){.sa-player.is-expanded{width:min(302px,calc(100% - 16px));height:64px}.sa-player__pause{width:64px;height:64px}.sa-player__pause svg{width:24px;height:24px}.sa-player__track i.is-active{width:48px}}
+@media (prefers-reduced-motion:reduce){.sa-player,.sa-player__body,.sa-player__pause,.sa-player__track i{transition:none}}
