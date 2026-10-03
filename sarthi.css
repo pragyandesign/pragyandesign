@@ -222,3 +222,14 @@
 .sa-player.is-paused .sa-player__pause .play{display:block}
 @media (max-width:620px){.sa-player.is-expanded{width:min(302px,calc(100% - 16px));height:64px}.sa-player__pause{width:64px;height:64px}.sa-player__pause svg{width:24px;height:24px}.sa-player__track i.is-active{width:48px}}
 @media (prefers-reduced-motion:reduce){.sa-player,.sa-player__body,.sa-player__pause,.sa-player__track i{transition:none}}
+
+/* player layout correction: match AuraWear */
+.sa-dots{display:none!important}
+.sa-player{position:absolute!important;z-index:20!important;left:50%!important;bottom:18px!important;transform:translateX(-50%)!important;width:auto!important;height:63px!important;margin:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;gap:9px!important}
+.sa-player__body{width:0!important;height:63px!important;opacity:0!important;overflow:hidden!important;background:#F0F0F0!important;border-radius:999px!important;transform:scale(.72)!important;transform-origin:right center!important;transition:width .6s cubic-bezier(.22,1,.36,1),opacity .22s ease,transform .6s cubic-bezier(.22,1,.36,1)!important}
+.sa-player__track{width:225px!important;height:63px!important;gap:8px!important;padding:0!important}
+.sa-player__track i.is-active{width:47px!important;background:#1A1A1A!important}
+.sa-player__pause{width:63px!important;height:63px!important;opacity:1!important;transform:none!important;background:#F0F0F0!important}
+.sa-player__reveal{width:8px!important;height:8px!important;background:#D4D4D4!important}
+.sa-player.is-expanded .sa-player__body{width:225px!important;opacity:1!important;transform:scale(1)!important}
+.sa-player.is-expanded .sa-player__reveal{width:0!important;height:0!important;opacity:0!important}
