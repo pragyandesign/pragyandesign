@@ -85,19 +85,27 @@
     apply(slider.value);
   }
 
-  // ---------- visual identity: autoplaying loop, no clicking required ----------
-  var stage = document.querySelector(".sa-stage");
-  if (stage) {
-    var frames = stage.querySelectorAll(".sa-frame");
-    var dots = document.querySelectorAll(".sa-dots i");
-    var i = 0;
-    function show(n) {
-      frames.forEach(function (f, k) { f.classList.toggle("is-active", k === n); });
-      dots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
-    }
-    show(0);
-    if (!reduced) {
-      setInterval(function () { i = (i + 1) % frames.length; show(i); }, 2200);
-    }
+
+  // ---------- visual identity: autoplaying logo loop + Apple-style player ----------
+  var stage=document.querySelector(".sa-stage");
+  if(stage){
+    var frames=stage.querySelectorAll(".sa-frame"), dots=document.querySelectorAll(".sa-dots i");
+    var i=0,timer=null,paused=false;
+    var player=document.createElement("div"); player.className="sa-player";
+    player.innerHTML='<button class="sa-player__reveal" type="button" aria-label="Show logo controls"></button><div class="sa-player__body"><div class="sa-player__track" role="tablist" aria-label="Logo variations"></div></div><button class="sa-player__pause" type="button" aria-label="Pause logo animation" aria-pressed="false"><svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg><svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"></path></svg></button>';
+    stage.parentElement.appendChild(player);
+    var reveal=player.querySelector(".sa-player__reveal"),pauseButton=player.querySelector(".sa-player__pause"),track=player.querySelector(".sa-player__track"),playerDots=[];
+    frames.forEach(function(){var d=document.createElement("i");track.appendChild(d);playerDots.push(d);});
+    function show(n){frames.forEach(function(f,k){f.classList.toggle("is-active",k===n);});dots.forEach(function(d,k){d.classList.toggle("is-active",k===n);});playerDots.forEach(function(d,k){d.classList.toggle("is-active",k===n);});}
+    function start(){if(timer||paused||frames.length<2)return;timer=setInterval(function(){i=(i+1)%frames.length;show(i);},2200);}
+    function stop(){if(timer){clearInterval(timer);timer=null;}}
+    function setPaused(v){paused=v;if(paused)stop();else start();player.classList.toggle("is-paused",paused);pauseButton.setAttribute("aria-pressed",String(paused));pauseButton.setAttribute("aria-label",paused?"Resume logo animation":"Pause logo animation");}
+    function expand(){player.classList.add("is-expanded");}
+    function collapseLater(){if(paused)return;clearTimeout(player._collapseTimer);player._collapseTimer=setTimeout(function(){if(!player.matches(":hover")&&!player.contains(document.activeElement))player.classList.remove("is-expanded");},1800);}
+    reveal.addEventListener("click",function(){expand();clearTimeout(player._collapseTimer);});
+    pauseButton.addEventListener("click",function(){expand();setPaused(!paused);if(!paused)collapseLater();});
+    player.addEventListener("mouseenter",expand);player.addEventListener("mouseleave",collapseLater);player.addEventListener("focusin",expand);player.addEventListener("focusout",function(){setTimeout(collapseLater,0);});
+    show(0);if(!reduced)start();
   }
+
 })();
