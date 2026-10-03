@@ -93,7 +93,7 @@
         '<div class="sa-player__track" role="tablist" aria-label="Logo variations"></div>' +
       '</div>' +
       '<button class="sa-player__pause" type="button" aria-label="Pause logo animation" aria-pressed="false">' +
-        '<svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>' +
+        '<svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.2"></rect><rect x="14" y="4" width="5" height="16" rx="1.2"></rect></svg>' +
         '<svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"></path></svg>' +
       '</button>';
     document.querySelector(".sa-switcher").appendChild(player);
