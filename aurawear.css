@@ -20,8 +20,7 @@
 
 :root {
   --sw: 1118px;
-  --font-display-alt: "General Sans", var(--font-display); /* placeholder for AuraWear's real display face */
-  /* AuraWear's own palette — hex values were printed directly on the source mockup. */
+  --font-display-alt: "General Sans", var(--font-display);
   --aw-navy: #294B7A;
   --aw-green: #00E394;
   --aw-void: #0C1C33;
@@ -56,17 +55,18 @@
 .aw-logocard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- Context: three wearable-type tiles ---------- */
-.aw-context { padding: 88px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 450px; gap: 40px; align-items: center; }
+.aw-context { padding: 88px 0 88px; display: grid; grid-template-columns: minmax(0, 1fr) 610px; gap: 40px; align-items: center; }
+.aw-context > div:first-child { align-self: center; }
 .aw-context h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
 .aw-context p { font: 500 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 16px; max-width: 56ch; }
-.aw-devices { width: 100%; max-width: 450px; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); padding: 36px 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.aw-devices { width: 610px; height: 350px; max-width: 100%; box-sizing: border-box; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); padding: 36px 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: center; }
 .aw-device { text-align: center; }
 .aw-device img { width: 40px; height: 40px; margin: 0 auto; }
 .aw-device b { display: block; margin-top: 14px; font: 600 14px/1.3 var(--font-body); color: var(--bottle-900); }
 .aw-device span { display: block; margin-top: 6px; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
 
 /* ---------- Process cards (same color system as sarthi.css / thresca.css) ---------- */
-.aw-process { padding: 64px 0 0; }
+.aw-process { padding: 0 0 0; }
 .aw-pcard {
   position: sticky; top: calc(84px + var(--n, 0) * 18px); transform-origin: 50% 0; will-change: transform;
   width: 100%; min-height: 266px; border-radius: 24px; padding: clamp(24px, 4vw, 44px); margin-bottom: 20px;
@@ -80,8 +80,6 @@
 .aw-pcard__body ul { margin-top: 12px; display: grid; gap: 6px; }
 .aw-pcard__body li { font: 400 16px/1.5 var(--font-body); opacity: .88; display: flex; gap: 10px; }
 .aw-pcard__body li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; margin-top: 9px; opacity: .7; }
-/* Icons are real PNG exports now (icon-process-*.png), not drawn SVG — shared across every
-   case study's process cards, so sizing targets a 48px box regardless of PNG native size. */
 .aw-pcard__icon { width: 71px; height: 71px; flex: none; display: grid; place-items: center; }
 .aw-pcard__icon img { width: 71px; height: 71px; object-fit: contain; }
 .aw-pcard--1 { background: var(--bg-raised); color: var(--bottle-900); }
@@ -147,10 +145,10 @@
   .aw-aa { font-size: clamp(5rem, 24vw, 9rem); margin-top: 20px; }
 }
 
-/* ---------- Complete Visual Identity: autoplaying logo-loop, same pattern as sarthi.css ---------- */
+/* ---------- Complete Visual Identity: autoplaying logo-loop + Apple-style player ---------- */
 .aw-identity { padding: 88px 0 0; }
 .aw-identity h2 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
-.aw-switcher { margin-top: 32px; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); padding: clamp(20px, 5vw, 48px); }
+.aw-switcher { position: relative; margin-top: 32px; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); padding: clamp(20px, 5vw, 48px); }
 .aw-stage { position: relative; height: clamp(220px, 34vw, 340px); }
 .aw-frame {
   position: absolute; inset: 20px;
@@ -158,9 +156,111 @@
 }
 .aw-frame.is-active { opacity: 1; transform: scale(1); }
 .aw-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.aw-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-.aw-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--border-subtle); transition: background-color .4s, transform .4s; }
-.aw-dots i.is-active { background: var(--aw-green); transform: scale(1.3); }
+.aw-dots { display: none; }
+.aw-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--border-subtle); transition: background-color .4s, transform .4s, width .4s, border-radius .4s; }
+.aw-dots i.is-active { width: 28px; border-radius: 999px; background: #181818; transform: none; }
+
+/* ---------- Apple-style animation player ---------- */
+.aw-player {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 63px;
+  pointer-events: none;
+}
+.aw-player__reveal {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #D4D4D4;
+  box-shadow: 0 2px 10px rgb(0 0 0 / .08);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: width .55s cubic-bezier(.22,1,.36,1), height .55s cubic-bezier(.22,1,.36,1), background-color .25s ease, border-radius .55s cubic-bezier(.22,1,.36,1), opacity .25s ease;
+}
+.aw-player__body {
+  width: 0;
+  height: 63px;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F0F0;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: scale(.72);
+  transform-origin: right center;
+  transition: width .6s cubic-bezier(.22,1,.36,1), opacity .22s ease, transform .6s cubic-bezier(.22,1,.36,1);
+}
+.aw-player__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 225px;
+  height: 63px;
+  flex: none;
+}
+.aw-player__track i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #BDBDBD;
+  transition: width .4s cubic-bezier(.22,1,.36,1), background-color .3s ease;
+}
+.aw-player__track i.is-active {
+  width: 47px;
+  border-radius: 999px;
+  background: #1A1A1A;
+}
+.aw-player__pause {
+  width: 63px;
+  height: 63px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: #F0F0F0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  color: #171717;
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+  transition: transform .25s ease, background-color .25s ease;
+}
+.aw-player__pause:hover { background: #E9E9E9; transform: scale(1.04); }
+.aw-player__pause:active { transform: scale(.97); }
+.aw-player__pause svg { width: 26px; height: 26px; fill: currentColor; }
+.aw-player__pause .play { display: none; }
+.aw-player.is-expanded .aw-player__body {
+  width: 225px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.aw-player.is-expanded .aw-player__reveal {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.aw-player.is-paused .aw-player__pause .pause { display: none; }
+.aw-player.is-paused .aw-player__pause .play { display: block; }
+.aw-player.is-paused .aw-player__track i.is-active { background: #777; }
+.aw-player:focus-within .aw-player__body,
+.aw-player:hover .aw-player__body { opacity: 1; }
+.aw-player__reveal:focus-visible,
+.aw-player__pause:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 4px; }
+
+/* ---------- Identity in action ---------- */
 .aw-grid { display: grid; gap: 16px; margin-top: 28px; }
 .aw-row { display: flex; gap: 16px; width: 100%; }
 .aw-row--1 { height: clamp(150px, 22vw, 260px); }
@@ -196,6 +296,19 @@
 @media (max-width: 560px) {
   .aw-wrap { padding: 0 24px; }
 }
+@media (max-width: 900px) {
+  .aw-context { padding-bottom: 72px; }
+}
+@media (max-width: 760px) {
+  .aw-player { bottom: 14px; height: 54px; gap: 7px; }
+  .aw-player__body { height: 54px; }
+  .aw-player__track { width: 190px; height: 54px; gap: 6px; }
+  .aw-player__track i { width: 5px; height: 5px; }
+  .aw-player__track i.is-active { width: 38px; }
+  .aw-player__pause { width: 54px; height: 54px; }
+  .aw-player__pause svg { width: 24px; height: 24px; }
+  .aw-player.is-expanded .aw-player__body { width: 190px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .js [data-sr] { opacity: 1; transform: none; transition: none; }
   .aw-title .ch > i { transform: none !important; transition: none !important; }
@@ -204,4 +317,5 @@
   .aw-sw { transition: none; }
   .aw-frame { transition: none; }
   .aw-frame.is-active { opacity: 1; transform: none; }
+  .aw-player__body, .aw-player__reveal, .aw-player__track i { transition: none; }
 }

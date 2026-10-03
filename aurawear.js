@@ -86,19 +86,105 @@
     apply(slider.value);
   }
 
-  // ---------- visual identity: autoplaying logo loop, no clicking required ----------
+  // ---------- visual identity: autoplaying loop + Apple-style pause player ----------
   var stage = document.querySelector(".aw-stage");
   if (stage) {
     var frames = stage.querySelectorAll(".aw-frame");
     var dots = document.querySelectorAll(".aw-dots i");
-    var fi = 0;
+    var i = 0;
+    var timer = null;
+    var paused = reduced;
+
+    var player = document.createElement("div");
+    player.className = "aw-player";
+    player.setAttribute("aria-label", "Logo animation controls");
+    player.innerHTML =
+      '<button class="aw-player__reveal" type="button" aria-label="Show animation controls"></button>' +
+      '<div class="aw-player__body">' +
+        '<div class="aw-player__track" role="tablist" aria-label="Logo variations"></div>' +
+      '</div>' +
+      '<button class="aw-player__pause" type="button" aria-label="Pause logo animation" aria-pressed="false">' +
+        '<svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="5.5" y="5" width="5" height="14" rx="1.2"></rect><rect x="13.5" y="5" width="5" height="14" rx="1.2"></rect></svg>' +
+        '<svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"></path></svg>' +
+      '</button>';
+
+    var switcher = document.querySelector(".aw-switcher");
+    if (switcher) switcher.appendChild(player);
+
+    var reveal = player.querySelector(".aw-player__reveal");
+    var pauseButton = player.querySelector(".aw-player__pause");
+    var track = player.querySelector(".aw-player__track");
+    var playerTrackDots = [];
+
+    frames.forEach(function (_, k) {
+      var d = document.createElement("i");
+      d.setAttribute("role", "presentation");
+      track.appendChild(d);
+      playerTrackDots.push(d);
+    });
+
     function show(n) {
       frames.forEach(function (f, k) { f.classList.toggle("is-active", k === n); });
       dots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
+      playerTrackDots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
     }
+
+    function start() {
+      if (timer || paused || frames.length < 2) return;
+      timer = window.setInterval(function () {
+        i = (i + 1) % frames.length;
+        show(i);
+      }, 2200);
+    }
+
+    function stop() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function setPaused(value) {
+      paused = value;
+      if (paused) stop(); else start();
+      player.classList.toggle("is-paused", paused);
+      pauseButton.setAttribute("aria-pressed", String(paused));
+      pauseButton.setAttribute("aria-label", paused ? "Resume logo animation" : "Pause logo animation");
+    }
+
+    function expand() {
+      player.classList.add("is-expanded");
+    }
+
+    function collapseLater() {
+      if (paused) return;
+      window.clearTimeout(player._collapseTimer);
+      player._collapseTimer = window.setTimeout(function () {
+        if (!player.matches(":hover") && !player.contains(document.activeElement)) {
+          player.classList.remove("is-expanded");
+        }
+      }, 1800);
+    }
+
+    reveal.addEventListener("click", function () {
+      expand();
+      window.clearTimeout(player._collapseTimer);
+    });
+
+    pauseButton.addEventListener("click", function () {
+      expand();
+      setPaused(!paused);
+      if (!paused) collapseLater();
+    });
+
+    player.addEventListener("mouseenter", expand);
+    player.addEventListener("mouseleave", collapseLater);
+    player.addEventListener("focusin", expand);
+    player.addEventListener("focusout", function () {
+      window.setTimeout(collapseLater, 0);
+    });
+
     show(0);
-    if (!reduced) {
-      setInterval(function () { fi = (fi + 1) % frames.length; show(fi); }, 2200);
-    }
+    if (!reduced) start();
   }
 })();
