@@ -13,8 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<!-- General Sans stands in for Aquire, see the note in aurawear.css -->
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=general-sans@600,700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="aurawear.css">
@@ -53,9 +52,7 @@
       </a>
       <p class="aw-cap">Brand Identity 2026</p>
       <h1 class="aw-title" data-split>Aura Wear</h1>
-      <!-- TODO: source copy here described Sarthi's Ayurvedic Hospital, not a wearables brand.
-           Left as a placeholder rather than publishing the wrong description. -->
-      <p class="aw-sub">[Placeholder — source tagline described an Ayurvedic Hospital, not AuraWear. Real tagline needed.]</p>
+      <p class="aw-sub">AuraWear is a modern wearable technology brand that blends innovation with everyday style.</p>
       <hr class="aw-divider">
       <dl class="aw-facts">
         <div class="aw-fact"><dt>Role</dt><dd>Brand Identity</dd></div>
@@ -138,44 +135,88 @@
   </section>
 
   <!-- ============ MARK ============ -->
-  <!-- TODO: copy below is a placeholder, same issue as Thresca and Sarthi's mark sections —
-       the source text described Sarthi's mark (tree of healing, seated figure, clinic), not
-       AuraWear's actual "W" mark. Real copy needed before this goes live. -->
   <section class="aw-wrap aw-mark">
     <div>
       <p class="aw-cap" data-sr>The Mark</p>
-      <h2 data-sr>[Placeholder — AuraWear mark copy not yet written]</h2>
-      <p class="aw-lede" data-sr>[The source design's copy for this section describes Sarthi's mark, not AuraWear's. Replace with real copy about the "W" mark.]</p>
+      <h2 data-sr>A symbol built for technology and style</h2>
+      <p class="aw-lede" data-sr>The mark distills AuraWear into a simple geometric form that feels contemporary, dynamic and versatile. Its clean construction gives it the precision of wearable technology while keeping enough character to work as a fashion-forward brand mark.</p>
       <dl class="aw-marknotes" data-sr>
-        <div><dt>Grid</dt><dd>[placeholder]</dd></div>
-        <div><dt>Weight</dt><dd>[placeholder]</dd></div>
-        <div><dt>Minimum size</dt><dd>[placeholder]</dd></div>
+        <div><dt>Grid</dt><dd>Built from simple geometric forms to create a clean, recognisable symbol that can stand independently from the wordmark.</dd></div>
+        <div><dt>Weight</dt><dd>The mark uses a balanced visual weight to complement the bold AuraWear wordmark without overpowering it.</dd></div>
+        <div><dt>Versatility</dt><dd>Designed to remain recognisable across small digital spaces, wearable surfaces and larger brand applications.</dd></div>
       </dl>
     </div>
     <div class="aw-markart" data-sr="scale"><img src="aurawear-mark-outline.svg" alt="AuraWear mark, outlined construction"></div>
   </section>
 
-  <!-- ============ TYPE & COLOUR ============ -->
+  <!-- ============ COLOR PALETTE ============ -->
   <section class="aw-wrap aw-palette">
-    <p class="aw-cap" data-sr>Type &amp; Color Palette</p>
-    <h2 data-sr>A calm, clear and Approachable system</h2>
+    <p class="aw-cap" data-sr>Color Palette</p>
+    <h2 data-sr>Click a colour to open it</h2>
     <div class="aw-swatches" data-sr>
-      <div class="aw-sw" style="background:var(--aw-navy); color:#fff"><b>Navy</b><code>294B7A</code></div>
-      <div class="aw-sw" style="background:var(--aw-green); color:var(--bottle-900)"><b>Green</b><code>00E394</code></div>
-      <div class="aw-sw" style="background:var(--aw-void); color:#fff"><b>Void</b><code>0C1C33</code></div>
-      <div class="aw-sw" style="background:var(--aw-plum); color:#fff"><b>Plum</b><code>200149</code></div>
-      <div class="aw-sw" style="background:var(--aw-sand); color:var(--bottle-900)"><b>Sand</b><code>ECE6D6</code></div>
+      <button type="button" class="aw-sw" style="--c:#294B7A; --t:#fff" aria-expanded="true">
+        <span class="aw-sw__toast"></span>
+        <b>Navy</b>
+        <span class="aw-sw__more"><span>Primary surface colour, used across backgrounds and the wordmark.</span><code class="aw-sw__chip">294B7A</code></span>
+      </button>
+      <button type="button" class="aw-sw" style="--c:#00E394; --t:#0C1C33" aria-expanded="false">
+        <span class="aw-sw__toast"></span>
+        <b>Green</b>
+        <span class="aw-sw__more"><span>Signal accent for CTAs, highlights and live-state indicators.</span><code class="aw-sw__chip">00E394</code></span>
+      </button>
+      <button type="button" class="aw-sw" style="--c:#0C1C33; --t:#fff" aria-expanded="false">
+        <span class="aw-sw__toast"></span>
+        <b>Void</b>
+        <span class="aw-sw__more"><span>Deepest neutral, used for body text and dark surfaces.</span><code class="aw-sw__chip">0C1C33</code></span>
+      </button>
+      <button type="button" class="aw-sw" style="--c:#200149; --t:#fff" aria-expanded="false">
+        <span class="aw-sw__toast"></span>
+        <b>Plum</b>
+        <span class="aw-sw__more"><span>Secondary accent used for depth and premium contrast.</span><code class="aw-sw__chip">200149</code></span>
+      </button>
+      <button type="button" class="aw-sw" style="--c:#ECE6D6; --t:#0C1C33" aria-expanded="false">
+        <span class="aw-sw__toast"></span>
+        <b>Sand</b>
+        <span class="aw-sw__more"><span>Warm neutral background for light surfaces.</span><code class="aw-sw__chip">ECE6D6</code></span>
+      </button>
     </div>
+  </section>
+
+  <!-- ============ TYPE ============ -->
+  <section class="aw-wrap aw-type-section">
+    <p class="aw-cap" data-sr>Type</p>
+    <h2 data-sr>Aquire, from Light to Bold</h2>
     <div class="aw-type" data-sr>
-      <div class="aw-type-demo">Aa AuraWear</div>
-      <p class="aw-type-note">Typeface shown here is General Sans, a free stand-in. Aquire was referenced in the design file but not supplied — self-host it and swap the --font-display-alt variable in aurawear.css once you have it.</p>
+      <div>
+        <div class="aw-slider">
+          <label>Drag to compare the loaded weights <span data-weight-value>700</span></label>
+          <input type="range" min="300" max="700" step="1" value="700" data-weight-slider aria-label="Type weight">
+        </div>
+        <p class="aw-sample-text" data-weight-target>Fashion meets functionality.</p>
+        <div class="aw-scale">
+          <div><span>Light</span><small>300</small></div>
+          <div><span>Regular</span><small>400</small></div>
+          <div><span>Bold</span><small>700</small></div>
+        </div>
+      </div>
+      <div class="aw-aa" aria-hidden="true" data-weight-target>Aa</div>
     </div>
+    <p class="aw-type-note">Font: Aquire, self-hosted in Light, Regular and Bold. Only these three weights exist, so the slider snaps between them rather than morphing smoothly — Aquire isn't a variable font.</p>
   </section>
 
   <!-- ============ COMPLETE VISUAL IDENTITY ============ -->
   <section class="aw-wrap aw-identity">
     <h2 data-sr>The Complete Visual Identity</h2>
-    <div class="aw-hero-shot" data-sr><img src="aurawear-logo-square.png" alt="Aura Wear full logo"></div>
+    <div class="aw-switcher" data-sr>
+      <div class="aw-stage" aria-label="Looping showcase of the AuraWear logo variants">
+        <div class="aw-frame" data-key="primary"><img src="aurawear-logo-square.png" alt="AuraWear primary lockup"></div>
+        <div class="aw-frame" data-key="horizontal"><img src="aurawear-logo-horizontal.png" alt="AuraWear horizontal lockup"></div>
+        <div class="aw-frame" data-key="stacked"><img src="aurawear-logo-stacked.png" alt="AuraWear stacked lockup"></div>
+        <div class="aw-frame" data-key="icon-tile"><img src="aurawear-icon-tile.png" alt="AuraWear icon mark on a tile"></div>
+        <div class="aw-frame" data-key="icon"><img src="aurawear-icon.png" alt="AuraWear icon mark alone"></div>
+      </div>
+      <div class="aw-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
     <div class="aw-grid" data-sr>
       <div class="aw-row aw-row--1">
         <figure><img src="aurawear-app-phone.webp" loading="lazy" alt="AuraWear app icon on a phone home screen"></figure>

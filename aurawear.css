@@ -4,14 +4,19 @@
    "Identity in action" matches Sarthi's 3+2+2 pattern (7 real images),
    not Thresca's simpler 3+1 (only 4 images were available there).
 
-   Font: the design note said "replace the placeholder font with Aquire"
-   but no font file was supplied. Using General Sans as a free stand-in,
-   same treatment as Sarthi (Visuelt Pro) and Thresca (Antonia).
+   Font: Aquire, self-hosted below as three static weights (Light 300,
+   Regular 400, Bold 700). It is not a variable font — there is no
+   continuous axis between these — so the type-weight slider further
+   down snaps between the three loaded weights rather than interpolating.
    ========================================================== */
+
+@font-face { font-family: "Aquire"; src: url("Aquire_Light_300.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aquire"; src: url("Aquire_400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aquire"; src: url("Aquire_Bold_700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
 
 :root {
   --sw: 1118px;
-  --font-display-alt: "General Sans", var(--font-display); /* placeholder for Aquire */
+  --font-display-alt: "Aquire", var(--font-display);
   /* AuraWear's own palette — hex values were printed directly on the source mockup. */
   --aw-navy: #294B7A;
   --aw-green: #00E394;
@@ -96,23 +101,62 @@
 .aw-markart { position: relative; width: 100%; max-width: 450px; aspect-ratio: 1; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); overflow: hidden; display: grid; place-items: center; }
 .aw-markart img { max-width: 60%; max-height: 60%; object-fit: contain; }
 
-/* ---------- Type & colour ---------- */
+/* ---------- Colour palette: click a swatch to expand, click the chip to copy ---------- */
 .aw-palette { padding: 88px 0 0; }
 .aw-palette h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
-.aw-swatches { display: flex; gap: 16px; margin-top: 28px; height: 260px; }
-.aw-sw { flex: 1 1 0; min-width: 0; border-radius: 24px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
-.aw-sw b { font: 700 20px/1.2 var(--font-display-alt); display: block; }
-.aw-sw code { font: 600 13px/1.4 var(--font-body); opacity: .85; margin-top: 4px; display: block; }
-@media (max-width: 620px) { .aw-swatches { flex-direction: column; height: auto; } .aw-sw { min-height: 90px; } }
-.aw-type { margin-top: 44px; }
-.aw-type-demo { font-family: var(--font-display-alt); font-weight: 700; font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -0.03em; color: var(--bottle-900); line-height: 1.05; }
-.aw-type-note { margin-top: 10px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
+.aw-swatches { display: flex; gap: 10px; height: 280px; margin-top: 28px; }
+.aw-sw {
+  position: relative; flex: 1 1 0; min-width: 0; border: 0; border-radius: 24px; padding: 20px; text-align: left; cursor: pointer; overflow: hidden;
+  background: var(--c); color: var(--t, #fff); display: flex; flex-direction: column; justify-content: flex-end; font: inherit;
+  transition: flex-grow .7s var(--ease-out);
+}
+.aw-sw[aria-expanded="true"] { flex-grow: 3.6; }
+.aw-sw b { font: 700 1.1rem/1.1 var(--font-display-alt); white-space: nowrap; }
+.aw-sw__more { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .7s var(--ease-out), opacity .5s ease; font: 500 .95rem/1.4 var(--font-body); }
+.aw-sw[aria-expanded="true"] .aw-sw__more { max-height: 120px; opacity: 1; transition-delay: 0s, .15s; }
+.aw-sw__more span { display: block; }
+.aw-sw__chip { display: inline-block; margin-top: 10px; padding: 3px 10px; border: 1.5px solid currentColor; border-radius: 999px; font: 600 12px/1.4 var(--font-body); cursor: pointer; }
+.aw-sw__toast { position: absolute; top: 16px; right: 16px; font: 600 12px/1 var(--font-body); padding: 6px 10px; border-radius: 999px; background: rgb(0 0 0 / .25); opacity: 0; transform: translate3d(0, -6px, 0); transition: opacity .3s, transform .3s; }
+.aw-sw__toast.on { opacity: 1; transform: none; }
+@media (max-width: 620px) {
+  .aw-swatches { flex-direction: column; height: auto; }
+  .aw-sw { flex: none; min-height: 76px; transition: min-height .7s var(--ease-out); }
+  .aw-sw[aria-expanded="true"] { min-height: 230px; flex-grow: 0; }
+}
 
-/* ---------- Complete Visual Identity: Sarthi's 3+2+2 row pattern ---------- */
+/* ---------- Type: a live weight slider across the three loaded Aquire weights ---------- */
+.aw-type-section { padding: 88px 0 0; }
+.aw-type-section h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
+.aw-type { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 5vw, 64px); align-items: center; margin-top: 32px; }
+.aw-slider { display: grid; gap: 8px; }
+.aw-slider label { font: 500 14px/1 var(--font-body); color: var(--text-secondary); display: flex; justify-content: space-between; }
+.aw-slider input { width: 100%; accent-color: var(--aw-green); height: 28px; }
+.aw-sample-text { font: 600 clamp(1.4rem, 3vw, 2.1rem)/1.2 var(--font-display-alt); font-weight: var(--w, 700); letter-spacing: -0.02em; margin-top: 22px; padding: 14px 16px; border: 1.5px dashed var(--border-subtle); border-radius: 16px; }
+.aw-scale { margin-top: 22px; display: grid; gap: 10px; }
+.aw-scale div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--border-subtle); padding-top: 10px; }
+.aw-scale span { font: 500 14px/1.4 var(--font-body); }
+.aw-scale small { font: 500 12px/1 var(--font-body); color: var(--text-secondary); }
+.aw-aa { font-family: var(--font-display-alt); font-size: clamp(6rem, 18vw, 13rem); line-height: .9; letter-spacing: -0.05em; font-weight: var(--w, 700); color: var(--aw-navy); text-align: center; transition: font-weight .15s linear; }
+.aw-type-note { margin-top: 26px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
+@media (max-width: 760px) {
+  .aw-type { grid-template-columns: 1fr; }
+  .aw-aa { font-size: clamp(5rem, 24vw, 9rem); margin-top: 20px; }
+}
+
+/* ---------- Complete Visual Identity: autoplaying logo-loop, same pattern as sarthi.css ---------- */
 .aw-identity { padding: 88px 0 0; }
 .aw-identity h2 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
-.aw-hero-shot { margin-top: 32px; width: 100%; aspect-ratio: 1; max-height: 420px; border-radius: 24px; overflow: hidden; background: var(--bg-raised); box-shadow: var(--shadow-sm); display: grid; place-items: center; }
-.aw-hero-shot img { max-width: 60%; }
+.aw-switcher { margin-top: 32px; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); padding: clamp(20px, 5vw, 48px); }
+.aw-stage { position: relative; height: clamp(220px, 34vw, 340px); }
+.aw-frame {
+  position: absolute; inset: 20px;
+  opacity: 0; transform: scale(.97); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); pointer-events: none;
+}
+.aw-frame.is-active { opacity: 1; transform: scale(1); }
+.aw-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.aw-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+.aw-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--border-subtle); transition: background-color .4s, transform .4s; }
+.aw-dots i.is-active { background: var(--aw-green); transform: scale(1.3); }
 .aw-grid { display: grid; gap: 16px; margin-top: 28px; }
 .aw-row { display: flex; gap: 16px; width: 100%; }
 .aw-row--1 { height: clamp(150px, 22vw, 260px); }
@@ -153,4 +197,7 @@
   .aw-title .ch > i { transform: none !important; transition: none !important; }
   .aw-pcard { position: static; transform: none !important; box-shadow: none; }
   .aw-pcard::after { display: none; }
+  .aw-sw { transition: none; }
+  .aw-frame { transition: none; }
+  .aw-frame.is-active { opacity: 1; transform: none; }
 }

@@ -53,4 +53,52 @@
     window.addEventListener("resize", updateStack);
     updateStack();
   }
+
+  // ---------- colour swatches: one open at a time, click to expand, click the chip to copy ----------
+  var swatches = document.querySelectorAll(".aw-sw");
+  swatches.forEach(function (sw) {
+    sw.addEventListener("click", function (e) {
+      if (e.target.closest(".aw-sw__chip")) return;
+      swatches.forEach(function (o) { o.setAttribute("aria-expanded", String(o === sw)); });
+    });
+    var chip = sw.querySelector(".aw-sw__chip");
+    if (chip) {
+      chip.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var hex = chip.textContent.trim();
+        var toast = sw.querySelector(".aw-sw__toast");
+        function flash(msg) { if (!toast) return; toast.textContent = msg; toast.classList.add("on"); setTimeout(function () { toast.classList.remove("on"); }, 1200); }
+        if (navigator.clipboard) navigator.clipboard.writeText(hex).then(function () { flash("Copied " + hex); }, function () { flash(hex); });
+        else flash(hex);
+      });
+    }
+  });
+
+  // ---------- type weight slider: snaps across the three loaded Aquire weights ----------
+  var slider = document.querySelector("[data-weight-slider]");
+  if (slider) {
+    var out = document.querySelector("[data-weight-value]");
+    function apply(v) {
+      document.documentElement.style.setProperty("--w", v);
+      if (out) out.textContent = v;
+    }
+    slider.addEventListener("input", function () { apply(slider.value); });
+    apply(slider.value);
+  }
+
+  // ---------- visual identity: autoplaying logo loop, no clicking required ----------
+  var stage = document.querySelector(".aw-stage");
+  if (stage) {
+    var frames = stage.querySelectorAll(".aw-frame");
+    var dots = document.querySelectorAll(".aw-dots i");
+    var fi = 0;
+    function show(n) {
+      frames.forEach(function (f, k) { f.classList.toggle("is-active", k === n); });
+      dots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
+    }
+    show(0);
+    if (!reduced) {
+      setInterval(function () { fi = (fi + 1) % frames.length; show(fi); }, 2200);
+    }
+  }
 })();
