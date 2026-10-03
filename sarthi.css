@@ -1,15 +1,11 @@
 /* ==========================================================
    Sarthi Ayurvedic Hospital — branding case study
-   Every size below is taken directly from the spec. The one open item:
-   Visuelt Pro is a paid font (Grilli Type) with no free CDN, so it can't
-   be loaded here. General Sans (Fontshare, free) stands in as the closest
-   free match. Swap --font-display-alt below once you self-host the real file.
+   Every size below is taken directly from the existing project.
    ========================================================== */
 
 :root {
-  --sw: 1118px;                 /* the one content width every section shares */
-  --font-display-alt: "General Sans", var(--font-display); /* placeholder for Visuelt Pro */
-  /* Sarthi's own three-colour palette */
+  --sw: 1118px;
+  --font-display-alt: "General Sans", var(--font-display);
   --sa-green: #9BC53D;
   --sa-brown: #443730;
   --sa-wheat: #F3D9B1;
@@ -103,33 +99,156 @@
 .sa-type-demo { font-family: var(--font-display-alt); font-weight: 700; font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -0.03em; color: var(--bottle-900); line-height: 1.05; }
 .sa-type-note { margin-top: 10px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
 
-/* ---------- Visual identity: variant switcher ---------- */
+/* ---------- Visual identity: fixed 1038 x 470 showcase card ---------- */
 .sa-identity { padding: 88px 0 0; }
 .sa-identity h2 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
-.sa-switcher { margin-top: 32px; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); padding: clamp(20px, 5vw, 48px); }
-.sa-stage { position: relative; height: clamp(220px, 34vw, 340px); }
+.sa-switcher {
+  position: relative;
+  width: 1038px;
+  height: 470px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 32px auto 0;
+  border-radius: 24px;
+  background: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  padding: 42px 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.sa-stage { position: relative; flex: 1 1 auto; min-height: 0; width: 100%; }
 .sa-frame {
-  position: absolute; inset: 20px;
+  position: absolute; inset: 0;
   opacity: 0; transform: scale(0.97); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); pointer-events: none;
 }
 .sa-frame.is-active { opacity: 1; transform: scale(1); }
-.sa-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.sa-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-.sa-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--border-subtle); transition: background-color .4s, transform .4s; }
-.sa-dots i.is-active { background: var(--sa-green); transform: scale(1.3); }
+/* The source images are untouched. Only their rendered display box is reduced to 50%
+   of the previous frame area, with aspect ratio preserved by object-fit: contain. */
+.sa-frame img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  display: block;
+}
+.sa-dots { display: none; }
+.sa-dots i { width: 7px; height: 7px; border-radius: 50%; background: #D7D7D7; transition: background-color .4s, transform .4s, width .4s, border-radius .4s; }
+.sa-dots i.is-active { width: 28px; border-radius: 999px; background: #181818; transform: none; }
+
+/* ---------- Apple-style animation player ---------- */
+.sa-player {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 70px;
+  pointer-events: none;
+}
+.sa-player__reveal {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #D4D4D4;
+  box-shadow: 0 2px 10px rgb(0 0 0 / .08);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: width .55s cubic-bezier(.22,1,.36,1), height .55s cubic-bezier(.22,1,.36,1), background-color .25s ease, border-radius .55s cubic-bezier(.22,1,.36,1), opacity .25s ease;
+}
+.sa-player__body {
+  width: 0;
+  height: 70px;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F0F0;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: scale(.72);
+  transform-origin: right center;
+  transition: width .6s cubic-bezier(.22,1,.36,1), opacity .22s ease, transform .6s cubic-bezier(.22,1,.36,1);
+}
+.sa-player__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 250px;
+  height: 70px;
+  flex: none;
+}
+.sa-player__track i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #BDBDBD;
+  transition: width .4s cubic-bezier(.22,1,.36,1), background-color .3s ease;
+}
+.sa-player__track i.is-active {
+  width: 52px;
+  border-radius: 999px;
+  background: #1A1A1A;
+}
+.sa-player__pause {
+  width: 70px;
+  height: 70px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: #F0F0F0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  color: #171717;
+  box-shadow: 0 2px 10px rgb(0 0 0 / .04);
+  transition: transform .25s ease, background-color .25s ease;
+}
+.sa-player__pause:hover { background: #E9E9E9; transform: scale(1.04); }
+.sa-player__pause:active { transform: scale(.97); }
+.sa-player__pause svg { width: 19px; height: 19px; fill: currentColor; }
+.sa-player__pause .play { display: none; }
+.sa-player.is-expanded .sa-player__body {
+  width: 250px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.sa-player.is-expanded .sa-player__reveal {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.sa-player.is-paused .sa-player__pause .pause { display: none; }
+.sa-player.is-paused .sa-player__pause .play { display: block; }
+.sa-player.is-paused .sa-player__track i.is-active { background: #777; }
+.sa-player:focus-within .sa-player__body,
+.sa-player:hover .sa-player__body { opacity: 1; }
+.sa-player__reveal:focus-visible,
+.sa-player__pause:focus-visible { outline: 2px solid #1A1A1A; outline-offset: 4px; }
 
 /* ---------- Identity in action ---------- */
 .sa-action { padding: 64px 0 0; }
-/* Each row is a fixed height; every image's width is auto, derived from its own real aspect
-   ratio at that height. This is why nothing is cropped and nothing leaves empty space:
-   the box always matches the picture, instead of forcing pictures into equal columns. */
 .sa-grid { display: grid; gap: 16px; margin-top: 28px; }
 .sa-row { display: flex; gap: 16px; width: 100%; }
 .sa-row--1 { height: clamp(150px, 24vw, 268px); }
 .sa-row--2 { height: clamp(185px, 30vw, 335px); }
 .sa-row--3 { height: clamp(230px, 37vw, 410px); }
 .sa-row figure { margin: 0; height: 100%; border-radius: 12px; overflow: hidden; background: var(--bg-sunken); flex: 0 0 auto; }
-.sa-row--3 figure { flex: var(--grow, 1) 1 0; min-width: 0; }   /* row 3's two photos undersize by ~15% at natural aspect, so they stretch proportionally to fill the row instead of leaving a gap */
+.sa-row--3 figure { flex: var(--grow, 1) 1 0; min-width: 0; }
 .sa-row img { height: 100%; width: auto; max-width: 100%; object-fit: cover; display: block; }
 .sa-row--3 img { width: 100%; }
 @media (max-width: 760px) {
@@ -158,8 +277,20 @@
   .sa-hero, .sa-context, .sa-mark { grid-template-columns: 1fr; }
   .sa-logocard, .sa-oldlogo, .sa-markart { max-width: 100%; justify-self: center; }
 }
+@media (max-width: 1060px) {
+  .sa-switcher { height: min(470px, 52vw); }
+}
 @media (max-width: 560px) {
   .sa-wrap { padding: 0 24px; }
+  .sa-switcher { height: 360px; padding: 28px 24px 30px; border-radius: 20px; }
+  .sa-player { bottom: 14px; height: 54px; gap: 7px; }
+  .sa-player__body { height: 54px; }
+  .sa-player__track { width: 190px; height: 54px; gap: 6px; }
+  .sa-player__track i { width: 5px; height: 5px; }
+  .sa-player__track i.is-active { width: 38px; }
+  .sa-player__pause { width: 54px; height: 54px; }
+  .sa-player.is-expanded .sa-player__body { width: 190px; }
+  .sa-player__pause svg { width: 16px; height: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .js [data-sr] { opacity: 1; transform: none; transition: none; }
@@ -169,4 +300,5 @@
   .sa-frame { transition: none; }
   .sa-frame.is-active { opacity: 1; transform: none; }
   .sa-sw { transition: none; }
+  .sa-player__body, .sa-player__reveal, .sa-player__track i { transition: none; }
 }
