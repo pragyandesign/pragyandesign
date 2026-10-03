@@ -13,8 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<!-- General Sans stands in for Antonia, see the note in thresca.css -->
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=general-sans@600,700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="thresca.css">
@@ -156,14 +155,22 @@
     </div>
     <div class="th-type" data-sr>
       <div class="th-type-demo">Aa Thresca</div>
-      <p class="th-type-note">Typeface shown here is General Sans, a free stand-in. Antonia was referenced in the design file but not supplied — self-host it and swap the --font-display-alt variable in thresca.css once you have it.</p>
+      <p class="th-type-note">Typeface: Antonia H1, self-hosted across all seven weights (Light to Black, each with an italic).</p>
     </div>
   </section>
 
   <!-- ============ COMPLETE VISUAL IDENTITY ============ -->
   <section class="th-wrap th-identity">
     <h2 data-sr>The Complete Visual Identity</h2>
-    <div class="th-hero-shot" data-sr><img src="thresca-lockup-horizontal-dark.svg" alt="Thresca full logo on dark background"></div>
+    <div class="th-switcher" data-sr>
+      <div class="th-stage" aria-label="Looping showcase of the Thresca logo lockups">
+        <div class="th-frame" data-key="horizontal-light"><img src="thresca-lockup-horizontal-light.svg" alt="Thresca horizontal lockup on light background"></div>
+        <div class="th-frame" data-key="horizontal-dark"><img src="thresca-lockup-horizontal-dark.svg" alt="Thresca horizontal lockup on dark background"></div>
+        <div class="th-frame" data-key="stacked-light"><img src="thresca-lockup-stacked-light.svg" alt="Thresca stacked lockup on light background"></div>
+        <div class="th-frame" data-key="stacked-dark"><img src="thresca-lockup-stacked-dark.svg" alt="Thresca stacked lockup on dark background"></div>
+      </div>
+      <div class="th-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
     <div class="th-row3" data-sr>
       <figure><img src="thresca-app-phone.webp" loading="lazy" alt="Thresca app icon on a phone home screen"></figure>
       <figure><img src="thresca-app-browser.webp" loading="lazy" alt="Thresca favicon shown in a browser tab"></figure>

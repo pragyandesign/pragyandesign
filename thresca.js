@@ -56,4 +56,20 @@
     window.addEventListener("resize", updateStack);
     updateStack();
   }
+
+  // ---------- visual identity: autoplaying logo loop, no clicking required ----------
+  var stage = document.querySelector(".th-stage");
+  if (stage) {
+    var frames = stage.querySelectorAll(".th-frame");
+    var dots = document.querySelectorAll(".th-dots i");
+    var fi = 0;
+    function show(n) {
+      frames.forEach(function (f, k) { f.classList.toggle("is-active", k === n); });
+      dots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
+    }
+    show(0);
+    if (!reduced) {
+      setInterval(function () { fi = (fi + 1) % frames.length; show(fi); }, 2200);
+    }
+  }
 })();
