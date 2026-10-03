@@ -13,8 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<!-- General Sans stands in for Visuelt Pro, see the note in sarthi.css -->
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&f[]=general-sans@600,700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="sarthi.css">
@@ -134,9 +133,9 @@
     <div class="sa-markart" data-sr="scale"><img src="mark-outline.webp" alt="Construction outline of the Sarthi mark: a tree of healing above a seated figure, with hands beneath"></div>
   </section>
 
-  <!-- ============ TYPE & COLOUR ============ -->
+  <!-- ============ COLOR PALETTE ============ -->
   <section class="sa-wrap sa-palette">
-    <p class="sa-cap" data-sr>Type &amp; Color Palette</p>
+    <p class="sa-cap" data-sr>Color Palette</p>
     <h2 data-sr>A calm, clear and Approachable system</h2>
     <div class="sa-swatches" data-sr>
       <button type="button" class="sa-sw" data-hex="#9BC53D" aria-expanded="true" style="background:var(--sa-green); color:var(--bottle-900)">
@@ -149,9 +148,30 @@
         <span class="sa-sw__toast"></span><b>Wheat</b><span>Calm / Nourishment</span><code>f3d9b1</code>
       </button>
     </div>
+  </section>
+
+  <!-- ============ TYPE ============ -->
+  <section class="sa-wrap sa-type-section">
+    <p class="sa-cap" data-sr>Type</p>
+    <h2 data-sr>Visuelt Pro, from Thin to Black</h2>
     <div class="sa-type" data-sr>
-      <div class="sa-type-demo">Aa Sarthi</div>
-      <p class="sa-type-note">Typeface shown here is General Sans, a free stand-in. Visuelt Pro is a licensed font and isn't loaded on the web; self-host it and swap the --font-display-alt variable in sarthi.css once you have a licence for this project.</p>
+      <div>
+        <div class="sa-slider">
+          <label>Drag to compare the seven loaded weights <span data-weight-value>700</span></label>
+          <input type="range" min="100" max="900" step="1" value="700" data-weight-slider aria-label="Type weight">
+        </div>
+        <p class="sa-sample-text" data-weight-target>Rooted in tradition, built for healing.</p>
+        <div class="sa-scale">
+          <div><span>Thin</span><small>100</small></div>
+          <div><span>Extra Light</span><small>200</small></div>
+          <div><span>Light</span><small>300</small></div>
+          <div><span>Regular</span><small>400</small></div>
+          <div><span>Medium</span><small>500</small></div>
+          <div><span>Bold</span><small>700</small></div>
+          <div><span>Black</span><small>900</small></div>
+        </div>
+      </div>
+      <div class="sa-aa" aria-hidden="true" data-weight-target>Aa</div>
     </div>
   </section>
 

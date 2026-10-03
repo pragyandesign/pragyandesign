@@ -4,6 +4,11 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ---------- hero: split the title into per-character spans, then reveal ----------
+  // Letters are grouped inside a per-word wrapper (.word, white-space: nowrap in CSS) so the
+  // browser can only break the line between words, never between two letters of the same word.
+  // Splitting flat (one .ch span per character with no word grouping) lets the browser treat
+  // every letter boundary as breakable, since adjacent inline-block siblings are always
+  // breakable between each other regardless of the actual character content.
   document.querySelectorAll(".sa-title[data-split]").forEach(function (el) {
     var text = el.textContent;
     el.textContent = "";
@@ -19,7 +24,7 @@
       });
       el.appendChild(wordWrap);
       if (wi < words.length - 1) {
-        i++;
+        i++; // keep the stagger timing the same as before, including the space's old index
         el.appendChild(document.createTextNode(" "));
       }
     });
@@ -37,7 +42,7 @@
     targets.forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  // ---------- process cards ----------
+  // ---------- process cards: sticky-stack as the next one arrives, same effect as the branding template ----------
   var cards = document.querySelectorAll(".sa-pcard");
   if (cards.length && !reduced) {
     function updateStack() {
@@ -57,7 +62,7 @@
     updateStack();
   }
 
-  // ---------- palette swatches ----------
+  // ---------- palette swatches: expand on click, copy hex from the code chip ----------
   var swatches = document.querySelectorAll(".sa-sw");
   swatches.forEach(function (sw) {
     sw.addEventListener("click", function () {
@@ -68,104 +73,31 @@
     });
   });
 
-  // ---------- visual identity: autoplaying loop + Apple-style pause player ----------
+  // ---------- type weight slider: steps across all seven loaded Visuelt Pro weights ----------
+  var slider = document.querySelector("[data-weight-slider]");
+  if (slider) {
+    var out = document.querySelector("[data-weight-value]");
+    function apply(v) {
+      document.documentElement.style.setProperty("--w", v);
+      if (out) out.textContent = v;
+    }
+    slider.addEventListener("input", function () { apply(slider.value); });
+    apply(slider.value);
+  }
+
+  // ---------- visual identity: autoplaying loop, no clicking required ----------
   var stage = document.querySelector(".sa-stage");
   if (stage) {
     var frames = stage.querySelectorAll(".sa-frame");
     var dots = document.querySelectorAll(".sa-dots i");
     var i = 0;
-    var timer = null;
-    var paused = reduced;
-
     function show(n) {
       frames.forEach(function (f, k) { f.classList.toggle("is-active", k === n); });
       dots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
-      playerTrackDots.forEach(function (d, k) { d.classList.toggle("is-active", k === n); });
     }
-
-    // Build the floating player inside the card so the original HTML stays untouched.
-    var player = document.createElement("div");
-    player.className = "sa-player";
-    player.setAttribute("aria-label", "Logo animation controls");
-    player.innerHTML =
-      '<button class="sa-player__reveal" type="button" aria-label="Show animation controls"></button>' +
-      '<div class="sa-player__body">' +
-        '<div class="sa-player__track" role="tablist" aria-label="Logo variations"></div>' +
-      '</div>' +
-      '<button class="sa-player__pause" type="button" aria-label="Pause logo animation" aria-pressed="false">' +
-        '<svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.2"></rect><rect x="14" y="4" width="5" height="16" rx="1.2"></rect></svg>' +
-        '<svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"></path></svg>' +
-      '</button>';
-    document.querySelector(".sa-switcher").appendChild(player);
-
-    var reveal = player.querySelector(".sa-player__reveal");
-    var pauseButton = player.querySelector(".sa-player__pause");
-    var track = player.querySelector(".sa-player__track");
-    var playerTrackDots = [];
-
-    frames.forEach(function (_, k) {
-      var d = document.createElement("i");
-      d.setAttribute("role", "presentation");
-      track.appendChild(d);
-      playerTrackDots.push(d);
-    });
-
-    function start() {
-      if (timer || paused || frames.length < 2) return;
-      timer = window.setInterval(function () {
-        i = (i + 1) % frames.length;
-        show(i);
-      }, 2200);
-    }
-
-    function stop() {
-      if (timer) {
-        window.clearInterval(timer);
-        timer = null;
-      }
-    }
-
-    function setPaused(value) {
-      paused = value;
-      if (paused) stop(); else start();
-      player.classList.toggle("is-paused", paused);
-      pauseButton.setAttribute("aria-pressed", String(paused));
-      pauseButton.setAttribute("aria-label", paused ? "Resume logo animation" : "Pause logo animation");
-    }
-
-    function expand() {
-      player.classList.add("is-expanded");
-    }
-
-    function collapseLater() {
-      if (paused) return;
-      window.clearTimeout(player._collapseTimer);
-      player._collapseTimer = window.setTimeout(function () {
-        if (!player.matches(":hover") && !player.contains(document.activeElement)) {
-          player.classList.remove("is-expanded");
-        }
-      }, 1800);
-    }
-
-    reveal.addEventListener("click", function () {
-      expand();
-      window.clearTimeout(player._collapseTimer);
-    });
-
-    pauseButton.addEventListener("click", function () {
-      expand();
-      setPaused(!paused);
-      if (!paused) collapseLater();
-    });
-
-    player.addEventListener("mouseenter", expand);
-    player.addEventListener("mouseleave", collapseLater);
-    player.addEventListener("focusin", expand);
-    player.addEventListener("focusout", function () {
-      window.setTimeout(collapseLater, 0);
-    });
-
     show(0);
-    if (!reduced) start();
+    if (!reduced) {
+      setInterval(function () { i = (i + 1) % frames.length; show(i); }, 2200);
+    }
   }
 })();
