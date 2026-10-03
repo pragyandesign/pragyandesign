@@ -154,9 +154,25 @@
       <div class="th-sw" style="background:var(--th-chalk); color:var(--bottle-900)"><b>Chalk</b></div>
     </div>
     <div class="th-type" data-sr>
-      <div class="th-type-demo">Aa Thresca</div>
-      <p class="th-type-note">Typeface: Antonia H1, self-hosted across all seven weights (Light to Black, each with an italic).</p>
+      <div>
+        <div class="th-slider">
+          <label>Drag to compare the seven loaded weights <span data-weight-value>700</span></label>
+          <input type="range" min="300" max="900" step="1" value="700" data-weight-slider aria-label="Type weight">
+        </div>
+        <p class="th-sample-text" data-weight-target>Turn your meetings into meaningful outcomes.</p>
+        <div class="th-scale">
+          <div><span>Light</span><small>300</small></div>
+          <div><span>Regular</span><small>400</small></div>
+          <div><span>Medium</span><small>500</small></div>
+          <div><span>SemiBold</span><small>600</small></div>
+          <div><span>Bold</span><small>700</small></div>
+          <div><span>Heavy</span><small>800</small></div>
+          <div><span>Black</span><small>900</small></div>
+        </div>
+      </div>
+      <div class="th-aa" aria-hidden="true" data-weight-target>Aa</div>
     </div>
+    <p class="th-type-note">Typeface: Antonia H1, self-hosted across all seven weights (Light to Black, each with a matching italic). Antonia isn't a variable font, so the slider snaps to the nearest of the seven loaded weights rather than morphing continuously — with seven to choose from, that snap is fine-grained enough to feel close to smooth.</p>
   </section>
 
   <!-- ============ COMPLETE VISUAL IDENTITY ============ -->

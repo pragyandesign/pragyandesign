@@ -120,9 +120,22 @@
 .th-sw { flex: 1 1 0; min-width: 0; border-radius: 24px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
 .th-sw b { font: 700 20px/1.2 var(--font-display-alt); }
 @media (max-width: 620px) { .th-swatches { flex-direction: column; height: auto; } .th-sw { min-height: 76px; } }
-.th-type { margin-top: 44px; }
-.th-type-demo { font-family: var(--font-display-alt); font-weight: 700; font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -0.03em; color: var(--bottle-900); line-height: 1.05; }
-.th-type-note { margin-top: 10px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
+/* ---------- Type: a live weight slider across all seven loaded Antonia H1 weights ---------- */
+.th-type { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 5vw, 64px); align-items: center; margin-top: 44px; }
+.th-slider { display: grid; gap: 8px; }
+.th-slider label { font: 500 14px/1 var(--font-body); color: var(--text-secondary); display: flex; justify-content: space-between; }
+.th-slider input { width: 100%; accent-color: var(--th-signal); height: 28px; }
+.th-sample-text { font: 600 clamp(1.4rem, 3vw, 2.1rem)/1.2 var(--font-display-alt); font-weight: var(--w, 700); letter-spacing: -0.02em; margin-top: 22px; padding: 14px 16px; border: 1.5px dashed var(--border-subtle); border-radius: 16px; }
+.th-scale { margin-top: 22px; display: grid; gap: 10px; }
+.th-scale div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--border-subtle); padding-top: 10px; }
+.th-scale span { font: 500 14px/1.4 var(--font-body); }
+.th-scale small { font: 500 12px/1 var(--font-body); color: var(--text-secondary); }
+.th-aa { font-family: var(--font-display-alt); font-size: clamp(6rem, 18vw, 13rem); line-height: .9; letter-spacing: -0.03em; font-weight: var(--w, 700); color: var(--th-signal); text-align: center; transition: font-weight .15s linear; }
+.th-type-note { margin-top: 26px; font: 500 14px/1.5 var(--font-body); color: var(--warning-text); background: var(--warning-bg); display: inline-block; padding: 8px 14px; border-radius: 10px; }
+@media (max-width: 760px) {
+  .th-type { grid-template-columns: 1fr; }
+  .th-aa { font-size: clamp(5rem, 24vw, 9rem); margin-top: 20px; }
+}
 
 /* ---------- Complete Visual Identity: autoplaying logo-loop, same pattern as sarthi.css,
    now using all 4 real lockup exports instead of repeating one. Each lockup's own canvas

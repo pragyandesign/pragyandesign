@@ -57,6 +57,18 @@
     updateStack();
   }
 
+  // ---------- type weight slider: steps across all seven loaded Antonia H1 weights ----------
+  var slider = document.querySelector("[data-weight-slider]");
+  if (slider) {
+    var out = document.querySelector("[data-weight-value]");
+    function apply(v) {
+      document.documentElement.style.setProperty("--w", v);
+      if (out) out.textContent = v;
+    }
+    slider.addEventListener("input", function () { apply(slider.value); });
+    apply(slider.value);
+  }
+
   // ---------- visual identity: autoplaying logo loop, no clicking required ----------
   var stage = document.querySelector(".th-stage");
   if (stage) {
