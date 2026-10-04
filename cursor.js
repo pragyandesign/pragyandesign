@@ -11,7 +11,8 @@
   cursor.setAttribute("aria-hidden", "true");
   cursor.innerHTML =
     '<svg class="pragyan-cursor__arrow" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<path d="M2.5 2.5L45.2 27.3L25.1 30.7L15.2 50.2L2.5 2.5Z" fill="#252525" stroke="#FFFFFF" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<path d="M2.5 2.5L45.2 27.3L25.1 30.7L15.2 50.2L2.5 2.5Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<path d="M8 9L35.8 25.1L22 27.4L14.9 41.3L8 9Z" fill="#252525"/>' +
     '</svg>' +
     '<div class="pragyan-cursor__pill"><span class="pragyan-cursor__label">Pragyan</span></div>';
   document.body.appendChild(cursor);
