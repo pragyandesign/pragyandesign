@@ -291,3 +291,106 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   html.page-exit main, html.page-exit .footer-wrap,
   html.page-enter main, html.page-enter .footer-wrap { animation: none !important; }
 }
+
+
+/* ==========================================================
+   Pragyan custom cursor
+   Desktop / fine-pointer only. The native pointer stays available
+   for touch devices, text fields and keyboard interaction.
+   ========================================================== */
+@media (hover: hover) and (pointer: fine) {
+  body.cursor-enabled,
+  body.cursor-enabled a,
+  body.cursor-enabled button,
+  body.cursor-enabled [role=button] { cursor: none !important; }
+
+  body.cursor-enabled input,
+  body.cursor-enabled textarea,
+  body.cursor-enabled select,
+  body.cursor-enabled [contenteditable="true"] { cursor: text !important; }
+
+  .pragyan-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2147483647;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(0,0,0);
+    will-change: transform, opacity;
+    transition: opacity 180ms ease;
+  }
+
+  .pragyan-cursor.is-visible { opacity: 1; }
+
+  .pragyan-cursor__arrow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 52px;
+    transform-origin: 2px 2px;
+    filter: drop-shadow(0 2px 2px rgb(0 0 0 / .18));
+    transition: transform 180ms cubic-bezier(.22,1,.36,1), filter 180ms ease;
+  }
+
+  .pragyan-cursor__pill {
+    position: absolute;
+    left: 42px;
+    top: 44px;
+    min-width: 104px;
+    height: 56px;
+    padding: 0 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    background: #0099FF;
+    color: #FFFFFF;
+    font: 600 18px/1 var(--font-display);
+    letter-spacing: -0.02em;
+    box-shadow: 0 8px 22px rgb(0 50 35 / .14);
+    transform-origin: left center;
+    transform: scale(.96);
+    opacity: 0;
+    transition: width 260ms cubic-bezier(.22,1,.36,1), opacity 180ms ease, transform 260ms cubic-bezier(.22,1,.36,1), background-color 180ms ease;
+  }
+
+  .pragyan-cursor.is-visible .pragyan-cursor__pill {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .pragyan-cursor__label {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 120ms ease, transform 180ms cubic-bezier(.22,1,.36,1);
+  }
+
+  .pragyan-cursor.is-label-changing .pragyan-cursor__label {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+
+  .pragyan-cursor.is-down .pragyan-cursor__arrow {
+    transform: scale(.88) rotate(-2deg);
+    filter: drop-shadow(0 1px 1px rgb(0 0 0 / .14));
+  }
+
+  .pragyan-cursor.is-down .pragyan-cursor__pill { transform: scale(.95); }
+
+  @media (max-width: 700px) {
+    .pragyan-cursor { display: none !important; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pragyan-cursor,
+  .pragyan-cursor__arrow,
+  .pragyan-cursor__pill,
+  .pragyan-cursor__label { transition: none !important; }
+}
