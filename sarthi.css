@@ -357,3 +357,12 @@
 @media (prefers-reduced-motion:reduce){
   .sa-player__body,.sa-player__reveal,.sa-player__track i{transition:none!important}
 }
+
+/* fix: reveal dot must stay vertically centered inside the player */
+.sa-player__reveal{
+  position:relative!important;
+  inset:auto!important;
+  flex:none!important;
+  display:block!important;
+  margin:0!important;
+}
