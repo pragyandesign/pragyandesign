@@ -10,6 +10,7 @@
 
       function copied() {
         button.setAttribute("data-copy-state", "copied");
+        document.dispatchEvent(new CustomEvent("pragyan-copy-success"));
         window.setTimeout(function () {
           button.removeAttribute("data-copy-state");
         }, 1400);
