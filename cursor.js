@@ -2,6 +2,39 @@
    Pragyan custom cursor
    ========================================================== */
 (function () {
+  var copyEmailButtons = document.querySelectorAll("[data-copy-email]");
+  copyEmailButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var email = button.getAttribute("data-copy-email");
+      if (!email) return;
+
+      function copied() {
+        button.setAttribute("data-copy-state", "copied");
+        window.setTimeout(function () {
+          button.removeAttribute("data-copy-state");
+        }, 1400);
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(copied).catch(function () {});
+        return;
+      }
+
+      var area = document.createElement("textarea");
+      area.value = email;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      try {
+        document.execCommand("copy");
+        copied();
+      } catch (e) {}
+      document.body.removeChild(area);
+    });
+  });
+
   var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (!finePointer) return;
 
