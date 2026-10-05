@@ -79,6 +79,14 @@
     }, reduced ? 0 : 70);
   }
 
+  document.addEventListener("pragyan-copy-success", function () {
+    setLabel("Email Copied");
+    window.setTimeout(function () {
+      var underCursor = document.elementFromPoint(targetX, targetY);
+      setLabel(labelFor(underCursor || document.body));
+    }, 1600);
+  });
+
   function labelFor(target) {
     var proto = target.closest && target.closest(".pcard");
     if (proto) return "View Prototype";
