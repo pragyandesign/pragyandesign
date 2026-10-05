@@ -81,6 +81,29 @@
 .id-type-table td:first-child { font: 600 14px/1.4 var(--font-display); color: var(--bottle-900); }
 .id-type-table tr:last-child td { border-bottom: none; }
 
+/* ---------- Pragyan LLM: sub-brand identity ----------
+   The icon's own gradient stops (#8CC850, #FF6400) are exactly the site's existing
+   Salad-400 and Orange-500 primitives, so this sub-brand is documented as an extension
+   of the core system rather than a new palette — no colour on this page is invented. */
+.id-llm-lockup { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.id-llm-lockup svg { width: 44px; height: 44px; flex: none; display: block; }
+.id-llm-lockup span { font: 700 30px/1 var(--font-display); letter-spacing: 0.02em; text-transform: uppercase; color: var(--bottle-900); white-space: nowrap; }
+.id-logocard--dark .id-llm-lockup span { color: var(--text-inverse); }
+
+.id-llm-notes { margin-top: 28px; display: grid; gap: 0; }
+.id-llm-notes > div { padding: 16px 0; border-top: 1.5px solid var(--border-subtle); }
+.id-llm-notes dt { font: 600 14px/1.4 var(--font-body); color: var(--bottle-900); }
+.id-llm-notes dd { font: 400 14px/1.5 var(--font-body); color: var(--text-secondary); margin: 4px 0 0; }
+
+.id-llm-tag { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 999px; background: var(--bg-sunken); }
+.id-llm-tag__dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #8CC850, #FF6400); flex: none; }
+.id-llm-tag span { font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; text-transform: uppercase; letter-spacing: 0.05em; color: var(--bottle-900); }
+
+/* This page shows the real .nav__llm markup as a reference, at every viewport —
+   site.css hides it below 860px on the live nav, but that rule shouldn't empty
+   the demo card here, so it's overridden with a more specific selector. */
+#pragyan-llm .nav__llm { display: flex !important; }
+
 .id-footer-space { padding-bottom: 96px; }
 
 @media (max-width: 560px) {

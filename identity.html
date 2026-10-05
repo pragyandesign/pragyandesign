@@ -249,7 +249,7 @@
   </section>
 
   <!-- ============ TYPE REFERENCE TABLE (plain, LLM-parseable) ============ -->
-  <section class="id-wrap id-section id-footer-space" aria-labelledby="type-table-title">
+  <section class="id-wrap id-section" aria-labelledby="type-table-title">
     <h2 class="id-section__title" id="type-table-title">Type Token Reference</h2>
     <p class="id-section__sub">Plain reference table. Point any model at this page, or paste this table directly, and "H3b" resolves to one exact spec — no rendering or visual inference required.</p>
     <div class="id-type-table-wrap">
@@ -276,6 +276,122 @@
     </div>
   </section>
 
+  <!-- ============ PRAGYAN LLM ============ -->
+  <section class="id-wrap id-section id-footer-space" id="pragyan-llm" aria-labelledby="llm-title">
+    <h2 class="id-section__title" id="llm-title">Pragyan LLM</h2>
+    <p class="id-section__sub">The identity for Pragyan's own in-progress LLM, shown at desktop widths in the site nav. Its mark extends the core system rather than departing from it — the icon's gradient is built from the same Salad and Orange primitives already defined above, not a new colour.</p>
+
+    <div class="id-logos">
+      <div>
+        <div class="id-logocard id-logocard--light id-logocard--icon"><img src="llm-icon.svg" alt="Pragyan LLM icon mark on light background" width="44" height="44"></div>
+        <p class="id-logo-caption">Icon mark — on light</p>
+      </div>
+      <div>
+        <div class="id-logocard id-logocard--dark id-logocard--icon"><img src="llm-icon.svg" alt="Pragyan LLM icon mark on dark background" width="44" height="44"></div>
+        <p class="id-logo-caption">Icon mark — on dark</p>
+      </div>
+      <div>
+        <div class="id-logocard id-logocard--light">
+          <div class="id-llm-lockup">
+            <img src="llm-icon.svg" alt="" width="44" height="44">
+            <span>Pragyan LLM</span>
+          </div>
+        </div>
+        <p class="id-logo-caption">Primary lockup — on light</p>
+      </div>
+      <div>
+        <div class="id-logocard id-logocard--dark">
+          <div class="id-llm-lockup">
+            <img src="llm-icon.svg" alt="" width="44" height="44">
+            <span>Pragyan LLM</span>
+          </div>
+        </div>
+        <p class="id-logo-caption">Primary lockup — on dark</p>
+      </div>
+    </div>
+
+    <dl class="id-llm-notes">
+      <div><dt>Grid</dt><dd>A four-point spark built from two overlapping teardrops, rotated 90° apart — distinct from the Pragyan Design icon's quartered-circle mark, so the two are never mistaken for each other at a glance.</dd></div>
+      <div><dt>Colour</dt><dd>Always the Salad → Orange gradient, oriented so Orange sits toward the top point. Never recoloured to a single flat fill.</dd></div>
+      <div><dt>Minimum size</dt><dd>16px for the icon alone. Below that, drop the "Pragyan LLM" wordmark and keep only the mark.</dd></div>
+    </dl>
+
+    <h3 style="margin-top: 48px; font: 600 18px/1.3 var(--font-display); color: var(--bottle-900);">Colour</h3>
+    <div class="id-gradients">
+      <div>
+        <div class="id-grad" style="background: linear-gradient(135deg in oklch, #8CC850, #FF6400)"></div>
+        <p class="id-grad__label">Spark — signature gradient</p>
+        <p class="id-grad__hex">#8CC850 &rarr; #FF6400</p>
+      </div>
+      <div>
+        <div class="id-tokens" style="margin-top: 0; display: grid; grid-template-columns: 1fr; gap: 0;">
+          <div class="id-token-row"><span class="id-token-swatch" style="background:#8CC850"></span><span class="id-token-name">Spark Green (Salad-400)</span><span class="id-token-hex">#8CC850</span></div>
+          <div class="id-token-row"><span class="id-token-swatch" style="background:#FF6400"></span><span class="id-token-name">Spark Orange (Orange-500)</span><span class="id-token-hex">#FF6400</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 48px; font: 600 18px/1.3 var(--font-display); color: var(--bottle-900);">Type</h3>
+    <div class="id-type" style="margin-top: 20px;">
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>LLM Label</b>Sora &middot; Bold &middot; 14px &middot; uppercase</div>
+        <div class="id-type-sample font-display" style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">Pragyan LLM</div>
+      </div>
+      <div class="id-type-row">
+        <div class="id-type-meta"><b>Model Tag</b>Monospace &middot; Medium &middot; 12px &middot; uppercase</div>
+        <div class="id-type-sample">
+          <span class="id-llm-tag"><span class="id-llm-tag__dot"></span><span>Pragyan LLM &middot; v1</span></span>
+        </div>
+      </div>
+    </div>
+    <p class="id-fontnote">The wordmark uses Sora, the same display face as Pragyan Design — the LLM is one product under that umbrella, not a separate brand. The monospace Model Tag is the one deliberate departure: a small nod to it being a model, shown only on version chips and technical labels, never in running text.</p>
+
+    <h3 style="margin-top: 48px; font: 600 18px/1.3 var(--font-display); color: var(--bottle-900);">In Use</h3>
+    <p class="id-section__sub">The actual nav component, desktop only — same markup and classes as the live site, not a recreation.</p>
+    <div class="id-logos" style="margin-top: 20px;">
+      <div>
+        <div class="id-logocard id-logocard--light" style="min-height: 120px;">
+          <div class="nav__llm" style="flex: none;">
+            <svg class="nav__llm-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#id-llm-clip-a)">
+                <path d="M10.5148 19.6002C10.4418 19.8507 10.2384 19.9892 10.0213 19.9991C9.78763 20.0096 9.56256 19.86 9.49149 19.6186L8.50567 16.2582C7.72847 14.0116 5.97532 12.255 3.73321 11.4768L0.38024 10.489C0.151225 10.4218 0.00973569 10.218 0.00052244 10.0017C-0.010007 9.76764 0.139379 9.54147 0.38024 9.47025L3.69767 8.49498C5.96676 7.71621 7.74031 5.93777 8.51883 3.66478L9.49478 0.343312C9.55993 0.122408 9.79224 0.00701082 9.97584 -0.000242725C10.1858 -0.00815568 10.4345 0.106582 10.5043 0.343971L11.4941 3.70038C12.2792 5.95624 14.0455 7.7228 16.3014 8.49432L19.6195 9.46959C19.8478 9.53685 19.99 9.74193 19.9992 9.9569C20.0097 10.191 19.8603 10.4178 19.6195 10.4884L16.3007 11.4637C14.0356 12.2391 12.2548 14.0228 11.4816 16.2925L10.5148 19.5995V19.6002Z" fill="url(#id-llm-gradient-a)"/>
+              </g>
+              <defs>
+                <linearGradient id="id-llm-gradient-a" x1="9.5" y1="10" x2="12.5" y2="3.5" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#8CC850"/>
+                  <stop offset="1" stop-color="#FF6400"/>
+                </linearGradient>
+                <clipPath id="id-llm-clip-a"><rect width="20" height="20" fill="white"/></clipPath>
+              </defs>
+            </svg>
+            <span>Pragyan LLM</span>
+          </div>
+        </div>
+        <p class="id-logo-caption">Desktop nav — on light</p>
+      </div>
+      <div>
+        <div class="id-logocard id-logocard--dark" style="min-height: 120px;">
+          <div class="nav__llm" style="flex: none;">
+            <svg class="nav__llm-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#id-llm-clip-b)">
+                <path d="M10.5148 19.6002C10.4418 19.8507 10.2384 19.9892 10.0213 19.9991C9.78763 20.0096 9.56256 19.86 9.49149 19.6186L8.50567 16.2582C7.72847 14.0116 5.97532 12.255 3.73321 11.4768L0.38024 10.489C0.151225 10.4218 0.00973569 10.218 0.00052244 10.0017C-0.010007 9.76764 0.139379 9.54147 0.38024 9.47025L3.69767 8.49498C5.96676 7.71621 7.74031 5.93777 8.51883 3.66478L9.49478 0.343312C9.55993 0.122408 9.79224 0.00701082 9.97584 -0.000242725C10.1858 -0.00815568 10.4345 0.106582 10.5043 0.343971L11.4941 3.70038C12.2792 5.95624 14.0455 7.7228 16.3014 8.49432L19.6195 9.46959C19.8478 9.53685 19.99 9.74193 19.9992 9.9569C20.0097 10.191 19.8603 10.4178 19.6195 10.4884L16.3007 11.4637C14.0356 12.2391 12.2548 14.0228 11.4816 16.2925L10.5148 19.5995V19.6002Z" fill="url(#id-llm-gradient-b)"/>
+              </g>
+              <defs>
+                <linearGradient id="id-llm-gradient-b" x1="9.5" y1="10" x2="12.5" y2="3.5" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#8CC850"/>
+                  <stop offset="1" stop-color="#FF6400"/>
+                </linearGradient>
+                <clipPath id="id-llm-clip-b"><rect width="20" height="20" fill="white"/></clipPath>
+              </defs>
+            </svg>
+            <span style="color: var(--text-inverse);">Pragyan LLM</span>
+          </div>
+        </div>
+        <p class="id-logo-caption">Desktop nav — on dark</p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div class="footer-wrap">
@@ -297,6 +413,5 @@
   </div>
 </div>
 
-<script src="cursor.js"></script>
 </body>
 </html>
