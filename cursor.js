@@ -4,7 +4,8 @@
 (function () {
   var copyEmailButtons = document.querySelectorAll("[data-copy-email]");
   copyEmailButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", function (event) {
+      if (button.tagName === "A") event.preventDefault();
       var email = button.getAttribute("data-copy-email");
       if (!email) return;
 
@@ -17,7 +18,17 @@
       }
 
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(email).then(copied).catch(function () {});
+        navigator.clipboard.writeText(email).then(copied).catch(function () {
+        var area = document.createElement("textarea");
+        area.value = email;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        try { document.execCommand("copy"); copied(); } catch (e) {}
+        document.body.removeChild(area);
+      });
         return;
       }
 
