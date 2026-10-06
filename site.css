@@ -406,3 +406,19 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   .pragyan-cursor__pill,
   .pragyan-cursor__label { transition: none !important; }
 }
+
+
+/* Homepage motion */
+/* Keep project cards visually unchanged; only reveal homepage sections on entry. */
+.home-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 520ms cubic-bezier(.22, 1, .36, 1), transform 520ms cubic-bezier(.22, 1, .36, 1);
+}
+.home-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-reveal { opacity: 1; transform: none; transition: none; }
+}
