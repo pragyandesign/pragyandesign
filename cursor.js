@@ -19,16 +19,16 @@
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(email).then(copied).catch(function () {
-        var area = document.createElement("textarea");
-        area.value = email;
-        area.setAttribute("readonly", "");
-        area.style.position = "fixed";
-        area.style.opacity = "0";
-        document.body.appendChild(area);
-        area.select();
-        try { document.execCommand("copy"); copied(); } catch (e) {}
-        document.body.removeChild(area);
-      });
+          var area = document.createElement("textarea");
+          area.value = email;
+          area.setAttribute("readonly", "");
+          area.style.position = "fixed";
+          area.style.opacity = "0";
+          document.body.appendChild(area);
+          area.select();
+          try { document.execCommand("copy"); copied(); } catch (e) {}
+          document.body.removeChild(area);
+        });
         return;
       }
 
@@ -202,4 +202,95 @@
   }, { passive: true });
 
   setLabel("Pragyan");
+})();
+
+/* ==========================================================
+   Left-side scroll progress
+   ========================================================== */
+(function () {
+  var progress = document.createElement("div");
+  progress.className = "pragyan-scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  progress.innerHTML = '<span class="pragyan-scroll-progress__track"><span class="pragyan-scroll-progress__fill"></span></span><span class="pragyan-scroll-progress__dot"></span>';
+
+  var style = document.createElement("style");
+  style.textContent = `
+    .pragyan-scroll-progress {
+      position: fixed;
+      left: 18px;
+      top: 50%;
+      width: 10px;
+      height: 180px;
+      transform: translateY(-50%);
+      z-index: 40;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .pragyan-scroll-progress__track {
+      position: absolute;
+      left: 4px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--action-primary) 18%, transparent);
+      overflow: hidden;
+    }
+    .pragyan-scroll-progress__fill {
+      display: block;
+      width: 100%;
+      height: 0;
+      border-radius: inherit;
+      background: var(--action-primary);
+      transition: height 80ms linear;
+    }
+    .pragyan-scroll-progress__dot {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--action-primary);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--action-primary) 14%, transparent);
+      transform: translateY(0);
+      will-change: transform;
+    }
+    @media (max-width: 700px) {
+      .pragyan-scroll-progress {
+        left: 8px;
+        height: 140px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pragyan-scroll-progress__fill { transition: none; }
+    }
+  `;
+  document.head.appendChild(style);
+  document.body.appendChild(progress);
+
+  var fill = progress.querySelector(".pragyan-scroll-progress__fill");
+  var dot = progress.querySelector(".pragyan-scroll-progress__dot");
+  var ticking = false;
+
+  function updateProgress() {
+    ticking = false;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+    var scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    var ratio = Math.min(1, Math.max(0, scrollTop / scrollable));
+    fill.style.height = (ratio * 100) + "%";
+    dot.style.transform = "translateY(" + (ratio * 170) + "px)";
+  }
+
+  function requestUpdate() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateProgress);
+  }
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate, { passive: true });
+  requestUpdate();
 })();
