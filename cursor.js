@@ -130,6 +130,7 @@
     var link = target.closest && target.closest("a");
     if (link) {
       if (link.classList.contains("brand")) return "Home";
+      if (link.target === "_blank" || /^https?:\/\//i.test(link.href || "")) return "Visit";
       return "View";
     }
 
