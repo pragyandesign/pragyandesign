@@ -24,21 +24,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 84px;
-  color-scheme: light;
-
-  /* Hide the native browser scrollbar while keeping the page scrollable. */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-html::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 84px; color-scheme: light; }
 
 body {
   background: var(--bg-page);
@@ -46,12 +32,6 @@ body {
   font: 400 16px/1.5 var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
 }
 
 img, svg { display: block; max-width: 100%; }
