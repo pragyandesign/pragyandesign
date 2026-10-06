@@ -91,12 +91,21 @@
   }
 
   document.addEventListener("pragyan-copy-success", function () {
+    cursor.classList.add("is-hovering");
     setLabel("Email Copied");
     window.setTimeout(function () {
       var underCursor = document.elementFromPoint(targetX, targetY);
       setLabel(labelFor(underCursor || document.body));
     }, 1600);
   });
+
+  function isPillTarget(target) {
+    return !!(target && target.closest && target.closest("a, button, .pcard, .ccard, [data-cursor-label]"));
+  }
+
+  function updatePill(target) {
+    cursor.classList.toggle("is-hovering", isPillTarget(target));
+  }
 
   function labelFor(target) {
     var proto = target.closest && target.closest(".pcard");
@@ -164,6 +173,7 @@
     targetX = e.clientX;
     targetY = e.clientY;
     show();
+    updatePill(e.target);
     setLabel(labelFor(e.target));
     if (!raf) raf = window.requestAnimationFrame(render);
   }
@@ -187,6 +197,7 @@
   document.addEventListener("mouseleave", hide);
   document.addEventListener("pointerover", function (e) {
     if (e.pointerType && e.pointerType !== "mouse") return;
+    updatePill(e.target);
     setLabel(labelFor(e.target));
   }, { passive: true });
 
