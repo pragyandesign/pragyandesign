@@ -125,25 +125,20 @@
     if (explicit) return explicit.getAttribute("data-cursor-label") || "Pragyan";
 
     var heroCta = target.closest && target.closest(".hero__cta a");
-    if (heroCta) return heroCta.textContent.replace(/\s+/g, " ").trim();
+    if (heroCta) return "View";
 
     var link = target.closest && target.closest("a");
     if (link) {
       if (link.classList.contains("brand")) return "Home";
-      var text = link.getAttribute("aria-label") || link.textContent;
-      text = text.replace(/\s+/g, " ").trim();
-      if (text && text.length <= 24) return text;
-      return "Open";
+      return "View";
     }
 
     var button = target.closest && target.closest("button");
     if (button) {
-      var bt = button.getAttribute("aria-label") || button.textContent;
-      bt = bt.replace(/\s+/g, " ").trim();
-      return bt && bt.length <= 24 ? bt : "Open";
+      return "View";
     }
 
-    return "Pragyan";
+    return "View";
   }
 
   function show() {
