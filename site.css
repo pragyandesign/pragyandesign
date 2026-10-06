@@ -371,7 +371,7 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
     transition: width 260ms cubic-bezier(.22,1,.36,1), opacity 180ms ease, transform 260ms cubic-bezier(.22,1,.36,1), background-color 180ms ease;
   }
 
-  .pragyan-cursor.is-visible .pragyan-cursor__pill {
+  .pragyan-cursor.is-hovering .pragyan-cursor__pill {
     opacity: 1;
     transform: scale(1);
   }
