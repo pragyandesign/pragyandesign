@@ -5,31 +5,41 @@
    ========================================================== */
 
 :root {
-  /* Fonts (chosen): Sora from Google Fonts, Switzer from Fontshare */
+  /* Fonts (chosen): Sora from Google Fonts and Switzer from Fontshare */
   --font-display: "Sora", system-ui, sans-serif;
   --font-body: "Switzer", system-ui, sans-serif;
 
   /* Layout, from the 1200px design frame */
   --frame: 1200px;
   --container: 1090px;
-  --pad: 20px;                       /* side padding when the screen is narrower than the container */
+  --pad: 20px;
 
-  /* DESIGN CHOICES you can flip in one line each ------------------------- */
-  /* Button label colour. Your mockup used white (2.97:1 on orange, fails AA).
-     Bottle green passes (4.78:1). To restore your mockup: #FFFFFF */
   --btn-label: var(--text-on-action);
-  /* Secondary button + card outline colour. Mockup used orange (2.52:1 on eggshell).
-     To restore your mockup: var(--action-primary) */
   --btn-secondary: var(--text-primary);
-  /* ------------------------------------------------------------------------ */
 
-  --ink-black: #000000;              /* H1 and section titles, as specified */
-  --on-dark-secondary: #A49C94;      /* sub text on bottle green (5.24:1) */
+  --ink-black: #000000;
+  --on-dark-secondary: #A49C94;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; color-scheme: light; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  color-scheme: light;
+
+  /* Hide the native browser scrollbar while keeping the page scrollable. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 body {
   background: var(--bg-page);
   color: var(--text-primary);
@@ -37,6 +47,13 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 ul { list-style: none; padding: 0; }
@@ -48,7 +65,6 @@ ul { list-style: none; padding: 0; }
 }
 .skip:focus { top: 12px; }
 
-/* ---------- Button (universal): 42px tall, 14px Sora semibold, 15px side padding ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   height: 42px; padding: 0 15px;
@@ -68,7 +84,6 @@ ul { list-style: none; padding: 0; }
 .btn--secondary:hover { background: var(--btn-secondary); color: var(--bg-page); }
 .btn--secondary:active { transform: translateY(1px); }
 
-/* ---------- Nav ---------- */
 .nav { position: sticky; top: 0; z-index: 50; background: var(--bg-page); }
 .nav__in {
   max-width: var(--frame); margin: 0 auto; padding: 14px 13px;
@@ -84,7 +99,6 @@ ul { list-style: none; padding: 0; }
 .nav__llm-icon { width: 20px; height: 20px; flex: none; display: block; }
 .nav__llm span { display: inline-block; font: 700 14px/1 var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; color: rgb(0 50 35); white-space: nowrap; }
 
-/* ---------- Hero ---------- */
 .hero {
   max-width: calc(var(--container) + var(--pad) * 2); margin: 0 auto; padding: 60px var(--pad) 0;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 408px);
@@ -109,14 +123,12 @@ ul { list-style: none; padding: 0; }
   overflow: hidden; background: var(--bg-sunken);
 }
 .portrait img, .portrait canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.portrait img { object-fit: cover; object-position: 50% 25%; }   /* fallback if the effect can't run */
+.portrait img { object-fit: cover; object-position: 50% 25%; }
 
-/* ---------- Sections ---------- */
 .section { max-width: calc(var(--container) + var(--pad) * 2); margin: 0 auto; padding: 100px var(--pad) 0; }
 .section__title { font: 600 clamp(1.5rem, 4vw, 32px)/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black); }
 .section__title--bold { font-weight: 700; }
 
-/* ---------- Live prototype cards: 530 x 355, padding 10 10 15 10, radius 14 ---------- */
 .pgrid {
   margin-top: 40px; display: grid; gap: 30px; justify-content: space-between;
   grid-template-columns: repeat(2, minmax(0, 530px));
@@ -140,7 +152,6 @@ ul { list-style: none; padding: 0; }
   .pcard:hover .pcard__media img, .pcard:hover .pcard__media video, .pcard:hover .pcard__go svg { transform: none; }
 }
 
-/* The "Live" tab that cuts into the image's bottom-left corner */
 .live {
   position: absolute; left: 0; bottom: 0; z-index: 1;
   display: inline-flex; align-items: center; gap: 10px;
@@ -148,7 +159,7 @@ ul { list-style: none; padding: 0; }
   border-top-right-radius: 14px;
   font: 600 18px/24px var(--font-body); color: var(--text-inverse);
 }
-.live::after {   /* inverse corner so the tab flows into the image */
+.live::after {
   content: ""; position: absolute; right: -14px; bottom: 0; width: 14px; height: 14px;
   background: radial-gradient(circle at 100% 0, transparent 13.5px, var(--bg-inverse) 14px);
 }
@@ -172,20 +183,19 @@ ul { list-style: none; padding: 0; }
   transition: background-color var(--dur-base) var(--ease-standard), color var(--dur-base) var(--ease-standard);
 }
 .pcard__go svg { width: 18px; height: 18px; stroke-width: 3; }
-.pcard__go::after { content: ""; position: absolute; inset: 0; border-radius: 14px; }   /* whole card is clickable */
+.pcard__go::after { content: ""; position: absolute; inset: 0; border-radius: 14px; }
 .pcard:hover .pcard__go { background: var(--action-primary); color: var(--text-on-action); }
 .pcard :focus-visible { outline-color: var(--salad-400); }
 
-/* ---------- Case studies ---------- */
 .timeline { position: relative; margin-top: 40px; }
-.timeline::before {   /* the vertical line the dots ride on */
+.timeline::before {
   content: ""; position: absolute; left: 7px; top: 24px; bottom: 0; width: 2px; border-radius: 2px;
   background: color-mix(in srgb, var(--salad-400) 70%, transparent);
 }
 .case { display: grid; grid-template-columns: 169px minmax(0, 891px); margin-bottom: 40px; }
 .case:last-child { margin-bottom: 0; }
 .case__year {
-  position: sticky; top: 96px; align-self: start;   /* scrolls with the page, then parks until its card ends */
+  position: sticky; top: 96px; align-self: start;
   display: flex; align-items: center; gap: 14px; padding-top: 6px;
   font: 700 32px/1.2 var(--font-display); color: var(--ink-black);
 }
@@ -220,10 +230,9 @@ ul { list-style: none; padding: 0; }
   font: 500 12px/1 var(--font-body); white-space: nowrap;
 }
 .ccard .btn { margin-top: 20px; width: 100%; max-width: 326px; }
-.ccard .btn::after { content: ""; position: absolute; inset: 0; border-radius: 24px; }   /* whole card is clickable */
+.ccard .btn::after { content: ""; position: absolute; inset: 0; border-radius: 24px; }
 .ccard .btn { position: static; }
 
-/* Placeholder thumbnails for projects whose artwork isn't supplied yet */
 .ph {
   position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 6px; text-align: center;
   font: 700 28px/1.1 var(--font-display); letter-spacing: -0.01em; padding: 16px;
@@ -239,7 +248,6 @@ ul { list-style: none; padding: 0; }
   .ccard .btn { max-width: none; }
 }
 
-/* ---------- Footer: 1058 x 310, radius 24, padding 35 / 49 ---------- */
 .footer-wrap { padding: 100px var(--pad) 48px; }
 .footer {
   max-width: 1058px; min-height: 310px; margin: 0 auto; padding: 35px 49px;
@@ -256,9 +264,6 @@ ul { list-style: none; padding: 0; }
 .credit { display: inline-flex; align-items: center; gap: 6px; }
 .claude-mark { vertical-align: middle; flex: none; }
 
-/* Keep the navigation fixed and visible; animate only the page content.
-   Fixed selector: footer lives inside .footer-wrap, not as a direct child of body,
-   so "body > footer" never matched anything — swapped to .footer-wrap. */
 html.page-exit main,
 html.page-exit .footer-wrap { animation: page-fade-out 160ms ease both; }
 html.page-enter main,
@@ -269,7 +274,6 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; padding-top: 32px; gap: 32px; }
   .portrait { justify-self: center; margin-right: 0; max-width: 360px; }
@@ -287,7 +291,6 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   :root { --pad: 24px; }
   .nav__in { padding: 10px 24px; }
   .brand img { height: 32px; }
-  /* No mobile menu is designed yet, so links wrap to a second row instead of disappearing */
   .nav__in { flex-wrap: wrap; row-gap: 4px; }
   .nav__links { order: 3; flex-basis: 100%; justify-content: flex-start; gap: 22px; }
   .pcard { min-height: 0; }
@@ -304,12 +307,6 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   html.page-enter main, html.page-enter .footer-wrap { animation: none !important; }
 }
 
-
-/* ==========================================================
-   Pragyan custom cursor
-   Desktop / fine-pointer only. The native pointer stays available
-   for touch devices, text fields and keyboard interaction.
-   ========================================================== */
 @media (hover: hover) and (pointer: fine) {
   body.cursor-enabled,
   body.cursor-enabled a,
@@ -322,90 +319,38 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   body.cursor-enabled [contenteditable="true"] { cursor: text !important; }
 
   .pragyan-cursor {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 2147483647;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-    opacity: 0;
-    transform: translate3d(0,0,0);
-    will-change: transform, opacity;
+    position: fixed; left: 0; top: 0; z-index: 2147483647;
+    width: 0; height: 0; pointer-events: none; opacity: 0;
+    transform: translate3d(0,0,0); will-change: transform, opacity;
     transition: opacity 180ms ease;
   }
-
   .pragyan-cursor.is-visible { opacity: 1; }
-
   .pragyan-cursor__arrow {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 48px !important;
-    height: 52px !important;
-    max-width: none !important;
-    max-height: none !important;
-    display: block !important;
-    overflow: visible !important;
+    position: absolute !important; left: 0 !important; top: 0 !important;
+    width: 48px !important; height: 52px !important;
+    max-width: none !important; max-height: none !important;
+    display: block !important; overflow: visible !important;
     transform-origin: 2px 2px;
     filter: drop-shadow(0 2px 2px rgb(0 0 0 / .18));
     transition: transform 180ms cubic-bezier(.22,1,.36,1), filter 180ms ease;
   }
-
-  .pragyan-cursor__arrow path {
-    vector-effect: non-scaling-stroke;
-  }
-
+  .pragyan-cursor__arrow path { vector-effect: non-scaling-stroke; }
   .pragyan-cursor__pill {
-    position: absolute;
-    left: 42px;
-    top: 44px;
-    min-width: 104px;
-    height: 56px;
-    padding: 0 22px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    background: #0099FF;
-    color: #FFFFFF;
-    font: 600 18px/1 var(--font-display);
-    letter-spacing: -0.02em;
+    position: absolute; left: 42px; top: 44px;
+    min-width: 104px; height: 56px; padding: 0 22px;
+    border-radius: 999px; display: inline-flex; align-items: center; justify-content: center;
+    white-space: nowrap; background: #0099FF; color: #FFFFFF;
+    font: 600 18px/1 var(--font-display); letter-spacing: -0.02em;
     box-shadow: 0 8px 22px rgb(0 50 35 / .14);
-    transform-origin: left center;
-    transform: scale(.96);
-    opacity: 0;
+    transform-origin: left center; transform: scale(.96); opacity: 0;
     transition: width 260ms cubic-bezier(.22,1,.36,1), opacity 180ms ease, transform 260ms cubic-bezier(.22,1,.36,1), background-color 180ms ease;
   }
-
-  .pragyan-cursor.is-hovering .pragyan-cursor__pill {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .pragyan-cursor__label {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 120ms ease, transform 180ms cubic-bezier(.22,1,.36,1);
-  }
-
-  .pragyan-cursor.is-label-changing .pragyan-cursor__label {
-    opacity: 0;
-    transform: translateY(3px);
-  }
-
-  .pragyan-cursor.is-down .pragyan-cursor__arrow {
-    transform: scale(.88) rotate(-2deg);
-    filter: drop-shadow(0 1px 1px rgb(0 0 0 / .14));
-  }
-
+  .pragyan-cursor.is-hovering .pragyan-cursor__pill { opacity: 1; transform: scale(1); }
+  .pragyan-cursor__label { display: block; opacity: 1; transform: translateY(0); transition: opacity 120ms ease, transform 180ms cubic-bezier(.22,1,.36,1); }
+  .pragyan-cursor.is-label-changing .pragyan-cursor__label { opacity: 0; transform: translateY(3px); }
+  .pragyan-cursor.is-down .pragyan-cursor__arrow { transform: scale(.88) rotate(-2deg); filter: drop-shadow(0 1px 1px rgb(0 0 0 / .14)); }
   .pragyan-cursor.is-down .pragyan-cursor__pill { transform: scale(.95); }
-
-  @media (max-width: 700px) {
-    .pragyan-cursor { display: none !important; }
-  }
+  @media (max-width: 700px) { .pragyan-cursor { display: none !important; } }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -415,18 +360,12 @@ html.page-enter .footer-wrap { animation: page-rise-in 420ms cubic-bezier(0.22, 
   .pragyan-cursor__label { transition: none !important; }
 }
 
-
-/* Homepage motion */
-/* Keep project cards visually unchanged; only reveal homepage sections on entry. */
 .home-reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 520ms cubic-bezier(.22, 1, .36, 1), transform 520ms cubic-bezier(.22, 1, .36, 1);
 }
-.home-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.home-reveal.is-visible { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) {
   .home-reveal { opacity: 1; transform: none; transition: none; }
 }
