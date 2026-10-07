@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aperture — case study | Pragyan</title>
+<meta name="description" content="A generic, reusable case-study template: cover, metadata, context, artifacts, key decisions, impact and reflection — built to read fast and still show depth.">
+<meta name="theme-color" content="#F5EBE1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="case-study.css">
+</head>
+<!--
+  HOW TO REUSE THIS TEMPLATE FOR A REAL PROJECT
+  1. Duplicate this file, rename it to the project slug (e.g. decocoa.html).
+  2. Search for "Aperture" and the bracketed [PLACEHOLDER] copy and replace with the real project.
+  3. Every dashed "swap" tile in Final Artifacts is a stand-in — drop a real screenshot/export
+     into that spot and delete the dashed-tile markup (ds-swap).
+  4. Keep the section order. It isn't decorative: Cover and Meta Data are what a 30-second skim
+     reads; Context, Artifacts and Key Moments are what a serious reviewer reads next; Impact and
+     Reflections are what separates "finished a project" from "can think about a project."
+  5. Do not invent a number in Impact. Either it's real (label "Actual") or it's a placeholder
+     you flag honestly (label "Placeholder, not measured"). A hiring manager who catches one
+     invented metric discounts every other claim on the page.
+  6. This page is intentionally more animated than the ClearFleet/Decocoa template in this same
+     folder — that one is deliberately restrained because it's read, not performed. This one
+     exists for cases where the project itself (or the brief) calls for more visual presence.
+     Motion here still never gets ahead of content: everything degrades to a fully static,
+     fully readable page under prefers-reduced-motion or with JS off.
+-->
+<body class="cs2" data-theme="light">
+<a class="skip" href="#main">Skip to content</a>
+<div class="ds-progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav__in">
+    <a class="brand" href="index.html" aria-label="Pragyan Design, home"><img src="logo.svg" alt="Pragyan Design" width="246" height="40"></a>
+    <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="index.html#prototypes">Prototypes</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#credentials">Credentials</a>
+    </nav>
+    <a class="btn btn--primary" href="index.html#contact">Contact</a>
+    <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line class="l1" x1="4" y1="7" x2="20" y2="7"/>
+        <line class="l2" x1="4" y1="12" x2="20" y2="12"/>
+        <line class="l3" x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
+  </div>
+</header>
+<script src="nav.js"></script>
+
+<nav class="ds-jump" aria-label="Jump to section">
+  <div class="ds-jump__in">
+    <a href="#context">Context</a>
+    <a href="#artifacts">Artifacts</a>
+    <a href="#moments">Key moments</a>
+    <a href="#impact">Impact</a>
+    <a href="#reflections">Reflections</a>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============ 1. PROJECT COVER ============ -->
+  <section class="ds-cover">
+    <div class="ds-cover__bg" aria-hidden="true">
+      <span class="ds-orb ds-orb--1"></span>
+      <span class="ds-orb ds-orb--2"></span>
+      <span class="ds-orb ds-orb--3"></span>
+      <span class="ds-grain"></span>
+    </div>
+    <div class="ds-wrap ds-cover__in">
+      <a class="ds-back" href="index.html#work">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        All case studies
+      </a>
+      <span class="ds-kicker" data-reveal>Product design · [PLACEHOLDER: category]</span>
+      <h1 class="ds-title" data-split>Aperture</h1>
+      <p class="ds-tagline" data-reveal>A booking system that let freelance photographers hold a client's deposit the moment a shoot is confirmed, instead of chasing it for weeks after.</p>
+      <div class="ds-cover__scroll" data-reveal>
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </div>
+    </div>
+    <figure class="ds-cover__shot" data-tilt data-reveal>
+      <img src="clearfleet.webp" alt="[PLACEHOLDER: hero product shot — swap for the real final screen before publishing]">
+    </figure>
+  </section>
+
+  <!-- ============ 2. META DATA ============ -->
+  <section class="ds-meta ds-wrap">
+    <dl class="ds-meta__grid" data-reveal-group>
+      <div data-reveal><dt>Role</dt><dd>Solo product designer, end to end</dd></div>
+      <div data-reveal><dt>Timeline</dt><dd><b class="ds-count" data-count="7">0</b> weeks, prototype to usability test</dd></div>
+      <div data-reveal><dt>Team</dt><dd>1 designer (me) + 1 contract engineer</dd></div>
+      <div data-reveal><dt>Platform</dt><dd>Responsive web, mobile-first</dd></div>
+      <div data-reveal><dt>Tools</dt><dd>Figma, Figma prototyping, usability-tested with 6 freelancers</dd></div>
+      <div data-reveal><dt>My focus</dt><dd>Flows, information architecture, the trust &amp; payment moment</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ 3. PROJECT CONTEXT ============ -->
+  <section class="ds-section ds-wrap" id="context">
+    <span class="ds-eyebrow" data-reveal>Project context</span>
+    <h2 class="ds-h2" data-reveal>Photographers were doing the invoicing a product should have done for them</h2>
+    <div class="ds-context" data-reveal>
+      <p class="ds-lede">
+        [PLACEHOLDER narrative] Freelance photographers using Aperture to manage bookings had no way to collect a deposit at the point a client confirmed a shoot. Every booking turned into a second, manual job: drafting an invoice, sending a payment link, following up when it went unpaid, and rescheduling around clients who never fully committed. The loss wasn't just time — unconfirmed bookings held calendar slots that a paying client could have taken.
+      </p>
+      <div class="ds-stat-block">
+        <b class="ds-count" data-count="38" data-suffix="%">0%</b>
+        <span>[PLACEHOLDER figure] of bookings in the pilot group went unpaid or were cancelled after the slot was already held.</span>
+      </div>
+    </div>
+    <div class="ds-chips" data-reveal>
+      <span class="ds-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>No in-house payments team — had to work within one existing processor's API</span>
+      <span class="ds-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Seven-week build, one designer, no dedicated researcher</span>
+      <span class="ds-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Users are self-employed, not technical — the product is the only support they get</span>
+    </div>
+  </section>
+
+  <!-- ============ 4. FINAL ARTIFACTS ============ -->
+  <section class="ds-section ds-wrap" id="artifacts">
+    <span class="ds-eyebrow" data-reveal>Final artifacts</span>
+    <h2 class="ds-h2" data-reveal>What shipped, not just what was explored</h2>
+    <p class="ds-lede" data-reveal>One flow carries the project; the rest of the system supported it. The stage below loops on its own — nothing to click.</p>
+
+    <div class="ds-stage" data-reveal>
+      <div class="ds-stage__frames">
+        <figure class="ds-stage__frame is-active">
+          <img src="clearfleet.webp" alt="[PLACEHOLDER] Booking confirmation screen, deposit requested inline">
+          <figcaption>Booking confirmed → deposit requested in the same screen, not a follow-up email</figcaption>
+        </figure>
+        <figure class="ds-stage__frame">
+          <img src="clearfleet.webp" alt="[PLACEHOLDER] Payment status view for the photographer">
+          <figcaption>Photographer's view: every booking shows paid / pending / at-risk at a glance</figcaption>
+        </figure>
+        <figure class="ds-stage__frame">
+          <img src="clearfleet.webp" alt="[PLACEHOLDER] Client-facing payment link screen">
+          <figcaption>Client side: one link, three fields, no account required to pay a deposit</figcaption>
+        </figure>
+      </div>
+      <div class="ds-stage__dots" role="tablist" aria-label="Final artifact frames"></div>
+    </div>
+
+    <div class="ds-grid" data-reveal-group>
+      <div class="ds-swap" data-reveal><div class="ds-swap__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 13l2.5 2.5L16 10"/></svg></div><span>Swap: empty-state &amp; error screens</span></div>
+      <div class="ds-swap" data-reveal><div class="ds-swap__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><span>Swap: component set / mini design system</span></div>
+      <div class="ds-swap" data-reveal><div class="ds-swap__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V7a2 2 0 0 1 2-2h7l5 5v9"/><path d="M13 5v5h5"/></svg></div><span>Swap: prototype link / recorded walkthrough</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 5. KEY DESIGN MOMENTS ============ -->
+  <section class="ds-section ds-wrap" id="moments">
+    <span class="ds-eyebrow" data-reveal>Key design moments</span>
+    <h2 class="ds-h2" data-reveal>Three calls, and what I didn't pick</h2>
+    <p class="ds-lede" data-reveal>Hiring research keeps landing on the same point: the options you rejected, and why, show more judgement than the one you shipped.</p>
+
+    <div class="ds-stack">
+      <article class="ds-mcard" data-r-stack>
+        <div class="ds-mcard__head">
+          <span class="ds-mcard__no">1</span>
+          <div><h3>When should payment enter the flow?</h3><p class="ds-mcard__q">The old flow asked for payment only after the shoot was completed.</p></div>
+        </div>
+        <div class="ds-options">
+          <div class="ds-option"><span class="ds-option__tag">Rejected</span><strong>Invoice after the shoot</strong><p>Matches how photographers already worked, but kept the exact chasing problem the project was meant to fix.</p></div>
+          <div class="ds-option"><span class="ds-option__tag">Rejected</span><strong>Full payment up front</strong><p>Solved the money problem but tested badly — clients balked at paying in full before meeting the photographer.</p></div>
+          <div class="ds-option is-chosen"><span class="ds-option__tag">Shipped</span><strong>Deposit at confirmation, balance at delivery</strong><p>Asks for commitment at the moment intent is highest — right after the client picks a date.</p></div>
+        </div>
+        <p class="ds-why"><b>Chosen because</b> the deposit only has to be large enough to make walking away costly, not large enough to fund the shoot — that reframing is what got it past client objections in testing.</p>
+      </article>
+
+      <article class="ds-mcard" data-r-stack>
+        <div class="ds-mcard__head">
+          <span class="ds-mcard__no">2</span>
+          <div><h3>What does the photographer see when a client stalls?</h3><p class="ds-mcard__q">Clients who hadn't paid the deposit still held the calendar slot.</p></div>
+        </div>
+        <div class="ds-options">
+          <div class="ds-option"><span class="ds-option__tag">Rejected</span><strong>Silent auto-cancel after 48 hours</strong><p>Simple to build, but removed the photographer's judgement entirely — some stalls are a client on holiday, not a lost booking.</p></div>
+          <div class="ds-option is-chosen"><span class="ds-option__tag">Shipped</span><strong>"At risk" status + one-tap nudge, auto-release at 5 days</strong><p>Puts the decision back with the photographer first, with a safety net if nobody acts.</p></div>
+        </div>
+        <p class="ds-why"><b>Chosen because</b> the person who knows the client should keep the authority to decide — the system's job is to surface the risk early, not to act on it alone.</p>
+      </article>
+
+      <article class="ds-mcard" data-r-stack>
+        <div class="ds-mcard__head">
+          <span class="ds-mcard__no">3</span>
+          <div><h3>How much payment infrastructure to build for v1?</h3><p class="ds-mcard__q">Refunds, partial refunds and disputes are all real cases.</p></div>
+        </div>
+        <div class="ds-options">
+          <div class="ds-option"><span class="ds-option__tag">Rejected</span><strong>Build the full refund/dispute system</strong><p>More complete, but would have taken the whole seven weeks before a single real booking could be tested.</p></div>
+          <div class="ds-option is-chosen"><span class="ds-option__tag">Shipped</span><strong>Deposit flow only, refunds handled manually by the processor's dashboard</strong><p>A narrower, testable slice — the core trust mechanism, not the whole payments surface.</p></div>
+        </div>
+        <p class="ds-why"><b>Chosen because</b> a working narrow flow in front of real photographers taught more in week seven than a wider, untested one would have.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 6. IMPACT ============ -->
+  <section class="ds-section ds-wrap" id="impact">
+    <span class="ds-eyebrow" data-reveal>Impact</span>
+    <h2 class="ds-h2" data-reveal>What changed</h2>
+    <p class="ds-lede" data-reveal>This was a usability-tested prototype, not a product with months of live data. Numbers below are labelled honestly — replace the placeholders with real pilot results the moment you have them.</p>
+    <div class="ds-outcomes" data-reveal-group>
+      <div class="ds-out" data-reveal>
+        <b class="ds-count" data-count="92" data-suffix="%">0%</b>
+        <span>[PLACEHOLDER] of test clients paid the deposit within the same session, without leaving the booking confirmation screen</span>
+        <span class="ds-out__src">Placeholder, not measured</span>
+      </div>
+      <div class="ds-out" data-reveal>
+        <b class="ds-count" data-count="6" data-suffix="">0</b>
+        <span>Freelance photographers walked through the full flow in moderated usability sessions</span>
+        <span class="ds-out__src">Actual, from testing</span>
+      </div>
+      <div class="ds-out" data-reveal>
+        <b class="ds-count" data-count="2" data-suffix="">0</b>
+        <span>Of 3 rejected payment-timing approaches were eliminated before the build started, saving the full seven-week budget for the one worth testing</span>
+        <span class="ds-out__src">Actual, from scope</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. REFLECTIONS ============ -->
+  <section class="ds-section ds-wrap" id="reflections">
+    <span class="ds-eyebrow" data-reveal>Reflections</span>
+    <h2 class="ds-h2" data-reveal>What I'd keep, what I'd change, what surprised me</h2>
+    <div class="ds-reflect" data-reveal-group>
+      <div data-reveal><h4>What I'd keep</h4><p>Putting the authority to act on a stalled client back with the photographer instead of automating it away. The one-tap nudge tested better than any clever automatic rule I tried first.</p></div>
+      <div data-reveal><h4>What I'd change</h4><p>[PLACEHOLDER] I'd test the deposit percentage itself, not just the flow around it — I picked 20% by instinct and never validated it against what actually changes a client's behaviour.</p></div>
+      <div data-reveal><h4>What surprised me</h4><p>[PLACEHOLDER] Photographers cared less about collecting the money and more about not being the one who had to ask for it. The design problem was partly emotional, not just operational.</p></div>
+    </div>
+  </section>
+
+  <a class="ds-next ds-wrap" href="clearfleet.html">
+    <div><span class="ds-next__label">Next case study</span><div class="ds-next__title">ClearFleet</div></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+  </a>
+
+</main>
+
+<div class="footer-wrap">
+  <footer class="footer">
+    <nav aria-labelledby="fnav"><h2 id="fnav">Navigation</h2><ul><li><a href="index.html#work">Work</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+    <nav aria-labelledby="flinks"><h2 id="flinks">Links</h2><ul><li><a href="#">Resume</a></li><li><a href="#">LinkedIn</a></li></ul></nav>
+  </footer>
+  <p class="copyright">2026 Pragyan Chaudhary. All rights reserved</p>
+</div>
+
+<script src="case-study.js"></script>
+</body>
+</html>
