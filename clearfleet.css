@@ -1,86 +1,148 @@
 /* ==========================================================
-   ClearFleet case study — page-specific styles.
-   Built on top of tokens.css, site.css and the shared case-study.css
-   (ds-* base classes, used unmodified). This page is deliberately
-   restrained — no orbs/grain/tilt from the animated template — since
-   it's meant to be read, not performed.
+   ClearFleet case study — built directly from the supplied Figma
+   export (Frame_357). No shared case-study template is used; every
+   class here is specific to this page.
    ========================================================== */
 
-/* ---------- Cover: override the dark, full-viewport ds-cover default
-   with a plain, light, compact cover that matches the rest of the site ---------- */
-.cf-cover {
-  min-height: auto; display: block; padding: 88px 0 0; overflow: visible;
-}
-.cf-cover__in { color: var(--text-primary); position: static; }
-.cf-back { color: var(--text-secondary); }
-.cf-back:hover { color: var(--text-primary); }
-.cf-kicker { color: var(--action-primary); }
-.cf-title { color: var(--text-primary); font-weight: 800; }
-.cf-tagline { color: var(--text-secondary); }
+.cfp-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-.cf-hero { margin: 40px auto 0; max-width: var(--ds-maxw); border-radius: var(--ds-radius); overflow: hidden; box-shadow: var(--shadow-lg); padding: 0 20px; }
-.cf-hero img { width: 100%; display: block; border-radius: var(--ds-radius); }
+.cfp-section { padding: 64px 0; border-top: 1.5px solid var(--border-subtle); }
+.cfp-section:first-of-type { border-top: none; }
 
-/* ---------- Findings / cut-number callouts (Context + Impact sections) ---------- */
-.cf-findings { margin-top: 20px; display: grid; gap: 10px; list-style: none; padding: 0; }
-.cf-findings li { padding: 14px 16px; background: var(--bg-raised); border-radius: 14px; font: 500 14px/1.55 var(--font-body); color: var(--text-secondary); box-shadow: var(--shadow-sm); }
-.cf-findings li b { color: var(--text-primary); }
+.cfp-grid { display: grid; grid-template-columns: 300px 1fr; gap: 56px; }
+.cfp-grid h2 { font: 700 2rem/1.15 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; }
 
-.cf-cut { margin-top: 20px; padding: 16px 18px; border-left: 3px solid var(--action-primary); background: var(--bg-raised); border-radius: 0 14px 14px 0; font: 500 14px/1.6 var(--font-body); color: var(--text-secondary); }
-.cf-cut b { color: var(--text-primary); }
+.cfp-body p { color: var(--text-primary); font: 500 17px/1.6 var(--font-body); max-width: 72ch; }
+.cfp-body p + p { margin-top: 24px; }
+.cfp-body b { font-weight: 700; color: var(--action-primary); }
 
-.cf-sub { margin-top: 36px; font: 700 1.05rem/1.3 var(--font-display); color: var(--text-primary); }
-.cf-sub:first-of-type { margin-top: 20px; }
+/* ---------- Cover ---------- */
+.cfp-cover { padding: 48px 0 0; }
+.cfp-back { display: inline-flex; align-items: center; gap: 8px; font: 600 15px/1 var(--font-body); color: var(--text-primary); text-decoration: none; }
+.cfp-back svg { width: 16px; height: 16px; }
+.cfp-back:hover { opacity: .75; }
 
-/* ---------- Final artifacts: sticky text + internally-scrolling gallery ----------
-   The text column is position:sticky so it tracks the user's scroll while the
-   gallery beside it is in view; the gallery itself is a fixed-height, scrollable
-   panel with overscroll-behavior:contain, so scrolling it never also scrolls the
-   page — the page only resumes scrolling once the pointer leaves the panel. */
-.cf-artifact-row {
-  display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 44px; margin-top: 48px; align-items: start;
-}
-.cf-artifact-row + .cf-artifact-row { margin-top: 64px; padding-top: 64px; border-top: 1.5px solid var(--border-subtle); }
+.cfp-cover-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; margin-top: 32px; }
+.cfp-title { font: 800 clamp(2.6rem, 6vw, 4.4rem)/1 var(--font-display); color: var(--text-primary); letter-spacing: -0.02em; }
+.cfp-tagline { margin-top: 22px; font: 700 clamp(1.2rem, 2.3vw, 1.6rem)/1.35 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
+.cfp-tagline b { color: var(--action-primary); }
+.cfp-sub { margin-top: 18px; font: 500 16px/1.6 var(--font-body); color: var(--text-primary); max-width: 46ch; }
+.cfp-scroll { margin-top: 36px; display: inline-flex; align-items: center; gap: 9px; font: 600 14px/1 var(--font-body); color: var(--text-primary); }
+.cfp-scroll svg { width: 16px; height: 16px; }
 
-.cf-artifact-text { position: sticky; top: 100px; }
-.cf-artifact-text h3 { font: 700 1.5rem/1.25 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; }
-.cf-artifact-text > p { margin-top: 10px; max-width: 40ch; color: var(--text-secondary); font: 500 15px/1.6 var(--font-body); }
+.cfp-hero { border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 3.3; position: relative; isolation: isolate;
+  background: radial-gradient(120% 140% at 15% 15%, #2B2A86 0%, #4A3FC4 48%, #C9C4EA 100%); display: flex; align-items: center; justify-content: center; padding: 10%; }
+.cfp-hero::after { content: ""; position: absolute; inset: 0; z-index: 1; opacity: .25; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.cfp-hero img { position: relative; z-index: 2; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 10px; box-shadow: 0 24px 60px rgb(0 0 0 / .4); display: block; }
 
-.cf-screen-list { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: cf-screen; }
-.cf-screen-list li { counter-increment: cf-screen; display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--border-subtle); }
-.cf-screen-list li:first-child { border-top: none; padding-top: 0; }
-.cf-screen-list li::before {
-  content: counter(cf-screen); flex: none; width: 24px; height: 24px; border-radius: 50%;
-  background: var(--bg-sunken); color: var(--text-secondary); display: flex; align-items: center; justify-content: center;
-  font: 600 12px/1 var(--font-body); margin-top: 2px;
-}
-.cf-screen-list b { display: block; font: 600 14px/1.4 var(--font-display); color: var(--text-primary); }
-.cf-screen-list span { display: block; margin-top: 3px; font: 500 13px/1.5 var(--font-body); color: var(--text-secondary); }
+/* ---------- Meta row ---------- */
+.cfp-meta { margin-top: 56px; padding-top: 40px; border-top: 1.5px solid var(--border-subtle);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.cfp-meta dt { font: 700 12px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); margin-bottom: 10px; }
+.cfp-meta dd { margin: 0; font: 600 17px/1.4 var(--font-display); color: var(--text-primary); }
 
-.cf-scroll {
-  max-height: 640px; overflow-y: auto; overscroll-behavior: contain; scroll-snap-type: y proximity;
-  display: grid; gap: 20px; padding: 20px;
-  background: var(--bg-raised); border-radius: 20px; box-shadow: var(--shadow-sm);
-}
-.cf-scroll:focus-visible { outline: 2px solid var(--action-primary); outline-offset: 2px; }
-.cf-scroll::-webkit-scrollbar { width: 8px; }
-.cf-scroll::-webkit-scrollbar-track { background: transparent; }
-.cf-scroll::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 99px; }
-.cf-scroll figure { margin: 0; scroll-snap-align: start; }
-.cf-scroll img { width: 100%; display: block; border-radius: 12px; box-shadow: 0 6px 18px rgb(0 0 0 / .1); }
-.cf-scroll figcaption { margin-top: 10px; font: 600 13px/1.4 var(--font-body); color: var(--text-primary); }
+/* ---------- Quote box ---------- */
+.cfp-quote { margin-top: 24px; border: 1.5px solid var(--action-primary); border-radius: 18px; padding: 28px 32px; background: var(--bg-raised); max-width: 72ch; }
+.cfp-quote p { margin: 0; }
+.cfp-quote p + p { margin-top: 16px; }
 
-.cf-scroll--phones { grid-template-columns: 1fr; }
-.cf-scroll--phones figure { display: flex; flex-direction: column; align-items: center; }
-.cf-scroll--phones img { max-width: 280px; }
+/* ---------- Phases table ---------- */
+.cfp-phases-label { margin-top: 36px; font: 700 13px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); }
+.cfp-phases { margin-top: 16px; border: 1.5px solid var(--border-subtle); border-radius: 16px; overflow: hidden;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--bg-raised); }
+.cfp-phases div { padding: 20px 22px; border-right: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); min-height: 84px; }
+.cfp-phases div:nth-child(3n) { border-right: none; }
+.cfp-phases div:nth-last-child(-n+3) { border-bottom: none; }
+.cfp-phases .n { display: block; color: var(--action-primary); font: 700 13px/1 var(--font-body); margin-bottom: 8px; }
+.cfp-phases strong { font: 600 15px/1.4 var(--font-display); color: var(--text-primary); }
 
+/* ---------- Final artifacts ---------- */
+.cfp-sub-h3 { margin-top: 48px; font: 700 1.6rem/1.2 var(--font-display); color: var(--text-primary); }
+.cfp-sub-h3 + p { margin-top: 12px; }
+
+.cfp-browser { margin-top: 28px; background: var(--sand-200); border-radius: 24px; padding: 14px; }
+.cfp-browser__bar { display: flex; align-items: center; gap: 10px; padding: 6px 10px 14px; }
+.cfp-browser__dots { display: flex; gap: 6px; flex: none; }
+.cfp-browser__dots span { width: 10px; height: 10px; border-radius: 50%; display: block; }
+.cfp-browser__dots span:nth-child(1) { background: #ED6A5E; }
+.cfp-browser__dots span:nth-child(2) { background: #F4BF4F; }
+.cfp-browser__dots span:nth-child(3) { background: #61C454; }
+.cfp-browser__url { flex: 1; display: flex; justify-content: center; }
+.cfp-browser__url span { background: var(--bg-raised); border-radius: 999px; padding: 6px 20px; font: 500 12px/1 var(--font-body); color: var(--text-secondary); }
+.cfp-browser__win { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgb(0 0 0 / .12); }
+.cfp-browser__win img { width: 100%; display: block; }
+
+.cfp-screen-cap { margin-top: 18px; }
+.cfp-screen-cap h4 { font: 700 1.25rem/1.3 var(--font-display); color: var(--text-primary); }
+.cfp-screen-cap p { margin-top: 4px; color: var(--text-secondary); font: 500 15px/1.5 var(--font-body); }
+
+.cfp-phones { margin-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 32px; }
+.cfp-phone-block:last-child:nth-child(odd) { grid-column: 1; }
+.cfp-phone { background: var(--sand-200); border-radius: 40px; padding: 14px; }
+.cfp-phone img { width: 100%; display: block; border-radius: 28px; }
+.cfp-phone__bar { height: 5px; width: 110px; background: var(--text-primary); border-radius: 99px; margin: 12px auto 0; opacity: .85; }
+.cfp-phone-cap h4 { margin-top: 16px; font: 700 1.1rem/1.3 var(--font-display); color: var(--text-primary); }
+.cfp-phone-cap p { margin-top: 4px; color: var(--text-secondary); font: 500 14px/1.5 var(--font-body); }
+
+/* ---------- "One flow, fully alive" card ---------- */
+.cfp-flow { margin-top: 40px; background: var(--bg-raised); border-radius: 28px; padding: clamp(28px, 4vw, 48px);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; box-shadow: var(--shadow-md, var(--shadow-sm)); }
+.cfp-flow h2 { font: 800 clamp(1.8rem, 3.6vw, 2.3rem)/1.1 var(--font-display); color: var(--text-primary); letter-spacing: -0.015em; }
+.cfp-flow-text p { margin-top: 18px; color: var(--text-secondary); font: 500 15px/1.6 var(--font-body); }
+.cfp-flow-cta { margin-top: 26px; display: inline-flex; align-items: center; gap: 10px; background: var(--action-primary); color: #fff;
+  font: 700 15px/1 var(--font-body); padding: 16px 26px; border-radius: 999px; text-decoration: none; transition: background-color .2s; }
+.cfp-flow-cta:hover { background: var(--action-primary-hover); }
+.cfp-flow-cta svg { width: 16px; height: 16px; }
+.cfp-flow-note { margin-top: 12px; font: 500 13px/1 var(--font-body); color: var(--text-secondary); }
+
+.cfp-steps { display: grid; gap: 14px; align-content: start; }
+.cfp-step { display: flex; gap: 14px; align-items: flex-start; border: 1.5px solid var(--border-subtle); border-radius: 16px; padding: 16px 18px; background: var(--bg-page); }
+.cfp-step__n { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--action-primary); color: #fff; display: flex; align-items: center; justify-content: center; font: 700 13px/1 var(--font-body); }
+.cfp-step p { margin: 0; color: var(--text-primary); font: 600 14px/1.5 var(--font-body); }
+
+/* ---------- Key design moments ---------- */
+.cfp-moment { margin-top: 44px; }
+.cfp-moment:first-of-type { margin-top: 28px; }
+.cfp-moment__tag { color: var(--action-primary); font: 700 13px/1 var(--font-body); text-transform: uppercase; letter-spacing: .04em; }
+.cfp-moment h3 { margin-top: 10px; font: 700 1.5rem/1.25 var(--font-display); color: var(--text-primary); }
+.cfp-moment p { margin-top: 16px; }
+
+.cfp-pillrow { margin-top: 22px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font: 700 12px/1 var(--font-body); letter-spacing: .02em; }
+.cfp-pill { padding: 9px 16px; border-radius: 999px; background: var(--success-bg); color: var(--success-text); text-transform: uppercase; }
+.cfp-pillrow .and { color: var(--text-primary); text-transform: none; font-weight: 600; }
+.cfp-pillrow svg { width: 18px; height: 18px; color: var(--text-primary); }
+.cfp-pillrow .result { color: var(--text-primary); font: 700 15px/1 var(--font-display); text-transform: none; }
+
+.cfp-cards2 { margin-top: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.cfp-card { border-radius: 18px; padding: 22px 24px; border: 1.5px solid; }
+.cfp-card--no { border-color: var(--danger-border); background: var(--bg-raised); }
+.cfp-card--yes { border-color: var(--info-border); background: var(--info-bg); }
+.cfp-card .tag { font: 700 12px/1 var(--font-body); text-transform: uppercase; letter-spacing: .03em; }
+.cfp-card--no .tag { color: var(--danger-text); }
+.cfp-card--yes .tag { color: var(--info-text); }
+.cfp-card p { margin-top: 10px; font: 600 15px/1.5 var(--font-body); color: var(--text-primary); }
+
+/* ---------- Impact ---------- */
+.cfp-targets { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.cfp-target { background: var(--bg-raised); border-radius: 20px; padding: 26px; box-shadow: var(--shadow-sm); }
+.cfp-target .tag { color: var(--action-primary); font: 700 12px/1 var(--font-body); text-transform: uppercase; letter-spacing: .03em; }
+.cfp-target b { display: block; margin-top: 14px; font: 800 clamp(1.9rem, 4vw, 2.5rem)/1 var(--font-display); color: var(--text-primary); }
+.cfp-target span { display: block; margin-top: 10px; color: var(--text-secondary); font: 500 14px/1.4 var(--font-body); }
+
+/* ---------- Responsive ---------- */
 @media (max-width: 860px) {
-  .cf-artifact-row { grid-template-columns: 1fr; gap: 24px; }
-  .cf-artifact-text { position: static; }
-  .cf-scroll { max-height: 72vh; }
+  .cfp-grid { grid-template-columns: 1fr; gap: 20px; }
+  .cfp-cover-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cfp-meta { grid-template-columns: repeat(2, 1fr); }
+  .cfp-phases { grid-template-columns: 1fr; }
+  .cfp-phases div { border-right: none !important; }
+  .cfp-phases div:last-child { border-bottom: none; }
+  .cfp-phones { grid-template-columns: 1fr; max-width: 360px; margin-top: 28px; margin-left: auto; margin-right: auto; }
+  .cfp-flow { grid-template-columns: 1fr; }
+  .cfp-cards2 { grid-template-columns: 1fr; }
+  .cfp-targets { grid-template-columns: 1fr; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .cf-scroll { scroll-behavior: auto; }
+@media (max-width: 560px) {
+  .cfp-meta { grid-template-columns: 1fr 1fr; }
 }
