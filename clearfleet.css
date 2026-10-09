@@ -31,18 +31,18 @@
 .cfp-back svg { width: 16px; height: 16px; }
 .cfp-back:hover { opacity: .75; }
 
-.cfp-cover-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; margin-top: 32px; }
+.cfp-cover-grid { display: grid; grid-template-columns: minmax(0, 1fr) 600px; gap: 56px; align-items: center; margin-top: 32px; }
 .cfp-title { font: 800 clamp(2.6rem, 6vw, 4.4rem)/1 var(--font-display); color: var(--text-primary); letter-spacing: -0.02em; }
 .cfp-tagline { margin-top: 10px; font: 700 clamp(1.2rem, 2.3vw, 1.6rem)/1.35 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
 .cfp-tagline b { color: var(--action-primary); }
 .cfp-sub { margin-top: 15px; font: 500 16px/1.6 var(--font-body); color: var(--text-primary); max-width: 46ch; }
 .cfp-scroll { margin-top: 35px; display: inline-flex; align-items: center; gap: 9px; font: 600 14px/1 var(--font-body); color: var(--text-primary); }
-.cfp-scroll svg { width: 17.6px; height: 17.6px; }
+.cfp-scroll svg { width: 26px; height: 26px; }
 
-.cfp-hero { margin: 0; border-radius: 0; overflow: visible; aspect-ratio: auto; position: relative; isolation: auto;
-  background: transparent; display: block; padding: 0; }
-.cfp-hero::after { content: none; }
-.cfp-hero img { position: static; z-index: auto; max-width: 100%; max-height: none; width: 100%; height: auto; object-fit: contain; border-radius: 0; box-shadow: none; display: block; }
+.cfp-hero { margin: 0; width: 600px; max-width: 100%; border-radius: 12px; overflow: hidden; aspect-ratio: 600 / 337; position: relative;
+  background: none !important; background-image: none !important; display: block; padding: 0; box-shadow: none; }
+.cfp-hero::before, .cfp-hero::after { content: none !important; display: none !important; }
+.cfp-hero img { position: static; z-index: auto; max-width: none; max-height: none; width: 100%; height: 100%; aspect-ratio: 600 / 337; object-fit: cover; border-radius: 12px; box-shadow: none; display: block; background: none !important; background-image: none !important; }
 
 /* ---------- Meta row ---------- */
 .cfp-meta { margin-top: 56px; padding-top: 40px; border-top: 1.5px solid var(--border-subtle);
@@ -142,6 +142,7 @@
 @media (max-width: 860px) {
   .cfp-grid { grid-template-columns: 1fr; gap: 20px; }
   .cfp-cover-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cfp-hero { width: 600px; justify-self: center; }
   .cfp-meta { grid-template-columns: repeat(2, 1fr); }
   .cfp-phases { grid-template-columns: 1fr; }
   .cfp-phases div { border-right: none !important; }
