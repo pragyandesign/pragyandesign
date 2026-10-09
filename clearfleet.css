@@ -30,11 +30,11 @@
 .cfp-back:hover { opacity: .75; }
 
 .cfp-cover-grid { display: grid; grid-template-columns: minmax(0, 1fr) 600px; gap: 56px; align-items: center; margin-top: 32px; }
-.cfp-title { font: 800 clamp(2.6rem, 6vw, 4.4rem)/1 var(--font-display); color: var(--text-primary); letter-spacing: -0.02em; }
-.cfp-tagline { margin-top: 22px; font: 700 clamp(1.2rem, 2.3vw, 1.6rem)/1.35 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
+.cfp-title { font: 800 40px/1 var(--font-display); color: var(--text-primary); letter-spacing: -0.02em; }
+.cfp-tagline { margin-top: 22px; font: 700 22px/1.35 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
 .cfp-tagline b { color: var(--action-primary); }
-.cfp-sub { margin-top: 18px; font: 500 16px/1.6 var(--font-body); color: var(--text-primary); max-width: 46ch; }
-.cfp-scroll { margin-top: 36px; display: inline-flex; align-items: center; gap: 9px; font: 600 14px/1 var(--font-body); color: var(--text-primary); }
+.cfp-sub { margin-top: 18px; font: 500 22px/1.6 var(--font-body); color: var(--text-primary); max-width: 46ch; }
+.cfp-scroll { margin-top: 36px; display: inline-flex; align-items: center; gap: 9px; font: 600 22px/1 var(--font-body); color: var(--text-primary); }
 .cfp-scroll svg { width: 26px; height: 26px; }
 
 .cfp-hero { margin: 0; width: 600px; max-width: 100%; border-radius: 12px; overflow: hidden; aspect-ratio: 600 / 337; position: relative;
