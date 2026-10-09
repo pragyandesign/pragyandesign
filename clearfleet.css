@@ -6,7 +6,7 @@
 
 .cfp-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-.cfp-section { padding: 64px 0; border-top: 1.5px solid var(--border-subtle); }
+.cfp-section { padding: 100px 0; border-top: 1.5px solid var(--border-subtle); }
 .cfp-section:first-of-type { border-top: none; }
 
 .cfp-grid { display: grid; grid-template-columns: 300px 1fr; gap: 56px; }
@@ -26,17 +26,17 @@
 .cfp-body b { font-weight: 700; color: var(--action-primary); }
 
 /* ---------- Cover ---------- */
-.cfp-cover { padding: 48px 0 0; }
+.cfp-cover { padding: 48px 0 100px; }
 .cfp-back { display: inline-flex; align-items: center; gap: 8px; font: 600 15px/1 var(--font-body); color: var(--text-primary); text-decoration: none; }
 .cfp-back svg { width: 16px; height: 16px; }
 .cfp-back:hover { opacity: .75; }
 
 .cfp-cover-grid { display: grid; grid-template-columns: minmax(0, 1fr) 600px; gap: 56px; align-items: center; margin-top: 32px; }
 .cfp-title { font: 800 clamp(2.6rem, 6vw, 4.4rem)/1 var(--font-display); color: var(--text-primary); letter-spacing: -0.02em; }
-.cfp-tagline { margin-top: 10px; font: 700 clamp(1.2rem, 2.3vw, 1.6rem)/1.35 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
+.cfp-tagline { margin-top: 22px; font: 700 clamp(1.2rem, 2.3vw, 1.6rem)/1.35 var(--font-display); color: var(--text-primary); letter-spacing: -0.005em; }
 .cfp-tagline b { color: var(--action-primary); }
-.cfp-sub { margin-top: 15px; font: 500 16px/1.6 var(--font-body); color: var(--text-primary); max-width: 46ch; }
-.cfp-scroll { margin-top: 35px; display: inline-flex; align-items: center; gap: 9px; font: 600 14px/1 var(--font-body); color: var(--text-primary); }
+.cfp-sub { margin-top: 18px; font: 500 16px/1.6 var(--font-body); color: var(--text-primary); max-width: 46ch; }
+.cfp-scroll { margin-top: 36px; display: inline-flex; align-items: center; gap: 9px; font: 600 14px/1 var(--font-body); color: var(--text-primary); }
 .cfp-scroll svg { width: 26px; height: 26px; }
 
 .cfp-hero { margin: 0; width: 600px; max-width: 100%; border-radius: 12px; overflow: hidden; aspect-ratio: 600 / 337; position: relative;
@@ -46,7 +46,7 @@
 
 /* ---------- Meta row ---------- */
 .cfp-meta { margin-top: 56px; padding-top: 40px; border-top: 1.5px solid var(--border-subtle);
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 40px; row-gap: 32px; }
 .cfp-meta dt { font: 700 12px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); margin-bottom: 10px; }
 .cfp-meta dd { margin: 0; font: 600 17px/1.4 var(--font-display); color: var(--text-primary); }
 
