@@ -12,6 +12,15 @@
 .cfp-grid { display: grid; grid-template-columns: 300px 1fr; gap: 56px; }
 .cfp-grid h2 { font: 700 2rem/1.15 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; }
 
+/* Sticky only within the section that owns each marked heading. */
+@media (min-width: 861px) {
+  .cfp-section--sticky-title > .cfp-grid > h2 {
+    position: sticky;
+    top: 112px;
+    align-self: start;
+  }
+}
+
 .cfp-body p { color: var(--text-primary); font: 500 17px/1.6 var(--font-body); max-width: 72ch; }
 .cfp-body p + p { margin-top: 24px; }
 .cfp-body b { font-weight: 700; color: var(--action-primary); }
