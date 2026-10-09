@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClearFleet — case study | Pragyan</title>
+<meta name="description" content="ClearFleet: a dispatcher-first fleet operations platform. How a breakdown-resolution flaw was caught before a single developer saw it, and what shipped because of it.">
+<meta name="theme-color" content="#F5EBE1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="case-study.css">
+<link rel="stylesheet" href="clearfleet.css">
+</head>
+<body data-theme="light">
+<a class="skip" href="#main">Skip to content</a>
+<div class="ds-progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav__in">
+    <a class="brand" href="index.html" aria-label="Pragyan Design, home"><img src="logo.svg" alt="Pragyan Design" width="246" height="40"></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html#prototypes">Prototypes</a>
+      <a href="index.html#work">Work</a>
+      <a href="credentials.html">Credentials</a>
+    </nav>
+    <a class="btn btn--primary" href="mailto:pragyanchaudhary11@gmail.com">Contact</a>
+  </div>
+</header>
+<script src="nav.js"></script>
+
+<nav class="ds-jump" aria-label="Jump to section">
+  <div class="ds-jump__in">
+    <a href="#context">Context</a>
+    <a href="#artifacts">Artifacts</a>
+    <a href="#moments">Key moments</a>
+    <a href="#impact">Impact</a>
+    <a href="#reflections">Reflections</a>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============ 1. COVER ============ -->
+  <section class="ds-cover cf-cover">
+    <div class="ds-wrap ds-cover__in cf-cover__in">
+      <a class="ds-back cf-back" href="index.html#work">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        All case studies
+      </a>
+      <span class="ds-kicker cf-kicker" data-reveal>Enterprise UX · Dispatch operations</span>
+      <h1 class="ds-title cf-title" data-reveal>ClearFleet</h1>
+      <p class="ds-tagline cf-tagline" data-reveal>I found a flaw in my own design that could have hurt someone — and that changed how I design now.</p>
+    </div>
+    <figure class="cf-hero ds-wrap" data-reveal>
+      <img src="clearfleet.webp" width="1600" height="900" alt="ClearFleet dispatcher dashboard: driver list, live map and exception queue">
+    </figure>
+  </section>
+
+  <!-- ============ 2. META DATA ============ -->
+  <section class="ds-meta ds-wrap">
+    <dl class="ds-meta__grid" data-reveal-group>
+      <div data-reveal><dt>Role</dt><dd>Solo product designer — research, IA, UX, visual design, brand identity</dd></div>
+      <div data-reveal><dt>Platforms</dt><dd>Web dashboard (dispatcher) · iOS app (driver)</dd></div>
+      <div data-reveal><dt>Tools</dt><dd>Figma, Claude and Cursor</dd></div>
+      <div data-reveal><dt>Research</dt><dd>Secondary research only — no primary interviews, stated plainly</dd></div>
+      <div data-reveal><dt>Scope</dt><dd>9 screens across dispatcher web and driver mobile, plus a landing page</dd></div>
+      <div data-reveal><dt>The core loop</dt><dd>A stop fails → it becomes an exception → the dispatcher resolves it</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ 3. PROJECT CONTEXT ============ -->
+  <section class="ds-section ds-wrap" id="context">
+    <span class="ds-eyebrow" data-reveal>Project context</span>
+    <h2 class="ds-h2" data-reveal>Dispatchers running a 20–100 vehicle fleet had no way to know what was happening without calling</h2>
+    <p class="ds-lede" data-reveal>Dispatchers default to calling drivers directly — dozens of times a shift — just to stay informed. A single delivery can generate up to 7–8 check calls for status updates alone, cited from logistics industry research, not invented for this page.</p>
+
+    <ul class="cf-findings" data-reveal-group>
+      <li data-reveal><b>Phone calls are a symptom</b> of poor ground visibility, not the root problem — dispatchers call because they have no other way to know fleet status.</li>
+      <li data-reveal><b>Exceptions aren't one bucket.</b> Breakdown, wrong address and delay each need a genuinely different resolution path.</li>
+      <li data-reveal><b>No record, no accountability.</b> Without a log of how an issue was resolved, disputes come down to memory.</li>
+    </ul>
+
+    <div class="cf-cut" data-reveal>
+      <b>A number that was cut, on purpose:</b> an early draft claimed dispatchers make 50–80 calls a shift. It couldn't be re-verified against a real source, so it was removed and replaced with the citable 7–8 check-calls figure above — less dramatic, but defensible.
+    </div>
+
+    <div class="ds-chips" data-reveal>
+      <span class="ds-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>In scope: dispatcher web, driver mobile, and a marketing landing page</span>
+      <span class="ds-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Out of scope on purpose: route optimization, billing, driver onboarding</span>
+      <span class="ds-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Context profiles built from role and environment, not interview-based personas</span>
+    </div>
+  </section>
+
+  <!-- ============ 4. FINAL ARTIFACTS ============ -->
+  <section class="ds-section ds-wrap" id="artifacts">
+    <span class="ds-eyebrow" data-reveal>Final artifacts</span>
+    <h2 class="ds-h2" data-reveal>Nine screens, each earning a specific job</h2>
+    <p class="ds-lede" data-reveal>The dispatcher's whole reason for existing is awareness; the driver's is speed. Scroll a stack to see every screen in it — the notes beside it stay in place.</p>
+
+    <div class="cf-artifact-row" data-reveal>
+      <div class="cf-artifact-text">
+        <h3>Dispatcher web app</h3>
+        <p>Desk-bound, interruption-driven work. Built for scanning a wide screen, not tapping a phone.</p>
+        <ol class="cf-screen-list">
+          <li><div><b>Live Fleet View</b><span>Default home screen — no menu, no landing page. Awareness first.</span></div></li>
+          <li><div><b>Route Assignment</b><span>Every field needed to decide sits on one screen, including an inline zone-mismatch warning.</span></div></li>
+          <li><div><b>Exception Queue</b><span>Every problem lands here, sorted by what needs attention now.</span></div></li>
+          <li><div><b>Driver / Route Detail</b><span>Where a breakdown actually gets worked — route and driver safety, both resolved here.</span></div></li>
+          <li><div><b>Day Summary</b><span>One completion-rate number tells the story first; everything below explains why.</span></div></li>
+        </ol>
+      </div>
+      <div class="cf-scroll" tabindex="0" aria-label="Dispatcher web app screens, scroll to view all five">
+        <figure><img src="screen-live-fleet-view.png" loading="lazy" alt="Live Fleet View — driver list, live map and top exceptions"><figcaption>Live Fleet View</figcaption></figure>
+        <figure><img src="screen-route-assignment.png" loading="lazy" alt="Route Assignment — unassigned stops matched against available drivers"><figcaption>Route Assignment</figcaption></figure>
+        <figure><img src="screen-exception-queue.png" loading="lazy" alt="Exception Queue — active exceptions sorted by severity then deadline"><figcaption>Exception Queue</figcaption></figure>
+        <figure><img src="screen-driver-route-detail.png" loading="lazy" alt="Driver and Route Detail — breakdown report with reassignment and safety confirmation"><figcaption>Driver / Route Detail</figcaption></figure>
+        <figure><img src="screen-day-summary.png" loading="lazy" alt="Day Summary — completion rate, exceptions breakdown and driver performance"><figcaption>Day Summary</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="cf-artifact-row" data-reveal>
+      <div class="cf-artifact-text">
+        <h3>Driver iOS app</h3>
+        <p>Mobile by definition — in the vehicle, walking to doors, often one-handed. One clear next action at a time.</p>
+        <ol class="cf-screen-list">
+          <li><div><b>Today's Route</b><span>Shows only the next stop. Glanced at between stops, not studied.</span></div></li>
+          <li><div><b>Report Breakdown</b><span>Auto-filled location and stop count — reported in three taps.</span></div></li>
+          <li><div><b>Update Stop Outcome</b><span>A two-state toggle. Reason and photo fields appear only once Failed is selected.</span></div></li>
+          <li><div><b>Update Stop Outcome — Failed</b><span>Required reason plus a required photo — no clutter on the success path.</span></div></li>
+          <li><div><b>Delivery Confirmation</b><span>Closes a real interaction gap — the driver finally gets feedback the action registered.</span></div></li>
+        </ol>
+      </div>
+      <div class="cf-scroll cf-scroll--phones" tabindex="0" aria-label="Driver iOS app screens, scroll to view all five">
+        <figure><img src="screen-m-home.png" loading="lazy" alt="Today's Route — next stop, map and Navigate / Mark Arrived buttons"><figcaption>Today's Route</figcaption></figure>
+        <figure><img src="screen-m-report-breakdown.png" loading="lazy" alt="Report Breakdown — reason list, note field and Alert Dispatcher button"><figcaption>Report Breakdown</figcaption></figure>
+        <figure><img src="screen-m-update-outcome.png" loading="lazy" alt="Update Stop Outcome — Delivered or Failed toggle"><figcaption>Update Stop Outcome</figcaption></figure>
+        <figure><img src="screen-m-update-outcome-failed.png" loading="lazy" alt="Update Stop Outcome, Failed state — required reason and photo capture"><figcaption>Update Stop Outcome — Failed</figcaption></figure>
+        <figure><img src="screen-m-delivery-confirmation.png" loading="lazy" alt="Delivery Confirmation — success state after a Delivered submission"><figcaption>Delivery Confirmation</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. KEY DESIGN MOMENTS ============ -->
+  <section class="ds-section ds-wrap" id="moments">
+    <span class="ds-eyebrow" data-reveal>Key design moments</span>
+    <h2 class="ds-h2" data-reveal>Two calls, and what I didn't pick</h2>
+    <p class="ds-lede" data-reveal>One of these is the flaw this case study opens with — caught by cross-checking the flow against itself, not by a reviewer.</p>
+
+    <div class="ds-stack">
+      <article class="ds-mcard" data-r-stack>
+        <div class="ds-mcard__head">
+          <span class="ds-mcard__no">1</span>
+          <div><h3>When is a breakdown actually resolved?</h3><p class="ds-mcard__q">A breakdown exception needs to close eventually — but what actually counts as "closed"?</p></div>
+        </div>
+        <div class="ds-options">
+          <div class="ds-option"><span class="ds-option__tag">Rejected</span><strong>Auto-close once all stops are reassigned</strong><p>Let a dispatcher mark a stranded driver "handled" just by reassigning their stops. A real safety gap, not a UX nitpick.</p></div>
+          <div class="ds-option"><span class="ds-option__tag">Rejected</span><strong>Manual close only</strong><p>Correct in theory, but leaves every breakdown sitting open with no system support to track it.</p></div>
+          <div class="ds-option is-chosen"><span class="ds-option__tag">Shipped</span><strong>Two independent states, both required</strong><p>Route status and driver-safety status track separately — both must be true to close.</p></div>
+        </div>
+        <p class="ds-why"><b>Chosen because</b> a dispatcher could otherwise close a breakdown without ever confirming the driver was safe. Found while cross-checking the flow against itself, then rebuilt before this reached a single developer.</p>
+      </article>
+
+      <article class="ds-mcard" data-r-stack>
+        <div class="ds-mcard__head">
+          <span class="ds-mcard__no">2</span>
+          <div><h3>Zone-mismatch warning — block or inform?</h3><p class="ds-mcard__q">Assigning a stop outside a driver's zone is sometimes wrong, sometimes deliberate.</p></div>
+        </div>
+        <div class="ds-options">
+          <div class="ds-option"><span class="ds-option__tag">Rejected</span><strong>Confirmation modal, blocks until dismissed</strong><p>Alert fatigue — a dispatcher sees this scenario 10+ times a shift; a modal seen that often stops being read.</p></div>
+          <div class="ds-option is-chosen"><span class="ds-option__tag">Shipped</span><strong>Inline warning, never blocking</strong><p>A small flag next to the mismatched driver. Visible, never in the way.</p></div>
+        </div>
+        <p class="ds-why"><b>Chosen because</b> zone mismatches are routine, not rare — a warning seen constantly is worse than no warning at all.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 6. IMPACT ============ -->
+  <section class="ds-section ds-wrap" id="impact">
+    <span class="ds-eyebrow" data-reveal>Impact</span>
+    <h2 class="ds-h2" data-reveal>What changed — honestly framed</h2>
+    <p class="ds-lede" data-reveal>This is a concept project with no live users. The two groups of numbers below are kept deliberately separate so neither gets mistaken for the other.</p>
+
+    <h3 class="cf-sub" data-reveal>Proven in process</h3>
+    <ul class="cf-findings" data-reveal-group>
+      <li data-reveal><b>A real safety gap caught and fixed</b> — an early version could mark a stranded driver "handled" just by reassigning their stops.</li>
+      <li data-reveal><b>Every screen cross-checked against every other</b> — real data contradictions (timestamps, exception counts, zone mismatches, frozen driver progress) caught and corrected before this reached a developer.</li>
+      <li data-reveal><b>An unverifiable research stat pulled</b> from the landing page rather than left uncredited.</li>
+    </ul>
+
+    <h3 class="cf-sub" data-reveal>Projected, not measured</h3>
+    <div class="ds-outcomes" data-reveal-group>
+      <div class="ds-out" data-reveal>
+        <b class="ds-count" data-count="40" data-suffix="%">0%</b>
+        <span>Fewer dispatcher calls, if the visibility hypothesis holds</span>
+        <span class="ds-out__src">Design target, not measured</span>
+      </div>
+      <div class="ds-out" data-reveal>
+        <b class="ds-count" data-count="2" data-suffix="min">0</b>
+        <span>Time-to-first-action on a new exception, sub-2-minute target</span>
+        <span class="ds-out__src">Design target, not measured</span>
+      </div>
+      <div class="ds-out" data-reveal>
+        <b class="ds-count" data-count="90" data-suffix="%">0%</b>
+        <span>Completion rate — the industry-healthy benchmark this was designed against</span>
+        <span class="ds-out__src">Design target, not measured</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. REFLECTIONS ============ -->
+  <section class="ds-section ds-wrap" id="reflections">
+    <span class="ds-eyebrow" data-reveal>Reflections</span>
+    <h2 class="ds-h2" data-reveal>What I'd keep, what I'd change, what's still open</h2>
+    <div class="ds-reflect" data-reveal-group>
+      <div data-reveal><h4>What held up</h4><p>The exception-resolution model — built once, found a real flaw in my own logic, rebuilt it before shipping.</p></div>
+      <div data-reveal><h4>What I'd do differently</h4><p>Talk to one real dispatcher before writing the insight the whole product was built around. This stayed secondary research only, and I say so rather than imply otherwise.</p></div>
+      <div data-reveal><h4>What's still open</h4><p>The business model — where fleet data actually comes from, who pays, and what the minimum viable customer looks like. Flagged by outside review, not yet answered.</p></div>
+    </div>
+  </section>
+
+  <a class="ds-next ds-wrap" href="index.html#work">
+    <div><span class="ds-next__label">Back to</span><div class="ds-next__title">All case studies</div></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+  </a>
+
+</main>
+
+<div class="footer-wrap">
+  <footer class="footer">
+    <nav aria-labelledby="fnav"><h2 id="fnav">Navigation</h2><ul><li><a href="index.html#work">Work</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+    <nav aria-labelledby="flinks"><h2 id="flinks">Links</h2><ul><li><a href="resume.pdf">Resume</a></li><li><a href="#">LinkedIn</a></li></ul></nav>
+  </footer>
+  <p class="copyright">2026 Pragyan Chaudhary. All rights reserved</p>
+</div>
+
+<script src="case-study.js"></script>
+<script src="cursor.js"></script>
+</body>
+</html>

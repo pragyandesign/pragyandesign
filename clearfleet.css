@@ -1,0 +1,86 @@
+/* ==========================================================
+   ClearFleet case study — page-specific styles.
+   Built on top of tokens.css, site.css and the shared case-study.css
+   (ds-* base classes, used unmodified). This page is deliberately
+   restrained — no orbs/grain/tilt from the animated template — since
+   it's meant to be read, not performed.
+   ========================================================== */
+
+/* ---------- Cover: override the dark, full-viewport ds-cover default
+   with a plain, light, compact cover that matches the rest of the site ---------- */
+.cf-cover {
+  min-height: auto; display: block; padding: 88px 0 0; overflow: visible;
+}
+.cf-cover__in { color: var(--text-primary); position: static; }
+.cf-back { color: var(--text-secondary); }
+.cf-back:hover { color: var(--text-primary); }
+.cf-kicker { color: var(--action-primary); }
+.cf-title { color: var(--text-primary); font-weight: 800; }
+.cf-tagline { color: var(--text-secondary); }
+
+.cf-hero { margin: 40px auto 0; max-width: var(--ds-maxw); border-radius: var(--ds-radius); overflow: hidden; box-shadow: var(--shadow-lg); padding: 0 20px; }
+.cf-hero img { width: 100%; display: block; border-radius: var(--ds-radius); }
+
+/* ---------- Findings / cut-number callouts (Context + Impact sections) ---------- */
+.cf-findings { margin-top: 20px; display: grid; gap: 10px; list-style: none; padding: 0; }
+.cf-findings li { padding: 14px 16px; background: var(--bg-raised); border-radius: 14px; font: 500 14px/1.55 var(--font-body); color: var(--text-secondary); box-shadow: var(--shadow-sm); }
+.cf-findings li b { color: var(--text-primary); }
+
+.cf-cut { margin-top: 20px; padding: 16px 18px; border-left: 3px solid var(--action-primary); background: var(--bg-raised); border-radius: 0 14px 14px 0; font: 500 14px/1.6 var(--font-body); color: var(--text-secondary); }
+.cf-cut b { color: var(--text-primary); }
+
+.cf-sub { margin-top: 36px; font: 700 1.05rem/1.3 var(--font-display); color: var(--text-primary); }
+.cf-sub:first-of-type { margin-top: 20px; }
+
+/* ---------- Final artifacts: sticky text + internally-scrolling gallery ----------
+   The text column is position:sticky so it tracks the user's scroll while the
+   gallery beside it is in view; the gallery itself is a fixed-height, scrollable
+   panel with overscroll-behavior:contain, so scrolling it never also scrolls the
+   page — the page only resumes scrolling once the pointer leaves the panel. */
+.cf-artifact-row {
+  display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 44px; margin-top: 48px; align-items: start;
+}
+.cf-artifact-row + .cf-artifact-row { margin-top: 64px; padding-top: 64px; border-top: 1.5px solid var(--border-subtle); }
+
+.cf-artifact-text { position: sticky; top: 100px; }
+.cf-artifact-text h3 { font: 700 1.5rem/1.25 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; }
+.cf-artifact-text > p { margin-top: 10px; max-width: 40ch; color: var(--text-secondary); font: 500 15px/1.6 var(--font-body); }
+
+.cf-screen-list { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: cf-screen; }
+.cf-screen-list li { counter-increment: cf-screen; display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--border-subtle); }
+.cf-screen-list li:first-child { border-top: none; padding-top: 0; }
+.cf-screen-list li::before {
+  content: counter(cf-screen); flex: none; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--bg-sunken); color: var(--text-secondary); display: flex; align-items: center; justify-content: center;
+  font: 600 12px/1 var(--font-body); margin-top: 2px;
+}
+.cf-screen-list b { display: block; font: 600 14px/1.4 var(--font-display); color: var(--text-primary); }
+.cf-screen-list span { display: block; margin-top: 3px; font: 500 13px/1.5 var(--font-body); color: var(--text-secondary); }
+
+.cf-scroll {
+  max-height: 640px; overflow-y: auto; overscroll-behavior: contain; scroll-snap-type: y proximity;
+  display: grid; gap: 20px; padding: 20px;
+  background: var(--bg-raised); border-radius: 20px; box-shadow: var(--shadow-sm);
+}
+.cf-scroll:focus-visible { outline: 2px solid var(--action-primary); outline-offset: 2px; }
+.cf-scroll::-webkit-scrollbar { width: 8px; }
+.cf-scroll::-webkit-scrollbar-track { background: transparent; }
+.cf-scroll::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 99px; }
+.cf-scroll figure { margin: 0; scroll-snap-align: start; }
+.cf-scroll img { width: 100%; display: block; border-radius: 12px; box-shadow: 0 6px 18px rgb(0 0 0 / .1); }
+.cf-scroll figcaption { margin-top: 10px; font: 600 13px/1.4 var(--font-body); color: var(--text-primary); }
+
+.cf-scroll--phones { grid-template-columns: 1fr; }
+.cf-scroll--phones figure { display: flex; flex-direction: column; align-items: center; }
+.cf-scroll--phones img { max-width: 280px; }
+
+@media (max-width: 860px) {
+  .cf-artifact-row { grid-template-columns: 1fr; gap: 24px; }
+  .cf-artifact-text { position: static; }
+  .cf-scroll { max-height: 72vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-scroll { scroll-behavior: auto; }
+}
