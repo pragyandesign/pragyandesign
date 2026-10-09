@@ -6,8 +6,7 @@
 
 .cfp-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-.cfp-section { padding: 100px 0; border-top: 1.5px solid var(--border-subtle); }
-.cfp-section:first-of-type { border-top: none; }
+.cfp-section { padding: 100px 0; border-top: none; }
 
 .cfp-grid { display: grid; grid-template-columns: 300px 1fr; gap: 56px; }
 .cfp-grid h2 { font: 700 2rem/1.15 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; }
@@ -27,6 +26,7 @@
 
 /* ---------- Cover ---------- */
 .cfp-cover { padding: 48px 0 100px; }
+.cfp-cover + .cfp-section { padding-top: 0; }
 .cfp-back { display: inline-flex; align-items: center; gap: 8px; font: 600 15px/1 var(--font-body); color: var(--text-primary); text-decoration: none; }
 .cfp-back svg { width: 16px; height: 16px; }
 .cfp-back:hover { opacity: .75; }
@@ -45,7 +45,7 @@
 .cfp-hero img { position: static; z-index: auto; max-width: none; max-height: none; width: 100%; height: 100%; aspect-ratio: 600 / 337; object-fit: cover; border-radius: 12px; box-shadow: none; display: block; background: none !important; background-image: none !important; }
 
 /* ---------- Meta row ---------- */
-.cfp-meta { margin-top: 56px; padding-top: 40px; border-top: 1.5px solid var(--border-subtle);
+.cfp-meta { margin-top: 56px; padding-top: 40px; border-top: none;
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 40px; row-gap: 32px; }
 .cfp-meta dt { font: 700 12px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); margin-bottom: 10px; }
 .cfp-meta dd { margin: 0; font: 600 17px/1.4 var(--font-display); color: var(--text-primary); }
@@ -155,3 +155,7 @@
 @media (max-width: 560px) {
   .cfp-meta { grid-template-columns: 1fr 1fr; }
 }
+
+/* Final spacing and shadow refinements */
+.cfp-section#impact + .cfp-section { padding-top: 50px; }
+.footer-wrap { margin-top: 50px; }
