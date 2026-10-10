@@ -1,0 +1,83 @@
+/* ==========================================================
+   Sarthi case study — built directly from the supplied Figma
+   export. No shared case-study template is used; every class
+   here is specific to this page (same method as clearfleet.css).
+   ========================================================== */
+
+.sa-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+.sa-section { padding: 56px 0; }
+
+.sa-grid { display: grid; grid-template-columns: 300px 1fr; gap: 56px; }
+.sa-grid h2 { font: 700 2rem/1.15 var(--font-display); color: var(--text-primary); letter-spacing: -0.01em; }
+
+.sa-body p { color: var(--text-primary); font: 500 17px/1.6 var(--font-body); max-width: 72ch; }
+.sa-body p + p,
+.sa-body p + div,
+.sa-body div + p { margin-top: 24px; }
+.sa-body b { font-weight: 700; color: var(--action-primary); }
+
+/* ---------- Type scale ----------
+   H1: hero title (44px, Sora 800)
+   H2: section headings (32px, Sora 700) — see .sa-grid h2 above
+   H4: 18px, Switzer
+   H5: 14px, Switzer
+   "Lead": Switzer, semibold, 22px — used for the project-context intro
+   paragraph, and the Impact / reflection main headlines
+----------------------------------- */
+.sa-t-h4 { font: 500 18px/1.6 var(--font-body); }
+.sa-t-h5 { font: 500 14px/1.6 var(--font-body); }
+.sa-lead { font: 600 22px/1.4 var(--font-body); color: var(--text-primary); }
+
+/* the orange inline labels inside H4 body copy read at the same size/weight as the lead text */
+.sa-t-h4 b { font: 600 22px/1.4 var(--font-body); color: var(--action-primary); }
+
+/* ---------- Cover ---------- */
+.sa-cover { padding: 48px 0 0; }
+.sa-back { display: inline-flex; align-items: center; gap: 8px; font: 600 15px/1 var(--font-body); color: var(--text-primary); text-decoration: none; }
+.sa-back svg { width: 16px; height: 16px; }
+.sa-back:hover { opacity: .75; }
+
+.sa-cover-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; margin-top: 32px; }
+.sa-title { font: 800 44px/1.1 var(--font-display); color: var(--text-primary); letter-spacing: -0.02em; }
+.sa-tagline { margin-top: 22px; color: var(--text-primary); max-width: 46ch; }
+.sa-tagline b { color: var(--action-primary); font-weight: 500; }
+.sa-scroll { margin-top: 32px; display: inline-flex; align-items: center; gap: 9px; color: var(--text-primary); }
+.sa-scroll svg { width: 26px; height: 26px; }
+
+.sa-hero { border-radius: 24px; overflow: hidden; width: 600px; aspect-ratio: 600 / 337; max-width: 100%; background: #fff;
+  display: flex; align-items: center; justify-content: center; padding: 8%; box-shadow: var(--shadow-sm); margin-left: auto; }
+.sa-hero img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+
+/* ---------- Meta row ---------- */
+.sa-meta { margin-top: 56px; padding-top: 36px; border-top: 1.5px solid var(--border-subtle);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.sa-meta dt { font: 600 14px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); margin-bottom: 10px; }
+.sa-meta dd { margin: 0; font: 600 18px/1.4 var(--font-body); color: var(--text-primary); }
+
+/* ---------- Final artifacts: full-site screenshot ---------- */
+.sa-shot { margin-top: 28px; width: 674px; max-width: 100%; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgb(0 0 0 / .12); }
+.sa-shot img { width: 100%; display: block; }
+
+/* ---------- Key design moments ---------- */
+.sa-moment { margin-top: 44px; }
+.sa-moment:first-of-type { margin-top: 0; }
+.sa-moment__tag { display: block; color: var(--action-primary); text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+.sa-moment h3 { margin-top: 10px; font: 600 22px/1.3 var(--font-body); color: var(--text-primary); }
+.sa-moment p { margin-top: 16px; }
+
+.sa-pillrow { margin-top: 22px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+.sa-pill { height: 25px; padding: 0 16px; border-radius: 999px; background: #F0FDF4; color: #16A34A;
+  display: inline-flex; align-items: center; font: 700 13px/1 var(--font-body); letter-spacing: .01em; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .sa-grid { grid-template-columns: 1fr; gap: 20px; }
+  .sa-cover-grid { grid-template-columns: 1fr; gap: 32px; }
+  .sa-hero { margin-left: 0; }
+  .sa-meta { grid-template-columns: repeat(2, 1fr); }
+  .sa-shot { width: 100%; }
+}
+@media (max-width: 560px) {
+  .sa-meta { grid-template-columns: 1fr 1fr; }
+}
