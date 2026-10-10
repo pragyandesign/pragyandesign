@@ -55,11 +55,8 @@
 
 /* ---------- Phases table ---------- */
 .cfp-phases-label { margin-top: 36px; font: 700 13px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); }
-.cfp-phases { margin-top: 16px; border: 1.5px solid var(--border-subtle); border-radius: 16px; overflow: hidden;
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--bg-raised); }
-.cfp-phases div { padding: 20px 22px; border-right: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); min-height: 84px; }
-.cfp-phases div:nth-child(3n) { border-right: none; }
-.cfp-phases div:nth-last-child(-n+3) { border-bottom: none; }
+.cfp-phases { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; background: transparent; }
+.cfp-phases div { padding: 20px 22px; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--bg-raised); min-height: 84px; }
 .cfp-phases .n { display: block; color: var(--action-primary); font: 700 13px/1 var(--font-body); margin-bottom: 8px; }
 .cfp-phases strong { font: 600 15px/1.4 var(--font-display); color: var(--text-primary); }
 
@@ -143,8 +140,8 @@
   .cfp-hero { width: 600px; justify-self: center; }
   .cfp-meta { grid-template-columns: repeat(2, 1fr); }
   .cfp-phases { grid-template-columns: 1fr; }
-  .cfp-phases div { border-right: none !important; }
-  .cfp-phases div:last-child { border-bottom: none; }
+  .cfp-phases { gap: 25px; }
+  .cfp-phases div { border: 1px solid var(--border-subtle) !important; }
   .cfp-phones { grid-template-columns: 1fr; max-width: 360px; margin-top: 28px; margin-left: auto; margin-right: auto; }
   .cfp-flow { grid-template-columns: 1fr; }
   .cfp-cards2 { grid-template-columns: 1fr; }
