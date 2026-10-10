@@ -44,7 +44,7 @@
 
 /* ---------- Meta row ---------- */
 .cfp-meta { margin-top: 100px; padding-top: 40px; border-top: none;
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 40px; row-gap: 32px; }
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 25px; row-gap: 25px; }
 .cfp-meta dt { font: 700 12px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); margin-bottom: 10px; }
 .cfp-meta dd { margin: 0; font: 600 17px/1.4 var(--font-display); color: var(--text-primary); }
 
