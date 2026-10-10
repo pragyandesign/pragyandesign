@@ -15,7 +15,7 @@
 <!-- Fonts: Sora (Google Fonts) and Switzer (Fontshare). For production, self-host both. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Fraunces:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
@@ -31,8 +31,8 @@
   <div class="nav__in">
     <a class="brand" href="#top" aria-label="Pragyan Design, home"><img src="logo.svg" alt="Pragyan Design" width="246" height="40"></a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html#prototypes">Prototypes</a>
       <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
       <a href="credentials.html">Credentials</a>
     </nav>
     <button type="button" class="btn btn--primary contact-copy" data-copy-email="pragyanchaudhary11@gmail.com" data-cursor-label="Copy Email">Contact</button>
@@ -48,7 +48,7 @@
       <p class="hero__tag">Product designer who builds working prototypes.</p>
       <p class="hero__sub">Two years shaping brand identities, now designing products for early-stage startups and building them myself.</p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#prototypes">View Prototypes</a>
+        <a class="btn btn--primary" href="#work">View Prototypes</a>
         <a class="btn btn--secondary" href="#work">Read Case Studies</a>
       </div>
     </div>
@@ -59,45 +59,31 @@
     </div>
   </section>
 
-  <!-- ================= LIVE PROTOTYPES ================= -->
-
-
   <!-- ================= CASE STUDIES ================= -->
   <section class="section" id="work" aria-labelledby="work-title">
     <h2 class="section__title section__title--bold" id="work-title">Case Studies and Branding Work</h2>
 
+    <p class="caption fcard__eyebrow">FEATURED WORK</p>
+    <article class="fcard">
+      <div class="fcard__media"><img src="clearfleet.webp" width="440" height="340" loading="lazy" alt="ClearFleet dashboard"></div>
+      <div class="fcard__body">
+        <h3 class="fcard__title">Clear Fleet</h3>
+        <p class="fcard__desc">A fleet operations tool for dispatchers. I found a flaw in my own breakdown flow that could have left a driver stranded, and redesigned it.</p>
+        <ul class="pills" aria-label="Project type"><li class="pill">Concept Project</li><li class="pill">Product Design</li><li class="pill">Web + iOS</li></ul>
+        <div class="fcard__cta">
+          <a class="btn btn--primary" href="/clearfleet">Read Case Study
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+          </a>
+          <a class="btn btn--secondary" href="https://www.clearfleet.pragyan.design" target="_blank" rel="noopener">Try Prototype
+            <svg class="icon-24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
     <div class="timeline">
 
-      <div class="case">
-        <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
-        <article class="ccard"><div class="ccard__in">
-          <div class="ccard__media"><img src="clearfleet.webp" width="1600" height="900" loading="lazy" alt="ClearFleet dashboard"></div>
-          <div class="ccard__body">
-            <h3 class="ccard__title">Clear Fleet</h3>
-            <p class="ccard__desc">Redesigned how fleet dispatchers catch problems, replacing fifteen phone calls a shift with one prioritized exception queue.</p>
-            <ul class="pills" aria-label="Project type"><li class="pill">Enterprise UX</li><li class="pill">Design System</li><li class="pill">Mobile + Web</li></ul>
-            <a class="btn btn--primary" href="/clearfleet">Read Case Study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
-            </a>
-          </div>
-        </div></article>
-      </div>
-
-      <div class="case">
-        <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
-        <article class="ccard"><div class="ccard__in">
-          <div class="ccard__media"><img src="decocoa.webp" width="1600" height="900" loading="lazy" alt="Decocoa website"></div>
-          <div class="ccard__body">
-            <h3 class="ccard__title">Decocoa</h3>
-            <p class="ccard__desc">Decocoa is a chocolate crafter company who majorly deals in wholesale and custom orders.</p>
-            <ul class="pills" aria-label="Project type"><li class="pill">Visual Design</li><li class="pill">Design System</li><li class="pill">Web Redesign</li></ul>
-            <!-- TODO: link to the Decocoa case study page -->
-            <a class="btn btn--primary" href="#">Read Case Study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
-            </a>
-          </div>
-        </div></article>
-      </div>
+      <p class="caption timeline__eyebrow">MORE WORK</p>
 
       <div class="case">
         <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
@@ -120,11 +106,16 @@
           <div class="ccard__media"><img src="sarthi-logo.png" width="811" height="601" loading="lazy" alt="Sarthi Ayurvedic Hospital logo: a tree of healing above a seated figure, with open hands beneath"></div>
           <div class="ccard__body">
             <h3 class="ccard__title">Sarthi Ayurvedic</h3>
-            <p class="ccard__desc">Created a fresh brand identity to bring modern clarity to its traditional roots while making treatments and approach easier to understand.</p>
-            <ul class="pills" aria-label="Project type"><li class="pill">Brand Identity</li><li class="pill">Healthcare</li></ul>
-            <a class="btn btn--primary" href="/sarthi">View Project
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
-            </a>
+            <p class="ccard__desc">I proposed a new brand identity for a real Ayurvedic hospital and designed its website. The hospital adopted the website design.</p>
+            <ul class="pills" aria-label="Project type"><li class="pill">Brand Identity</li><li class="pill">Healthcare</li><li class="pill">Website Design</li></ul>
+            <div class="ccard__cta">
+              <a class="btn btn--primary" href="https://www.pragyan.design/sarthi-case-study">Read Case Study
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+              </a>
+              <a class="btn btn--secondary" href="https://www.pragyan.design/sarthi">View Branding
+                <svg class="icon-24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </div>
           </div>
         </div></article>
       </div>
@@ -147,46 +138,59 @@
     </div>
   </section>
 
-  <section class="section" id="prototypes" aria-labelledby="proto-title">
-    <h2 class="section__title" id="proto-title">Live Prototypes built using AI.</h2>
-    <div class="pgrid">
-
-      <article class="pcard">
-        <div class="pcard__media">
-          <video width="1600" height="900" autoplay loop muted playsinline aria-label="Decocoa website hero: The same chocolate, whether it's one bar or one million">
-            <source src="decocoa.mp4" type="video/mp4">
-          </video>
-          <span class="live"><span class="live__dot" aria-hidden="true"></span>Live</span>
-        </div>
-        <div class="pcard__body">
-          <div>
-            <h3 class="pcard__title">Decocoa (Chocolate Crafter)</h3>
-            <p class="pcard__desc">Decocoa is a chocolate crafter company who majorly deals in wholesale and custom orders</p>
+  <!-- ================= ABOUT ME ================= -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <h2 class="sr-only" id="about-title">About Me</h2>
+    <div class="about">
+      <div class="about__media">
+        <img class="about__photo" src="about-photo.jpg" width="486" height="661" loading="lazy" alt="Pragyan sitting cross-legged on a rooftop, writing in a notebook">
+        <div class="about__badge">
+          <svg class="about__badge-bg" width="320" height="62" viewBox="0 0 320 62" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect y="12" width="308" height="50" rx="12" fill="#F5EBE1"/>
+            <path d="M307.998 50L307.998 62L319.998 62C315.998 62 308.998 59.5 307.998 50Z" fill="#F5EBE1"/>
+            <path d="M307.998 50L307.998 62L295.998 62C299.998 62 306.998 59.5 307.998 50Z" fill="#F5EBE1"/>
+            <path d="M12 12H0V24C0 20 2.5 13 12 12Z" fill="#F5EBE1"/>
+            <path d="M12 12H0V0C0 4 2.5 11 12 12Z" fill="#F5EBE1"/>
+          </svg>
+          <div class="about__ticker" aria-hidden="true">
+            <div class="about__ticker-track">
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.58854 9.01875V6.66458C9.58854 6.46667 9.66354 6.31771 9.83646 6.21875L14.5687 3.49375C15.2135 3.12187 15.9813 2.94896 16.774 2.94896C19.7469 2.94896 21.6302 5.25312 21.6302 7.70521C21.6302 7.87917 21.6302 8.07708 21.6052 8.275L16.699 5.40104C16.5656 5.31659 16.411 5.27175 16.2531 5.27175C16.0953 5.27175 15.9407 5.31659 15.8073 5.40104L9.58854 9.01875ZM20.6396 18.1854V12.5625C20.6396 12.2156 20.4906 11.9687 20.1927 11.7948L13.974 8.17708L16.0052 7.0125C16.0787 6.96368 16.1649 6.93763 16.2531 6.93763C16.3413 6.93763 16.4276 6.96368 16.501 7.0125L21.2333 9.73854C22.5969 10.5302 23.5135 12.2156 23.5135 13.851C23.5135 15.7344 22.399 17.4687 20.6385 18.1875L20.6396 18.1854ZM8.12708 13.2323L6.09583 12.0427C6.01568 12.0004 5.9495 11.9358 5.90532 11.8567C5.86113 11.7775 5.84083 11.6873 5.84687 11.5969V6.14479C5.84687 3.49375 7.87813 1.48646 10.6292 1.48646C11.6708 1.48646 12.6365 1.83333 13.4542 2.45312L8.57292 5.27812C8.27604 5.45104 8.12708 5.69896 8.12708 6.04583V13.2323ZM12.5 15.7583L9.58854 14.1229V10.6542L12.5 9.01875L15.4115 10.6542V14.1229L12.5 15.7583ZM14.3708 23.2896C13.3292 23.2896 12.3635 22.9437 11.5458 22.324L16.4271 19.499C16.724 19.326 16.8729 19.0781 16.8729 18.7312V11.5458L18.9292 12.7354C19.1031 12.8344 19.1771 12.9833 19.1771 13.1812V18.6323C19.1771 21.2833 17.1208 23.2896 14.3708 23.2896ZM8.49896 17.7656L3.76562 15.0396C2.40312 14.2469 1.48646 12.5625 1.48646 10.9271C1.48297 9.99777 1.75701 9.08858 2.27349 8.316C2.78997 7.54342 3.52535 6.94264 4.38542 6.59062V12.2396C4.38542 12.5865 4.53437 12.8344 4.83125 13.0083L11.026 16.601L8.99479 17.7656C8.92133 17.8144 8.83508 17.8405 8.74687 17.8405C8.65867 17.8405 8.57242 17.8144 8.49896 17.7656ZM8.22604 21.8281C5.42604 21.8281 3.36979 19.7229 3.36979 17.1208C3.36979 16.9229 3.39479 16.725 3.41875 16.5271L8.3 19.35C8.43291 19.4357 8.5877 19.4812 8.74583 19.4812C8.90397 19.4812 9.05875 19.4357 9.19167 19.35L15.4104 15.7583V18.1125C15.4104 18.3104 15.3375 18.4594 15.1635 18.5583L10.4312 21.2833C9.78646 21.6552 9.01875 21.8281 8.22604 21.8281ZM14.3708 24.776C15.7983 24.7756 17.1819 24.2823 18.2878 23.3797C19.3937 22.4771 20.1542 21.2203 20.4406 19.8219C23.2156 19.1031 25 16.5 25 13.85C25 12.1156 24.2573 10.4312 22.9187 9.21667C23.0427 8.69583 23.1167 8.17604 23.1167 7.65625C23.1167 4.11354 20.2427 1.46146 16.9229 1.46146C16.2566 1.45846 15.5946 1.56762 14.9646 1.78437C13.8085 0.64607 12.2527 0.00557891 10.6302 0C9.20255 0.000521273 7.81885 0.493891 6.71292 1.39674C5.607 2.29958 4.84667 3.55654 4.56042 4.95521C1.78437 5.67396 0 8.27604 0 10.9271C0 12.6625 0.742708 14.3469 2.08125 15.5604C1.95729 16.0812 1.88333 16.6021 1.88333 17.1219C1.88333 20.6646 4.75729 23.3156 8.07708 23.3156C8.74583 23.3156 9.38958 23.2167 10.0354 22.9937C11.1918 24.1323 12.748 24.7728 14.3708 24.7781V24.776Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4609 10.125L23.2266 10.5625V10.8891L23.0078 11.6531L13.7313 13.8359L12.8594 11.6687L22.4609 10.125Z" fill="#FF7043"/><path d="M18.9922 3.70776L20.0594 3.9312L20.3438 4.2812L20.6141 5.11714L20.5016 5.65151L14.2781 14.1625L12.2031 12.089L17.9422 4.55776L18.9922 3.70776Z" fill="#FF7043"/><path d="M13.6234 2.37817L14.2781 1.94067L14.8234 2.15942L15.3688 2.92505L13.8734 11.9063L12.8578 11.2172L12.4219 10.0157L13.1875 3.25005L13.6234 2.37817Z" fill="#FF7043"/><path d="M6.62305 2.52188L7.29492 1.6625L7.73398 1.5625L8.60586 1.68906L9.03555 2.02656L12.1668 8.96719L13.298 12.2641L11.973 13L6.92461 3.8375L6.62305 2.52188Z" fill="#FF7043"/><path d="M3.36523 7.28911L3.14648 6.41411L3.80273 5.65161L4.56523 5.76099H4.78398L9.3668 9.1438L10.7855 10.2344L12.7496 11.7625L11.659 13.6172L10.6762 12.8532L10.0215 12.1985L3.69336 7.72505L3.36523 7.28911Z" fill="#FF7043"/><path d="M2.05625 12.9625L1.5625 12.4156V11.9312L2.05625 11.7625L7.62187 12.0906L13.0766 12.5265L12.9 13.6125L2.49375 13.0718L2.05625 12.9625Z" fill="#FF7043"/><path d="M5.32969 18.6421H4.23906L3.80469 18.1421V17.5453L5.65781 16.2359L13.1891 11.4421L13.95 12.7437L5.32969 18.6421Z" fill="#FF7043"/><path d="M7.40312 21.6922L6.96563 21.8016L6.3125 21.4735L6.42188 20.9266L12.8594 12.4172L13.7313 13.6172L8.93125 19.9454L7.40312 21.6922Z" fill="#FF7043"/><path d="M12.8602 22.7828L12.532 23.2203L11.8773 23.4391L11.332 23.0016L11.0039 22.3453L12.6414 13.5094L13.6242 13.6188L12.8602 22.7828Z" fill="#FF7043"/><path d="M18.4242 20.3829V21.2547L18.3148 21.5829L17.8789 21.8016L17.1148 21.6985L11.8711 13.8922L13.9508 12.3079L15.6961 15.4719L15.8602 16.6172L18.4242 20.3829Z" fill="#FF7043"/><path d="M20.934 19.0735L21.0434 19.6188L20.7152 20.0547L20.3871 19.9454L18.5324 18.636L15.6965 16.1266L13.5137 14.5985L14.1684 12.5266L15.259 13.1813L15.9152 14.3813L20.934 19.0735Z" fill="#FF7043"/><path d="M19.5152 13.5078L22.2434 13.7265L22.898 14.164L23.334 14.8171V15.289L22.134 15.8L16.023 14.2718L13.5137 14.1625L14.1684 11.8718L15.9137 13.1812L19.5152 13.5078Z" fill="#FF7043"/></svg></span>
+              <span class="about__icon"><svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.88672 25.1953C11.2109 25.1953 13.0859 23.3203 13.0859 20.9961V16.7969H8.88672C6.5625 16.7969 4.6875 18.6719 4.6875 20.9961C4.6875 23.3203 6.5625 25.1953 8.88672 25.1953Z" fill="#0ACF83"/><path d="M4.6875 12.5977C4.6875 10.2734 6.5625 8.39844 8.88672 8.39844H13.0859V16.7969H8.88672C6.5625 16.7969 4.6875 14.9219 4.6875 12.5977Z" fill="#A259FF"/><path d="M4.6875 4.19922C4.6875 1.875 6.5625 0 8.88672 0H13.0859V8.39844H8.88672C6.5625 8.39844 4.6875 6.52344 4.6875 4.19922Z" fill="#F24E1E"/><path d="M13.0859 0H17.2852C19.6094 0 21.4844 1.875 21.4844 4.19922C21.4844 6.52344 19.6094 8.39844 17.2852 8.39844H13.0859V0Z" fill="#FF7262"/><path d="M21.4844 12.5977C21.4844 14.9219 19.6094 16.7969 17.2852 16.7969C14.9609 16.7969 13.0859 14.9219 13.0859 12.5977C13.0859 10.2734 14.9609 8.39844 17.2852 8.39844C19.6094 8.39844 21.4844 10.2734 21.4844 12.5977Z" fill="#1ABCFE"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.64687 4.38252C5.42031 5.01299 5.71328 4.96846 7.17344 4.8708L20.9391 4.04502C21.232 4.04502 20.9883 3.75205 20.8898 3.70283L18.6031 2.05049C18.168 1.7083 17.582 1.32237 16.4625 1.41533L3.13672 2.3919C2.64844 2.43643 2.55078 2.68096 2.74609 2.87627L4.64687 4.38252ZM5.47266 7.59346V22.0747C5.47266 22.8521 5.85937 23.145 6.73437 23.0958L21.8633 22.2208C22.7383 22.1716 22.8398 21.6388 22.8398 21.0044V6.6208C22.8398 5.98565 22.5953 5.64815 22.0586 5.69737L6.25078 6.6208C5.66484 6.67002 5.47344 6.9583 5.47344 7.58955L5.47266 7.59346ZM20.4063 8.36612C20.5039 8.80596 20.4062 9.24112 19.9664 9.29424L19.2383 9.44111V20.1302C18.6031 20.4724 18.0219 20.6677 17.5375 20.6677C16.7563 20.6677 16.5609 20.4231 15.9789 19.695L11.2102 12.2083V19.4513L12.7195 19.7935C12.7195 19.7935 12.7195 20.6685 11.5031 20.6685L8.14609 20.8638C8.04844 20.6685 8.14609 20.1802 8.48828 20.0864L9.36328 19.8419V10.2677L8.14688 10.17C8.04922 9.73018 8.29375 9.09971 8.97266 9.05127L12.5734 8.80674L17.5375 16.3911V9.68096L16.2719 9.53408C16.1742 9.00127 16.5609 8.61065 17.0492 8.56533L20.4063 8.36612ZM2.01797 1.07862L15.8812 0.0575216C17.582 -0.0893534 18.0219 0.00830283 19.0914 0.785647L23.5188 3.89815C24.2469 4.43096 24.4914 4.57783 24.4914 5.15987V22.2216C24.4914 23.2919 24.1008 23.9224 22.7414 24.02L6.63594 24.9927C5.61875 25.0419 5.13047 24.895 4.59297 24.2153L1.33359 19.9833C0.751563 19.206 0.507812 18.6239 0.507812 17.945V2.78018C0.507812 1.90518 0.898438 1.17705 2.01719 1.0794L2.01797 1.07862Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.55273 2.08337H19.4382V9.03129H12.4902L5.55273 2.08337ZM5.55273 9.03129H12.5007L19.4486 15.9792H12.5007V22.9271L5.55273 15.9792V9.03129Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 25L23.3594 18.75L12.5 12.5L1.64062 18.75L12.5 25Z" fill="#555555"/><path d="M23.3594 18.75V6.25L12.5 0V12.5L23.3594 18.75Z" fill="#555555"/><path d="M12.5 0L1.64062 6.25V18.75L12.5 12.5V0Z" fill="#555555"/><path d="M23.3594 6.25L12.5 25V12.5L23.3594 6.25Z" fill="black"/><path d="M23.3594 6.25L12.5 12.5L1.64062 6.25H23.3594Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_219_548" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.7277 24.8293C17.9266 24.9069 18.1393 24.9427 18.3527 24.9346C18.566 24.9264 18.7754 24.8744 18.9677 24.7818L24.115 22.305C24.3801 22.1774 24.6038 21.9775 24.7603 21.7284C24.9168 21.4793 24.9998 21.191 24.9997 20.8968V4.10327C24.9997 3.80907 24.9167 3.52084 24.7601 3.27175C24.6036 3.02267 24.3799 2.82284 24.1147 2.69527L18.9682 0.218525C18.6774 0.0787256 18.3502 0.0327428 18.0321 0.0869331C17.7139 0.141123 17.4204 0.29281 17.1922 0.521025L7.33849 9.51003L3.04649 6.25252C2.85293 6.10541 2.61395 6.03076 2.37107 6.04153C2.12819 6.05231 1.89676 6.14784 1.71699 6.31152L0.34049 7.56377C0.233314 7.6614 0.147678 7.7803 0.0890509 7.91289C0.0304237 8.04547 9.43262e-05 8.18883 2.19671e-07 8.3338C-9.38869e-05 8.47878 0.0300493 8.62217 0.0885044 8.75484C0.146959 8.8875 0.232441 9.00651 0.33949 9.10427L4.06149 12.5L0.33974 15.8958C0.232691 15.9935 0.147209 16.1125 0.0887544 16.2452C0.0302993 16.3779 0.000156113 16.5213 0.00025022 16.6662C0.000344326 16.8112 0.0306737 16.9546 0.0893009 17.0872C0.147928 17.2197 0.233564 17.3387 0.34074 17.4363L1.71724 18.6888C1.89701 18.8525 2.12844 18.948 2.37132 18.9588C2.6142 18.9695 2.85318 18.8949 3.04674 18.7478L7.33874 15.4898L17.1922 24.4793C17.3445 24.6319 17.5268 24.7511 17.7277 24.8293ZM18.7535 6.82502L11.2772 12.5L18.7537 18.1753L18.7535 6.82502Z" fill="white"/></mask><g mask="url(#mask0_219_548)"><path d="M24.1147 2.69901L18.9637 0.219012C18.6728 0.0789472 18.3456 0.0327487 18.0273 0.0868078C17.709 0.140867 17.4153 0.292511 17.187 0.520762L0.324228 15.8958C0.217077 15.9935 0.131503 16.1125 0.0729816 16.2451C0.0144603 16.3778 -0.0157189 16.5212 -0.0156248 16.6662C-0.0155307 16.8112 0.0148348 16.9546 0.0735283 17.0872C0.132222 17.2198 0.21795 17.3387 0.325228 17.4363L1.70273 18.6885C1.88276 18.8519 2.11422 18.9472 2.35708 18.958C2.59995 18.9687 2.83894 18.8943 3.03273 18.7475L23.3397 3.34251C24.021 2.82576 24.9995 3.31151 24.9995 4.16676V4.10676C24.9994 3.81267 24.9163 3.52456 24.7598 3.27558C24.6033 3.02659 24.3797 2.82683 24.1147 2.69926V2.69901Z" fill="#0065A9"/><path d="M24.1147 22.301L18.9637 24.781C18.6728 24.9211 18.3456 24.9673 18.0273 24.9132C17.709 24.8591 17.4153 24.7075 17.187 24.4792L0.324228 9.10424C0.217077 9.00654 0.131503 8.88755 0.0729816 8.75487C0.0144603 8.6222 -0.0157189 8.47877 -0.0156248 8.33377C-0.0155307 8.18876 0.0148348 8.04537 0.0735283 7.91278C0.132222 7.78018 0.21795 7.6613 0.325228 7.56374L1.70273 6.31149C1.88276 6.14812 2.11422 6.05281 2.35708 6.04204C2.59995 6.03127 2.83894 6.10571 3.03273 6.25249L23.3397 21.6575C24.021 22.1742 24.9995 21.6885 24.9995 20.8332V20.8932C24.9994 21.1873 24.9163 21.4754 24.7598 21.7244C24.6033 21.9734 24.3797 22.1734 24.1147 22.301Z" fill="#007ACC"/><path d="M18.9645 24.7815C18.6735 24.9215 18.3462 24.9676 18.0278 24.9134C17.7094 24.8592 17.4158 24.7074 17.1875 24.479C17.764 25.0557 18.75 24.6475 18.75 23.832V1.16799C18.75 0.352489 17.764 -0.0557607 17.1875 0.520739C17.4158 0.292312 17.7094 0.140494 18.0278 0.0862984C18.3462 0.0321031 18.6735 0.0782107 18.9645 0.218239L24.1145 2.69524C24.3797 2.82274 24.6035 3.02253 24.7602 3.27162C24.9168 3.52071 25 3.80898 25 4.10324V20.8967C25 21.191 24.917 21.4793 24.7603 21.7285C24.6037 21.9776 24.3799 22.1774 24.1147 22.305L18.9645 24.7815Z" fill="#1F9CF0"/></g></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.58854 9.01875V6.66458C9.58854 6.46667 9.66354 6.31771 9.83646 6.21875L14.5687 3.49375C15.2135 3.12187 15.9813 2.94896 16.774 2.94896C19.7469 2.94896 21.6302 5.25312 21.6302 7.70521C21.6302 7.87917 21.6302 8.07708 21.6052 8.275L16.699 5.40104C16.5656 5.31659 16.411 5.27175 16.2531 5.27175C16.0953 5.27175 15.9407 5.31659 15.8073 5.40104L9.58854 9.01875ZM20.6396 18.1854V12.5625C20.6396 12.2156 20.4906 11.9687 20.1927 11.7948L13.974 8.17708L16.0052 7.0125C16.0787 6.96368 16.1649 6.93763 16.2531 6.93763C16.3413 6.93763 16.4276 6.96368 16.501 7.0125L21.2333 9.73854C22.5969 10.5302 23.5135 12.2156 23.5135 13.851C23.5135 15.7344 22.399 17.4687 20.6385 18.1875L20.6396 18.1854ZM8.12708 13.2323L6.09583 12.0427C6.01568 12.0004 5.9495 11.9358 5.90532 11.8567C5.86113 11.7775 5.84083 11.6873 5.84687 11.5969V6.14479C5.84687 3.49375 7.87813 1.48646 10.6292 1.48646C11.6708 1.48646 12.6365 1.83333 13.4542 2.45312L8.57292 5.27812C8.27604 5.45104 8.12708 5.69896 8.12708 6.04583V13.2323ZM12.5 15.7583L9.58854 14.1229V10.6542L12.5 9.01875L15.4115 10.6542V14.1229L12.5 15.7583ZM14.3708 23.2896C13.3292 23.2896 12.3635 22.9437 11.5458 22.324L16.4271 19.499C16.724 19.326 16.8729 19.0781 16.8729 18.7312V11.5458L18.9292 12.7354C19.1031 12.8344 19.1771 12.9833 19.1771 13.1812V18.6323C19.1771 21.2833 17.1208 23.2896 14.3708 23.2896ZM8.49896 17.7656L3.76562 15.0396C2.40312 14.2469 1.48646 12.5625 1.48646 10.9271C1.48297 9.99777 1.75701 9.08858 2.27349 8.316C2.78997 7.54342 3.52535 6.94264 4.38542 6.59062V12.2396C4.38542 12.5865 4.53437 12.8344 4.83125 13.0083L11.026 16.601L8.99479 17.7656C8.92133 17.8144 8.83508 17.8405 8.74687 17.8405C8.65867 17.8405 8.57242 17.8144 8.49896 17.7656ZM8.22604 21.8281C5.42604 21.8281 3.36979 19.7229 3.36979 17.1208C3.36979 16.9229 3.39479 16.725 3.41875 16.5271L8.3 19.35C8.43291 19.4357 8.5877 19.4812 8.74583 19.4812C8.90397 19.4812 9.05875 19.4357 9.19167 19.35L15.4104 15.7583V18.1125C15.4104 18.3104 15.3375 18.4594 15.1635 18.5583L10.4312 21.2833C9.78646 21.6552 9.01875 21.8281 8.22604 21.8281ZM14.3708 24.776C15.7983 24.7756 17.1819 24.2823 18.2878 23.3797C19.3937 22.4771 20.1542 21.2203 20.4406 19.8219C23.2156 19.1031 25 16.5 25 13.85C25 12.1156 24.2573 10.4312 22.9187 9.21667C23.0427 8.69583 23.1167 8.17604 23.1167 7.65625C23.1167 4.11354 20.2427 1.46146 16.9229 1.46146C16.2566 1.45846 15.5946 1.56762 14.9646 1.78437C13.8085 0.64607 12.2527 0.00557891 10.6302 0C9.20255 0.000521273 7.81885 0.493891 6.71292 1.39674C5.607 2.29958 4.84667 3.55654 4.56042 4.95521C1.78437 5.67396 0 8.27604 0 10.9271C0 12.6625 0.742708 14.3469 2.08125 15.5604C1.95729 16.0812 1.88333 16.6021 1.88333 17.1219C1.88333 20.6646 4.75729 23.3156 8.07708 23.3156C8.74583 23.3156 9.38958 23.2167 10.0354 22.9937C11.1918 24.1323 12.748 24.7728 14.3708 24.7781V24.776Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4609 10.125L23.2266 10.5625V10.8891L23.0078 11.6531L13.7313 13.8359L12.8594 11.6687L22.4609 10.125Z" fill="#FF7043"/><path d="M18.9922 3.70776L20.0594 3.9312L20.3438 4.2812L20.6141 5.11714L20.5016 5.65151L14.2781 14.1625L12.2031 12.089L17.9422 4.55776L18.9922 3.70776Z" fill="#FF7043"/><path d="M13.6234 2.37817L14.2781 1.94067L14.8234 2.15942L15.3688 2.92505L13.8734 11.9063L12.8578 11.2172L12.4219 10.0157L13.1875 3.25005L13.6234 2.37817Z" fill="#FF7043"/><path d="M6.62305 2.52188L7.29492 1.6625L7.73398 1.5625L8.60586 1.68906L9.03555 2.02656L12.1668 8.96719L13.298 12.2641L11.973 13L6.92461 3.8375L6.62305 2.52188Z" fill="#FF7043"/><path d="M3.36523 7.28911L3.14648 6.41411L3.80273 5.65161L4.56523 5.76099H4.78398L9.3668 9.1438L10.7855 10.2344L12.7496 11.7625L11.659 13.6172L10.6762 12.8532L10.0215 12.1985L3.69336 7.72505L3.36523 7.28911Z" fill="#FF7043"/><path d="M2.05625 12.9625L1.5625 12.4156V11.9312L2.05625 11.7625L7.62187 12.0906L13.0766 12.5265L12.9 13.6125L2.49375 13.0718L2.05625 12.9625Z" fill="#FF7043"/><path d="M5.32969 18.6421H4.23906L3.80469 18.1421V17.5453L5.65781 16.2359L13.1891 11.4421L13.95 12.7437L5.32969 18.6421Z" fill="#FF7043"/><path d="M7.40312 21.6922L6.96563 21.8016L6.3125 21.4735L6.42188 20.9266L12.8594 12.4172L13.7313 13.6172L8.93125 19.9454L7.40312 21.6922Z" fill="#FF7043"/><path d="M12.8602 22.7828L12.532 23.2203L11.8773 23.4391L11.332 23.0016L11.0039 22.3453L12.6414 13.5094L13.6242 13.6188L12.8602 22.7828Z" fill="#FF7043"/><path d="M18.4242 20.3829V21.2547L18.3148 21.5829L17.8789 21.8016L17.1148 21.6985L11.8711 13.8922L13.9508 12.3079L15.6961 15.4719L15.8602 16.6172L18.4242 20.3829Z" fill="#FF7043"/><path d="M20.934 19.0735L21.0434 19.6188L20.7152 20.0547L20.3871 19.9454L18.5324 18.636L15.6965 16.1266L13.5137 14.5985L14.1684 12.5266L15.259 13.1813L15.9152 14.3813L20.934 19.0735Z" fill="#FF7043"/><path d="M19.5152 13.5078L22.2434 13.7265L22.898 14.164L23.334 14.8171V15.289L22.134 15.8L16.023 14.2718L13.5137 14.1625L14.1684 11.8718L15.9137 13.1812L19.5152 13.5078Z" fill="#FF7043"/></svg></span>
+              <span class="about__icon"><svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.88672 25.1953C11.2109 25.1953 13.0859 23.3203 13.0859 20.9961V16.7969H8.88672C6.5625 16.7969 4.6875 18.6719 4.6875 20.9961C4.6875 23.3203 6.5625 25.1953 8.88672 25.1953Z" fill="#0ACF83"/><path d="M4.6875 12.5977C4.6875 10.2734 6.5625 8.39844 8.88672 8.39844H13.0859V16.7969H8.88672C6.5625 16.7969 4.6875 14.9219 4.6875 12.5977Z" fill="#A259FF"/><path d="M4.6875 4.19922C4.6875 1.875 6.5625 0 8.88672 0H13.0859V8.39844H8.88672C6.5625 8.39844 4.6875 6.52344 4.6875 4.19922Z" fill="#F24E1E"/><path d="M13.0859 0H17.2852C19.6094 0 21.4844 1.875 21.4844 4.19922C21.4844 6.52344 19.6094 8.39844 17.2852 8.39844H13.0859V0Z" fill="#FF7262"/><path d="M21.4844 12.5977C21.4844 14.9219 19.6094 16.7969 17.2852 16.7969C14.9609 16.7969 13.0859 14.9219 13.0859 12.5977C13.0859 10.2734 14.9609 8.39844 17.2852 8.39844C19.6094 8.39844 21.4844 10.2734 21.4844 12.5977Z" fill="#1ABCFE"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.64687 4.38252C5.42031 5.01299 5.71328 4.96846 7.17344 4.8708L20.9391 4.04502C21.232 4.04502 20.9883 3.75205 20.8898 3.70283L18.6031 2.05049C18.168 1.7083 17.582 1.32237 16.4625 1.41533L3.13672 2.3919C2.64844 2.43643 2.55078 2.68096 2.74609 2.87627L4.64687 4.38252ZM5.47266 7.59346V22.0747C5.47266 22.8521 5.85937 23.145 6.73437 23.0958L21.8633 22.2208C22.7383 22.1716 22.8398 21.6388 22.8398 21.0044V6.6208C22.8398 5.98565 22.5953 5.64815 22.0586 5.69737L6.25078 6.6208C5.66484 6.67002 5.47344 6.9583 5.47344 7.58955L5.47266 7.59346ZM20.4063 8.36612C20.5039 8.80596 20.4062 9.24112 19.9664 9.29424L19.2383 9.44111V20.1302C18.6031 20.4724 18.0219 20.6677 17.5375 20.6677C16.7563 20.6677 16.5609 20.4231 15.9789 19.695L11.2102 12.2083V19.4513L12.7195 19.7935C12.7195 19.7935 12.7195 20.6685 11.5031 20.6685L8.14609 20.8638C8.04844 20.6685 8.14609 20.1802 8.48828 20.0864L9.36328 19.8419V10.2677L8.14688 10.17C8.04922 9.73018 8.29375 9.09971 8.97266 9.05127L12.5734 8.80674L17.5375 16.3911V9.68096L16.2719 9.53408C16.1742 9.00127 16.5609 8.61065 17.0492 8.56533L20.4063 8.36612ZM2.01797 1.07862L15.8812 0.0575216C17.582 -0.0893534 18.0219 0.00830283 19.0914 0.785647L23.5188 3.89815C24.2469 4.43096 24.4914 4.57783 24.4914 5.15987V22.2216C24.4914 23.2919 24.1008 23.9224 22.7414 24.02L6.63594 24.9927C5.61875 25.0419 5.13047 24.895 4.59297 24.2153L1.33359 19.9833C0.751563 19.206 0.507812 18.6239 0.507812 17.945V2.78018C0.507812 1.90518 0.898438 1.17705 2.01719 1.0794L2.01797 1.07862Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.55273 2.08337H19.4382V9.03129H12.4902L5.55273 2.08337ZM5.55273 9.03129H12.5007L19.4486 15.9792H12.5007V22.9271L5.55273 15.9792V9.03129Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 25L23.3594 18.75L12.5 12.5L1.64062 18.75L12.5 25Z" fill="#555555"/><path d="M23.3594 18.75V6.25L12.5 0V12.5L23.3594 18.75Z" fill="#555555"/><path d="M12.5 0L1.64062 6.25V18.75L12.5 12.5V0Z" fill="#555555"/><path d="M23.3594 6.25L12.5 25V12.5L23.3594 6.25Z" fill="black"/><path d="M23.3594 6.25L12.5 12.5L1.64062 6.25H23.3594Z" fill="black"/></svg></span>
+              <span class="about__icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_219_548" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.7277 24.8293C17.9266 24.9069 18.1393 24.9427 18.3527 24.9346C18.566 24.9264 18.7754 24.8744 18.9677 24.7818L24.115 22.305C24.3801 22.1774 24.6038 21.9775 24.7603 21.7284C24.9168 21.4793 24.9998 21.191 24.9997 20.8968V4.10327C24.9997 3.80907 24.9167 3.52084 24.7601 3.27175C24.6036 3.02267 24.3799 2.82284 24.1147 2.69527L18.9682 0.218525C18.6774 0.0787256 18.3502 0.0327428 18.0321 0.0869331C17.7139 0.141123 17.4204 0.29281 17.1922 0.521025L7.33849 9.51003L3.04649 6.25252C2.85293 6.10541 2.61395 6.03076 2.37107 6.04153C2.12819 6.05231 1.89676 6.14784 1.71699 6.31152L0.34049 7.56377C0.233314 7.6614 0.147678 7.7803 0.0890509 7.91289C0.0304237 8.04547 9.43262e-05 8.18883 2.19671e-07 8.3338C-9.38869e-05 8.47878 0.0300493 8.62217 0.0885044 8.75484C0.146959 8.8875 0.232441 9.00651 0.33949 9.10427L4.06149 12.5L0.33974 15.8958C0.232691 15.9935 0.147209 16.1125 0.0887544 16.2452C0.0302993 16.3779 0.000156113 16.5213 0.00025022 16.6662C0.000344326 16.8112 0.0306737 16.9546 0.0893009 17.0872C0.147928 17.2197 0.233564 17.3387 0.34074 17.4363L1.71724 18.6888C1.89701 18.8525 2.12844 18.948 2.37132 18.9588C2.6142 18.9695 2.85318 18.8949 3.04674 18.7478L7.33874 15.4898L17.1922 24.4793C17.3445 24.6319 17.5268 24.7511 17.7277 24.8293ZM18.7535 6.82502L11.2772 12.5L18.7537 18.1753L18.7535 6.82502Z" fill="white"/></mask><g mask="url(#mask0_219_548)"><path d="M24.1147 2.69901L18.9637 0.219012C18.6728 0.0789472 18.3456 0.0327487 18.0273 0.0868078C17.709 0.140867 17.4153 0.292511 17.187 0.520762L0.324228 15.8958C0.217077 15.9935 0.131503 16.1125 0.0729816 16.2451C0.0144603 16.3778 -0.0157189 16.5212 -0.0156248 16.6662C-0.0155307 16.8112 0.0148348 16.9546 0.0735283 17.0872C0.132222 17.2198 0.21795 17.3387 0.325228 17.4363L1.70273 18.6885C1.88276 18.8519 2.11422 18.9472 2.35708 18.958C2.59995 18.9687 2.83894 18.8943 3.03273 18.7475L23.3397 3.34251C24.021 2.82576 24.9995 3.31151 24.9995 4.16676V4.10676C24.9994 3.81267 24.9163 3.52456 24.7598 3.27558C24.6033 3.02659 24.3797 2.82683 24.1147 2.69926V2.69901Z" fill="#0065A9"/><path d="M24.1147 22.301L18.9637 24.781C18.6728 24.9211 18.3456 24.9673 18.0273 24.9132C17.709 24.8591 17.4153 24.7075 17.187 24.4792L0.324228 9.10424C0.217077 9.00654 0.131503 8.88755 0.0729816 8.75487C0.0144603 8.6222 -0.0157189 8.47877 -0.0156248 8.33377C-0.0155307 8.18876 0.0148348 8.04537 0.0735283 7.91278C0.132222 7.78018 0.21795 7.6613 0.325228 7.56374L1.70273 6.31149C1.88276 6.14812 2.11422 6.05281 2.35708 6.04204C2.59995 6.03127 2.83894 6.10571 3.03273 6.25249L23.3397 21.6575C24.021 22.1742 24.9995 21.6885 24.9995 20.8332V20.8932C24.9994 21.1873 24.9163 21.4754 24.7598 21.7244C24.6033 21.9734 24.3797 22.1734 24.1147 22.301Z" fill="#007ACC"/><path d="M18.9645 24.7815C18.6735 24.9215 18.3462 24.9676 18.0278 24.9134C17.7094 24.8592 17.4158 24.7074 17.1875 24.479C17.764 25.0557 18.75 24.6475 18.75 23.832V1.16799C18.75 0.352489 17.764 -0.0557607 17.1875 0.520739C17.4158 0.292312 17.7094 0.140494 18.0278 0.0862984C18.3462 0.0321031 18.6735 0.0782107 18.9645 0.218239L24.1145 2.69524C24.3797 2.82274 24.6035 3.02253 24.7602 3.27162C24.9168 3.52071 25 3.80898 25 4.10324V20.8967C25 21.191 24.917 21.4793 24.7603 21.7285C24.6037 21.9776 24.3799 22.1774 24.1147 22.305L18.9645 24.7815Z" fill="#1F9CF0"/></g></svg></span>
+            </div>
           </div>
-          <a class="pcard__go" href="https://decocoa.framer.website/" target="_blank" rel="noopener" aria-label="Open the Decocoa prototype">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-          </a>
         </div>
-      </article>
+      </div>
 
-      <article class="pcard">
-        <div class="pcard__media">
-          <video width="1600" height="900" autoplay loop muted playsinline aria-label="ClearFleet live fleet view dashboard with driver list, map and exception queue">
-            <source src="clearfleet.mp4" type="video/mp4">
-          </video>
-          <span class="live"><span class="live__dot" aria-hidden="true"></span>Live</span>
+      <div class="about__content">
+        <div class="about__card about__card--name">
+          <h3 class="about__name">Pragyan Chaudhary</h3>
+          <p class="about__role">Product Designer</p>
         </div>
-        <div class="pcard__body">
-          <div>
-            <h3 class="pcard__title">ClearFleet</h3>
-            <p class="pcard__desc">A dispatcher-first fleet operations platform for last-mile delivery teams</p>
-          </div>
-          <a class="pcard__go" href="https://www.clearfleet.pragyan.design" target="_blank" rel="noopener" aria-label="Open the ClearFleet prototype">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-          </a>
+        <div class="about__card about__card--bio">
+          <p class="about__lead"><span class="about__lead-accent">Hi, I'm Pragyan.</span>I design products, then try to break them before you do. Someone has to.</p>
+          <p class="about__p">I started in brand identity. Then a hospital website showed me that looking right was the easy half.</p>
+          <p class="about__p">I found a flaw in my own design that could have hurt someone. I now ask the worst-case question first, which makes me great in design reviews and a delight at parties.</p>
+          <p class="about__p">Off the clock: songs on repeat, cinematography (my filmography is gym edits so far), and Call of Duty on PC, with a win rate I'd rather not publish.</p>
         </div>
-      </article>
-
+        <a class="about__btn" href="#" data-todo="About me page">
+          <span class="caption">More About Me</span>
+          <span class="about__btn-circle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
     </div>
   </section>
 </main>
@@ -206,7 +210,7 @@
       <ul>
         <li><a href="#work">Work</a></li>
         <li><a href="#" data-todo="Fun Stuff page">Fun Stuff</a></li>
-        <li><a href="#" data-todo="About me page">About me</a></li>
+        <li><a href="#about">About me</a></li>
         <li><a href="#contact" data-copy-email="pragyanchaudhary11@gmail.com" data-cursor-label="Copy Email">Contact</a></li>
       </ul>
     </nav>

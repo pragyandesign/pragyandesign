@@ -212,8 +212,8 @@ ul { list-style: none; padding: 0; }
   font: 500 12px/1 var(--font-body); white-space: nowrap;
 }
 .ccard .btn { margin-top: 20px; width: 100%; max-width: 326px; }
-.ccard .btn::after { content: ""; position: absolute; inset: 0; border-radius: 24px; }   /* whole card is clickable */
-.ccard .btn { position: static; }
+.ccard__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.ccard__cta .btn { margin-top: 0; width: auto; max-width: none; }
 
 /* Placeholder thumbnails for projects whose artwork isn't supplied yet */
 .ph {
@@ -348,6 +348,124 @@ ul { list-style: none; padding: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .live__dot::before { animation: none; }
-  .pcard, .ccard, .btn { transition: none; }
-  .pcard:hover, .ccard:hover { transform: none; }
+  .pcard, .ccard, .fcard, .btn { transition: none; }
+  .pcard:hover, .ccard:hover, .fcard:hover { transform: none; }
+  .about__ticker-track { animation: none; }
+}
+
+/* ==========================================================
+   Homepage redesign additions: type scale, featured card,
+   about me section.
+   ========================================================== */
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.icon-24 { width: 24px !important; height: 24px !important; }
+
+/* Caption: small tracked eyebrow/label text used for section tags and button labels */
+.caption { font: 600 13px/1.2 var(--font-body); letter-spacing: 0.05em; color: var(--text-secondary); }
+
+/* ---------- Featured Work card: 1051 x 372, 440x340 image, 30px gap ---------- */
+.fcard__eyebrow { margin-top: 40px; margin-bottom: 16px; }
+.fcard {
+  position: relative; container-type: inline-size;
+  max-width: 1051px; min-height: 372px; padding: 16px; border-radius: 24px;
+  background: var(--bg-raised); box-shadow: var(--shadow-sm);
+  display: flex; gap: 30px;
+  transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+.fcard:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.fcard__media {
+  flex: 0 0 440px; width: 440px; height: 340px; border-radius: 12px; overflow: hidden;
+  background: var(--bg-sunken);
+}
+.fcard__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.fcard__body { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 16px; }
+.fcard__title { font: 700 56px/1.08 var(--font-display); letter-spacing: -0.02em; color: var(--ink-black); }
+.fcard__desc { margin-top: 12px; font: 400 14px/1.5 var(--font-body); color: var(--text-secondary); }
+.fcard__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+
+@container (max-width: 640px) {
+  .fcard { flex-direction: column; }
+  .fcard__media { width: 100%; height: auto; aspect-ratio: 440 / 340; }
+  .fcard__body { padding-right: 0; }
+  .fcard__title { font-size: clamp(2rem, 8vw, 56px); }
+}
+
+/* ---------- Timeline eyebrow ---------- */
+.timeline__eyebrow { margin-bottom: 20px; }
+
+/* ---------- About Me: 1000 x 701 card, 486x661 photo, right stack ---------- */
+.about {
+  max-width: 1000px; min-height: 701px; margin: 60px auto 0; padding: 30px;
+  display: flex; gap: 30px;
+  background: var(--bg-sunken); border-radius: 24px;
+}
+.about__media { position: relative; flex: 0 0 486px; width: 486px; height: 661px; border-radius: 16px; overflow: hidden; }
+.about__photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+
+.about__badge { position: absolute; left: 0; bottom: 0; width: 320px; height: 62px; }
+.about__badge-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.about__ticker {
+  position: absolute; left: 0; top: 12px; width: 308px; height: 50px; padding: 0 16px;
+  display: flex; align-items: center; overflow: hidden; border-radius: 12px;
+}
+.about__ticker::before, .about__ticker::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 16px; z-index: 1; pointer-events: none;
+}
+.about__ticker::before { left: 0; background: linear-gradient(to right, #F5EBE1, transparent); }
+.about__ticker::after { right: 0; background: linear-gradient(to left, #F5EBE1, transparent); }
+.about__ticker-track {
+  display: flex; align-items: center; gap: 22px; flex: none;
+  animation: about-ticker 12s linear infinite;
+}
+.about__icon { flex: none; width: 25px; height: 25px; display: grid; place-items: center; }
+.about__icon svg { width: 25px; height: 25px; display: block; }
+@keyframes about-ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.about__content { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+
+.about__card { width: 450px; max-width: 100%; background: var(--bg-raised); border-radius: 16px; }
+.about__card--name { min-height: 150px; padding: 0 28px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.about__name { font: 700 28px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black); }
+.about__role { font: 500 18px/1.3 var(--font-body); color: #2B5D4A; }
+
+.about__card--bio { min-height: 420px; padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+.about__lead { font: 400 22px/1.45 var(--font-body); color: var(--text-primary); }
+.about__lead-accent {
+  font: italic 600 22px/1.45 "Fraunces", var(--font-body), serif;
+  color: var(--action-primary); margin-right: 5px;
+}
+.about__p { font: 400 14px/1.6 var(--font-body); color: #2B5D4A; }
+
+.about__btn {
+  width: 450px; max-width: 100%; height: 56px; padding: 0 6px 0 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--bg-inverse); color: var(--text-inverse); border-radius: 999px; text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+.about__btn:hover { transform: translateY(-1px); }
+.about__btn .caption { color: inherit; }
+.about__btn-circle {
+  flex: none; width: 46px; height: 46px; border-radius: 50%; background: #F5EBE1;
+  display: grid; place-items: center; color: var(--ink-black);
+}
+.about__btn-circle svg { width: 24px; height: 24px; }
+
+@media (max-width: 860px) {
+  .about { flex-direction: column; padding: 20px; min-height: 0; }
+  .about__media { width: 100%; height: auto; aspect-ratio: 486 / 661; }
+  .about__content { gap: 16px; }
+  .about__card, .about__btn { width: 100%; }
+}
+@media (max-width: 560px) {
+  .about__card--name, .about__card--bio { padding: 20px; }
+  .about__name { font-size: 24px; }
+  .about__lead, .about__lead-accent { font-size: 19px; }
 }
