@@ -54,7 +54,8 @@
 .cfp-quote p + p { margin-top: 16px; }
 
 /* ---------- Phases table ---------- */
-.cfp-phases-label { display: block; margin-top: 25px; font: 700 13px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); }
+.cfp-llm-note { margin: 25px 0 !important; }
+.cfp-phases-label { display: block; margin-top: 0; font: 700 13px/1 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--action-primary); }
 .cfp-phases { margin-top: 16px; border: 1.5px solid var(--border-subtle); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; background: var(--bg-raised); }
 .cfp-phases div { padding: 20px 27px; border-right: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); border-radius: 0; background: transparent; min-height: 84px; }
 .cfp-phases div:nth-child(3n) { border-right: none; }
