@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pragyan Chaudhary | I turn complex problems into clear product experiences.</title>
-<meta name="description" content="Pragyan is a product designer with a background in strategic brand identities, building and prototyping digital products.">
+<title>Pragyan Chaudhary | Product designer who also builds working prototypes</title>
+<meta name="description" content="Pragyan is a product designer with two years in brand identity, designing for early-stage startups and building working prototypes.">
 <meta name="theme-color" content="#F5EBE1">
 <meta property="og:title" content="Pragyan Chaudhary | Product designer">
 <meta property="og:description" content="Product designer who builds working prototypes.">
@@ -36,7 +36,13 @@
       <a href="credentials.html">Credentials</a>
     </nav>
     <button type="button" class="btn btn--primary contact-copy" data-copy-email="pragyanchaudhary11@gmail.com" data-cursor-label="Copy Email">Contact</button>
-          
+    <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line class="l1" x1="4" y1="7" x2="20" y2="7"/>
+        <line class="l2" x1="4" y1="12" x2="20" y2="12"/>
+        <line class="l3" x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
   </div>
 </header>
 
@@ -45,10 +51,11 @@
   <section class="hero" id="top">
     <div>
       <h1>Howdy, I’m Pragyan.</h1>
-      <p class="hero__tag">I turn complex problems into clear product experiences.</p>
-      <p class="hero__sub">Product Designer with a background in strategic brand identities, building and prototyping digital products.</p>
+      <p class="hero__tag">Product designer who builds working prototypes.</p>
+      <p class="hero__sub">Two years shaping brand identities, now designing products for early-stage startups and building them myself.</p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#work">Read Case Studies</a>
+        <a class="btn btn--primary" href="#work">View Prototypes</a>
+        <a class="btn btn--secondary" href="#work">Read Case Studies</a>
       </div>
     </div>
 
@@ -130,7 +137,7 @@
           <div class="ccard__body">
             <h3 class="ccard__title">Aurawear</h3>
             <p class="ccard__desc">Created complete brand system for fitness tracker watch and ring company.</p>
-            <ul class="pills" aria-label="Project type"><li class="pill">Concept Project</li><li class="pill">Brand Identity</li><li class="pill">Fitness</li></ul>
+            <ul class="pills" aria-label="Project type"><li class="pill">Brand Identity</li><li class="pill">Fitness</li></ul>
             <a class="btn btn--primary" href="/aurawear">View Project
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
             </a>
@@ -235,5 +242,6 @@
 
 <script src="main.js"></script>
 <script src="cursor.js"></script>
+<script src="nav.js"></script>
 </body>
 </html>

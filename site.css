@@ -301,16 +301,17 @@ ul { list-style: none; padding: 0; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
-  .hero { grid-template-columns: 1fr; padding-top: 32px; gap: 32px; }
+  .hero { grid-template-columns: minmax(0, 1fr); padding-top: 32px; gap: 32px; }
   .portrait { justify-self: center; margin-right: 0; max-width: 360px; }
   .section { padding-top: 72px; }
-  .pgrid { grid-template-columns: 1fr; }
+  .pgrid { grid-template-columns: minmax(0, 1fr); }
   .timeline::before { display: none; }
-  .case { grid-template-columns: 1fr; margin-bottom: 32px; }
+  .case { grid-template-columns: minmax(0, 1fr); margin-bottom: 32px; }
   .case__year { position: static; padding: 0 0 12px; }
   .nav__links { gap: 18px; }
-  .footer { grid-template-columns: 1fr; padding: 28px 24px; }
+  .footer { grid-template-columns: minmax(0, 1fr); padding: 28px 24px; }
   .footer-wrap { padding-top: 72px; }
+  .spotify { width: 100%; }
 }
 .nav__toggle {
   display: none; flex: none; width: 40px; height: 40px; padding: 0; margin-left: 4px;
@@ -338,12 +339,22 @@ ul { list-style: none; padding: 0; }
   .nav__links a:last-child { border-bottom: 0; }
 }
 @media (max-width: 560px) {
-  .nav__in { padding: 10px 12px; }
+  .nav__in { padding: 10px 12px; gap: 10px; }
   .brand img { height: 32px; }
+  .nav .contact-copy { padding: 0 12px; font-size: 13px; }
   .pcard { min-height: 0; }
   .pcard__media { height: auto; aspect-ratio: 510 / 240; }
   .pcard__body { align-items: flex-end; }
   .live { font-size: 15px; }
+}
+/* Logo + Contact + hamburger all competing for one row — below this,
+   shrink the wordmark further so nothing clips on the narrowest phones. */
+@media (max-width: 380px) {
+  .nav__in { padding: 8px 10px; gap: 8px; }
+  .brand img { height: 24px; }
+  .nav .contact-copy { padding: 0 10px; font-size: 12px; }
+  .nav__toggle { width: 34px; height: 34px; }
+  .nav__toggle svg { width: 17px; height: 17px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -371,7 +382,7 @@ ul { list-style: none; padding: 0; }
 /* ---------- Featured Work card: 1051 x 372, 440x340 image, 30px gap ---------- */
 .fcard__eyebrow { margin-top: 40px; margin-bottom: 16px; }
 .fcard {
-  position: relative; container-type: inline-size;
+  position: relative;
   max-width: 1051px; min-height: 372px; padding: 16px; border-radius: 24px;
   background: var(--bg-raised); box-shadow: var(--shadow-sm);
   display: flex; gap: 30px;
@@ -379,7 +390,7 @@ ul { list-style: none; padding: 0; }
 }
 .fcard:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .fcard__media {
-  flex: 0 0 440px; width: 440px; height: 340px; border-radius: 12px; overflow: hidden;
+  flex: 0 0 440px; width: 440px; max-width: 440px; height: 340px; border-radius: 12px; overflow: hidden;
   background: var(--bg-sunken);
 }
 .fcard__media img, .fcard__media video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
@@ -388,11 +399,16 @@ ul { list-style: none; padding: 0; }
 .fcard__desc { margin-top: 12px; font: 400 14px/1.5 var(--font-body); color: var(--text-secondary); }
 .fcard__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 
-@container (max-width: 640px) {
-  .fcard { flex-direction: column; }
-  .fcard__media { width: 100%; height: auto; aspect-ratio: 440 / 340; }
+/* Below this, the fixed 440px media column no longer fits next to readable
+   body text, so the card stacks. Keyed to viewport width (not a container
+   query) because .fcard is a direct section child, not an embeddable component,
+   and a container query targeting the same element that establishes its own
+   containment is ignored by browsers — this is a real breakpoint, not cosmetic. */
+@media (max-width: 760px) {
+  .fcard { flex-direction: column; gap: 20px; }
+  .fcard__media { width: 100%; max-width: none; height: auto; aspect-ratio: 440 / 340; }
   .fcard__body { padding-right: 0; }
-  .fcard__title { font-size: clamp(2rem, 8vw, 56px); }
+  .fcard__title { font-size: clamp(2rem, 9vw, 56px); }
 }
 
 /* ---------- Timeline eyebrow ---------- */
@@ -407,10 +423,13 @@ ul { list-style: none; padding: 0; }
 .about__media { position: relative; flex: 0 0 486px; width: 486px; height: 661px; border-radius: 16px; overflow: hidden; }
 .about__photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 
-.about__badge { position: absolute; left: 0; bottom: 0; width: 320px; height: 62px; }
+.about__badge {
+  position: absolute; left: 0; bottom: 0;
+  width: min(320px, 100%); aspect-ratio: 320 / 62;
+}
 .about__badge-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .about__ticker {
-  position: absolute; left: 0; top: 12px; width: 308px; height: 50px; padding: 0 16px;
+  position: absolute; left: 0; top: 19.35%; width: 96.25%; height: 80.6%; padding: 0 5%;
   display: flex; align-items: center; overflow: hidden; border-radius: 12px;
 }
 .about__ticker::before, .about__ticker::after {
