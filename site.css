@@ -491,4 +491,4 @@ ul { list-style: none; padding: 0; }
 
 
 /* Align the About me heading with the centered About card on both home and review copies. */
-.about-section-title { max-width: 1000px; margin: 0 auto; }
+.about-section-title { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; text-align: left; }
