@@ -8,7 +8,18 @@
   var doc = document.documentElement;
   doc.classList.remove("no-js"); doc.classList.add("js");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-// ---------- jump nav: highlight active section by scroll position ----------
+
+  // ---------- scroll progress bar ----------
+  var bar = document.querySelector(".ds-progress");
+  function setProgress() {
+    var h = doc.scrollHeight - window.innerHeight;
+    if (bar) bar.style.setProperty("--p", h > 0 ? Math.min(1, window.scrollY / h) : 0);
+  }
+  document.addEventListener("scroll", setProgress, { passive: true });
+  window.addEventListener("resize", setProgress);
+  setProgress();
+
+  // ---------- jump nav: highlight active section by scroll position ----------
   var jumpLinks = document.querySelectorAll(".ds-jump a");
   var jumpTrack = document.querySelector(".ds-jump__in");
   var sections = Array.prototype.map.call(jumpLinks, function (a) { return document.querySelector(a.getAttribute("href")); });

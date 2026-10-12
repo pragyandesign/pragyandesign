@@ -14,6 +14,16 @@
 
 body.cs2 { background: var(--bg-page); overflow-x: hidden; }
 
+/* ---------- Scroll progress bar ---------- */
+.ds-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 100;
+  background: transparent; pointer-events: none;
+}
+.ds-progress::after {
+  content: ""; display: block; height: 100%; width: calc(var(--p, 0) * 100%);
+  background: var(--action-primary); transition: width .08s linear;
+}
+
 /* ---------- Sticky jump nav ---------- */
 .ds-jump { position: sticky; top: 0; z-index: 40; background: var(--bg-page); border-bottom: 1.5px solid var(--border-subtle); }
 .ds-jump__in { max-width: var(--ds-maxw); margin: 0 auto; padding: 12px 20px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
