@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>Pragyan Chaudhary | Product designer who also builds working prototypes</title>
 <meta name="description" content="Pragyan is a product designer with two years in brand identity, designing for early-stage startups and building working prototypes.">
 <meta name="theme-color" content="#F5EBE1">
 <meta property="og:title" content="Pragyan Chaudhary | Product designer">
 <meta property="og:description" content="Product designer who builds working prototypes.">
 <meta property="og:type" content="website">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg type="image/svg+xml">
 <meta name="view-transition" content="same-origin">
 
 <!-- Fonts: Sora (Google Fonts) and Switzer (Fontshare). For production, self-host both. -->
@@ -20,10 +21,9 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/tokens.css">
-<link rel="stylesheet" href="/site.css">
-<link rel="preload" as="image" href="/portrait.webp" fetchpriority="high">
-<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="stylesheet" href="/tokens.css>
+<link rel="stylesheet" href="/site.css>
+<link rel="preload" as="image" href="/portrait.webp fetchpriority="high">
 <script src="https://inflight.co/widget.js" data-org="aius9qpt" data-path="/dive" async></script>
 </head>
 <body>
@@ -31,14 +31,20 @@
 
 <header class="nav">
   <div class="nav__in">
-    <a class="brand" href="#top" aria-label="Pragyan Design, home"><img src="/logo.svg" alt="Pragyan Design" width="246" height="40"></a>
+    <a class="brand" href="#top" aria-label="Pragyan Design, home"><img src="/logo.svg alt="Pragyan Design" width="246" height="40"></a>
     <nav class="nav__links" aria-label="Primary">
       <a href="/dive/#work">Work</a>
       <a href="/dive/#about">About</a>
       <a href="/dive/credentials">Credentials</a>
     </nav>
     <button type="button" class="btn btn--primary contact-copy" data-copy-email="pragyanchaudhary11@gmail.com" data-cursor-label="Copy Email">Contact</button>
-          
+    <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line class="l1" x1="4" y1="7" x2="20" y2="7"/>
+        <line class="l2" x1="4" y1="12" x2="20" y2="12"/>
+        <line class="l3" x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
   </div>
 </header>
 
@@ -56,7 +62,7 @@
     </div>
 
     <div class="portrait" id="portrait">
-      <img id="portraitImg" src="/portrait.webp" width="872" height="1160" alt="Portrait of Pragyan smiling, wearing a dark hoodie" fetchpriority="high">
+      <img id="portraitImg" src="/portrait.webp width="872" height="1160" alt="Portrait of Pragyan smiling, wearing a dark hoodie" fetchpriority="high">
       <canvas id="portraitFx" aria-hidden="true"></canvas>
     </div>
   </section>
@@ -76,7 +82,11 @@
 
     <p class="caption fcard__eyebrow">FEATURED WORK</p>
     <article class="fcard">
-      <div class="fcard__media"><img src="/clearfleet.webp" width="440" height="340" loading="lazy" alt="ClearFleet dashboard"></div>
+      <div class="fcard__media">
+        <video width="440" height="340" autoplay loop muted playsinline aria-label="ClearFleet dashboard walkthrough">
+          <source src="/clearfleet.mp4 type="video/mp4">
+        </video>
+      </div>
       <div class="fcard__body">
         <h3 class="fcard__title">Clear Fleet</h3>
         <p class="fcard__desc">A fleet operations tool for dispatchers. I found a flaw in my own breakdown flow that could have left a driver stranded, and redesigned it.</p>
@@ -99,7 +109,11 @@
       <div class="case">
         <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
         <article class="ccard"><div class="ccard__in">
-          <div class="ccard__media"><img src="/thresca-logo.png" width="501" height="501" loading="lazy" alt="Thresca logo: a purple circular icon beside the wordmark, on dark background"></div>
+          <div class="ccard__media">
+            <video width="501" height="501" autoplay loop muted playsinline aria-label="Thresca brand reel">
+              <source src="/thresca-reel.mp4 type="video/mp4">
+            </video>
+          </div>
           <div class="ccard__body">
             <h3 class="ccard__title">Thresca</h3>
             <p class="ccard__desc">AI Agent that listens to your meetings audio and converts important info to scheduled meetings and orders.</p>
@@ -114,16 +128,20 @@
       <div class="case">
         <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2025</div>
         <article class="ccard"><div class="ccard__in">
-          <div class="ccard__media"><img src="/sarthi-logo.png" width="811" height="601" loading="lazy" alt="Sarthi Ayurvedic Hospital logo: a tree of healing above a seated figure, with open hands beneath"></div>
+          <div class="ccard__media">
+            <video width="811" height="601" autoplay loop muted playsinline aria-label="Sarthi Ayurvedic brand reel">
+              <source src="/sarthi-reel.mp4 type="video/mp4">
+            </video>
+          </div>
           <div class="ccard__body">
             <h3 class="ccard__title">Sarthi Ayurvedic</h3>
             <p class="ccard__desc">I proposed a new brand identity for a real Ayurvedic hospital and designed its website. The hospital adopted the website design.</p>
             <ul class="pills" aria-label="Project type"><li class="pill">Brand Identity</li><li class="pill">Healthcare</li><li class="pill">Website Design</li></ul>
             <div class="ccard__cta">
-              <a class="btn btn--primary" href="https://www.pragyan.design/sarthi-case-study">Read Case Study
+              <a class="btn btn--primary" href="/dive/work/sarthi">Read Case Study
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
               </a>
-              <a class="btn btn--secondary" href="https://www.pragyan.design/sarthi">View Branding
+              <a class="btn btn--secondary" href="/dive/work/sarthi-brand">View Branding
                 <svg class="icon-24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
               </a>
             </div>
@@ -134,7 +152,11 @@
       <div class="case">
         <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2024</div>
         <article class="ccard"><div class="ccard__in">
-          <div class="ccard__media"><img src="/aurawear-logo.jpg" width="713" height="431" loading="lazy" alt="Aurawear logo: the wordmark AURA WEAR in navy and green"></div>
+          <div class="ccard__media">
+            <video width="713" height="431" autoplay loop muted playsinline aria-label="Aurawear brand reel">
+              <source src="/aurawear-reel.mp4 type="video/mp4">
+            </video>
+          </div>
           <div class="ccard__body">
             <h3 class="ccard__title">Aurawear</h3>
             <p class="ccard__desc">Created complete brand system for fitness tracker watch and ring company.</p>
@@ -154,7 +176,7 @@
     <h2 class="sr-only" id="about-title">About Me</h2>
     <div class="about">
       <div class="about__media">
-        <img class="about__photo" src="/about-photo.jpg" width="486" height="661" loading="lazy" alt="Pragyan sitting cross-legged on a rooftop, writing in a notebook">
+        <img class="about__photo" src="/about-photo.jpg width="486" height="661" loading="lazy" alt="Pragyan sitting cross-legged on a rooftop, writing in a notebook">
         <div class="about__badge">
           <svg class="about__badge-bg" width="320" height="62" viewBox="0 0 320 62" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <rect y="12" width="308" height="50" rx="12" fill="#F5EBE1"/>
@@ -195,8 +217,8 @@
           <p class="about__p">I found a flaw in my own design that could have hurt someone. I now ask the worst-case question first, which makes me great in design reviews and a delight at parties.</p>
           <p class="about__p">Off the clock: songs on repeat, cinematography (my filmography is gym edits so far), and Call of Duty on PC, with a win rate I'd rather not publish.</p>
         </div>
-        <a class="about__btn" href="#" data-todo="About me page">
-          <span class="caption">More About Me</span>
+        <a class="about__btn" href="#" data-todo="Fun Stuff page">
+          <span class="caption">See the Fun Stuff</span>
           <span class="about__btn-circle" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </span>
@@ -241,7 +263,8 @@
   </div>
 </div>
 
-<script src="/main.js"></script>
-<script src="/cursor.js"></script>
+<script src="/main.js></script>
+<script src="/cursor.js></script>
+<script src="/nav.js></script>
 </body>
 </html>
