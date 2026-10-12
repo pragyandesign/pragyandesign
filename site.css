@@ -23,7 +23,7 @@
   --btn-secondary: var(--text-primary);
   /* ------------------------------------------------------------------------ */
 
-  --ink-black: #000000;              /* H1 and section titles, as specified */
+  --ink-black: #003223;              /* H1 and section titles — bottle green, not pure black */
   --on-dark-secondary: #A49C94;      /* sub text on bottle green (5.24:1) */
 }
 
@@ -414,9 +414,34 @@ ul { list-style: none; padding: 0; }
 /* ---------- Timeline eyebrow ---------- */
 .timeline__eyebrow { margin-bottom: 20px; }
 
+/* ---------- How I use LLM: white card, 4-up icon grid ---------- */
+.llm-card {
+  max-width: 1000px; margin: 40px auto 0; padding: 48px 40px;
+  background: var(--bg-raised); border-radius: 24px; box-shadow: var(--shadow-sm);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px;
+}
+.llm-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+.llm-icon {
+  flex: none; width: 80px; height: 80px; border-radius: 50%;
+  background: var(--bottle-100); display: grid; place-items: center;
+}
+.llm-icon svg { width: 36px; height: 36px; }
+.llm-item__title { font: 700 20px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black); }
+.llm-item__desc { font: 400 14px/1.5 var(--font-body); color: var(--text-secondary); max-width: 190px; }
+
+@media (max-width: 760px) {
+  .llm-card { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; padding: 32px 24px; }
+}
+@media (max-width: 480px) {
+  .llm-card { grid-template-columns: minmax(0, 1fr); padding: 28px 20px; }
+}
+
+/* ---------- About Me heading: left-aligned with the card below it ---------- */
+.about-head { max-width: 1000px; margin: 60px auto 0; }
+
 /* ---------- About Me: 1000 x 701 card, 486x661 photo, right stack ---------- */
 .about {
-  max-width: 1000px; min-height: 701px; margin: 60px auto 0; padding: 30px;
+  max-width: 1000px; min-height: 701px; margin: 24px auto 0; padding: 30px;
   display: flex; gap: 30px;
   background: var(--bg-sunken); border-radius: 24px;
 }
@@ -488,7 +513,3 @@ ul { list-style: none; padding: 0; }
   .about__name { font-size: 24px; }
   .about__lead, .about__lead-accent { font-size: 19px; }
 }
-
-
-/* Align the About me heading with the centered About card on both home and review copies. */
-.about-section-title { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; text-align: left; }
