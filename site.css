@@ -488,3 +488,7 @@ ul { list-style: none; padding: 0; }
   .about__name { font-size: 24px; }
   .about__lead, .about__lead-accent { font-size: 19px; }
 }
+
+
+/* Align the About me heading with the centered About card on both home and review copies. */
+.about-section-title { max-width: 1000px; margin: 0 auto; }
