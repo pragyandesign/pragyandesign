@@ -44,7 +44,7 @@
 .sa-back svg { width: 14px; height: 14px; }
 
 /* ---------- Hero ---------- */
-.sa-hero { padding: 44px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
+.sa-hero { padding: 44px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 80px; align-items: start; }
 .sa-title { font: 700 clamp(2.4rem, 6.2vw, 60px)/1.08 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 6px; }
 .sa-title .word { display: inline-block; white-space: nowrap; }
 .sa-title .ch { display: inline-block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; vertical-align: bottom; }
