@@ -51,11 +51,15 @@
   cursor: pointer;
 }
 .fun-media__controls {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: 0;
+  transform: translateX(-50%);
 }
 .media-btn {
   width: 63px;
@@ -81,7 +85,7 @@
 
 @media (max-width: 760px) {
   .fun-player { margin-top: 32px; }
-  .fun-media__controls { margin-top: 12px; gap: 8px; }
+  .fun-media__controls { bottom: 14px; gap: 8px; }
   .media-btn { width: 54px; height: 54px; }
   .media-btn svg { width: 24px; height: 24px; }
 }
