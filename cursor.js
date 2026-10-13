@@ -108,35 +108,33 @@
   }
 
   function labelFor(target) {
-    var proto = target.closest && target.closest(".pcard");
+    if (!target || !target.closest) return "Pragyan";
+
+    // When hovering a specific link or button, use its own visible label.
+    // This keeps the cursor contextual for paired CTAs such as case study and branding.
+    var control = target.closest("a, button, [role=button]");
+    if (control) {
+      var controlText = (control.innerText || control.textContent || "")
+        .replace(/\\s+/g, " ").trim();
+      if (controlText) return controlText;
+      if (control.classList.contains("brand")) return "Home";
+    }
+
+    var proto = target.closest(".pcard");
     if (proto) return "View Prototype";
 
-    var card = target.closest && target.closest(".ccard");
+    var card = target.closest(".ccard");
     if (card) {
       var cta = card.querySelector(".ccard__body .btn");
       if (cta) {
-        var ctaText = cta.textContent.replace(/\s+/g, " ").trim();
+        var ctaText = (cta.innerText || cta.textContent || "").replace(/\\s+/g, " ").trim();
         if (ctaText) return ctaText;
       }
       return "View Case Study";
     }
 
-    var explicit = target.closest && target.closest("[data-cursor-label]");
+    var explicit = target.closest("[data-cursor-label]");
     if (explicit) return explicit.getAttribute("data-cursor-label") || "Pragyan";
-
-    var heroCta = target.closest && target.closest(".hero__cta a");
-    if (heroCta) return "View";
-
-    var link = target.closest && target.closest("a");
-    if (link) {
-      if (link.classList.contains("brand")) return "Home";
-      return "View";
-    }
-
-    var button = target.closest && target.closest("button");
-    if (button) {
-      return "View";
-    }
 
     return "View";
   }
