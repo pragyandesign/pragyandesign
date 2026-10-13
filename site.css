@@ -87,7 +87,7 @@ ul { list-style: none; padding: 0; }
   gap: 40px; align-items: center;
 }
 .hero h1 {
-  font: 700 clamp(2.5rem, 7vw, 60px)/1.08 var(--font-display);
+  font: 700 clamp(2.5rem, 7vw, 64px)/1.08 var(--font-display);
   letter-spacing: -0.02em; color: var(--ink-black);
 }
 .hero__tag {
@@ -403,14 +403,14 @@ ul { list-style: none; padding: 0; }
 .fcard__eyebrow { margin-top: 40px; margin-bottom: 16px; }
 .fcard {
   position: relative;
-  max-width: 1051px; min-height: 372px; padding: 16px; border-radius: 24px;
+  max-width: 1051px; min-height: 390px; padding: 16px; border-radius: 24px;
   background: var(--bg-raised); box-shadow: var(--shadow-sm);
   display: flex; gap: 30px;
   transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
 .fcard:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .fcard__media {
-  flex: 0 0 440px; width: 440px; max-width: 440px; height: 340px; border-radius: 12px; overflow: hidden;
+  flex: 0 0 440px; width: 440px; max-width: 440px; height: 358px; border-radius: 12px; overflow: hidden;
   background: var(--bg-sunken);
 }
 .fcard__media img, .fcard__media video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
@@ -433,6 +433,9 @@ ul { list-style: none; padding: 0; }
 
 /* ---------- Timeline eyebrow ---------- */
 .timeline__eyebrow { margin-bottom: 20px; }
+
+/* ---------- How I use LLM: heading aligns with the card below ---------- */
+.llm-section-title { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; }
 
 /* ---------- How I use LLM: white card, 4-up icon grid ---------- */
 .llm-card {
