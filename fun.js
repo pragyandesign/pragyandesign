@@ -6,15 +6,23 @@
   if (!video || !playBtn || !muteBtn) return;
 
   function setPlayIcon(isPlaying) {
-    playBtn.querySelector('.icon-pause').hidden = !isPlaying;
-    playBtn.querySelector('.icon-play').hidden = isPlaying;
+    const pauseIcon = playBtn.querySelector('.icon-pause');
+    const playIcon = playBtn.querySelector('.icon-play');
+    pauseIcon.hidden = !isPlaying;
+    playIcon.hidden = isPlaying;
+    pauseIcon.style.display = isPlaying ? 'block' : 'none';
+    playIcon.style.display = isPlaying ? 'none' : 'block';
     playBtn.setAttribute('aria-pressed', String(isPlaying));
     playBtn.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
   }
 
   function setMuteIcon(isMuted) {
-    muteBtn.querySelector('.icon-mute').hidden = !isMuted;
-    muteBtn.querySelector('.icon-sound').hidden = isMuted;
+    const muteIcon = muteBtn.querySelector('.icon-mute');
+    const soundIcon = muteBtn.querySelector('.icon-sound');
+    muteIcon.hidden = !isMuted;
+    soundIcon.hidden = isMuted;
+    muteIcon.style.display = isMuted ? 'block' : 'none';
+    soundIcon.style.display = isMuted ? 'none' : 'block';
     muteBtn.setAttribute('aria-pressed', String(isMuted));
     muteBtn.setAttribute('aria-label', isMuted ? 'Unmute video' : 'Mute video');
   }
