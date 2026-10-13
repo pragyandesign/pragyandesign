@@ -49,7 +49,7 @@
 .th-back svg { width: 14px; height: 14px; }
 
 /* ---------- Hero ---------- */
-.th-hero { padding: 70px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
+.th-hero { padding: 44px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
 .th-title { font: 700 clamp(2.4rem, 6.2vw, 60px)/1.08 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 6px; }
 .th-title .ch { display: inline-block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; vertical-align: bottom; }
 .th-title .ch > i { display: block; font-style: normal; transform: translate3d(0, 108%, 0); }
@@ -71,12 +71,27 @@
 .th-context { padding: 88px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 610px; gap: 40px; align-items: center; }
 .th-context h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
 .th-context p { font: 500 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 16px; max-width: 56ch; }
-/* No context image was supplied in the source — left as an empty card rather than an
-   invented placeholder. Fill with the real image if there is one; delete the box if not. */
-.th-context-empty { width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); }
+/* No context image was supplied in the source — filled with a 4-up feature grid
+   (icons: mailbox, list-checks, database, summary) matching the supplied design. */
+.th-context-empty { width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); overflow: hidden; }
+
+/* ---------- Context: 4-up feature grid filling th-context-empty ---------- */
+.th-ctx-grid { width: 100%; height: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.th-ctx-item { padding: clamp(18px, 4vw, 32px) clamp(18px, 4.5vw, 36px); border-right: 1px solid var(--ink-black); border-bottom: 1px solid var(--ink-black); }
+.th-ctx-item:nth-child(2n) { border-right: none; }
+.th-ctx-item:nth-child(n+3) { border-bottom: none; }
+.th-ctx-icon { display: block; width: 32px; height: 32px; color: var(--bottle-900); margin-bottom: clamp(10px, 2vw, 16px); }
+.th-ctx-icon svg { width: 100%; height: 100%; display: block; }
+.th-ctx-item h3 { font: 700 18px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
+.th-ctx-item p { margin-top: 6px; font: 400 14px/1.45 var(--font-body); color: var(--text-secondary); }
+@media (max-width: 480px) {
+  .th-ctx-icon { width: 24px; height: 24px; }
+  .th-ctx-item h3 { font-size: 15px; }
+  .th-ctx-item p { font-size: 12.5px; }
+}
 
 /* ---------- Process cards (identical color system to sarthi.css) ---------- */
-.th-process { padding: 160px 0 0; }
+.th-process { padding: 64px 0 0; }
 .th-pcard {
   position: sticky; top: calc(84px + var(--n, 0) * 18px); transform-origin: 50% 0; will-change: transform;
   width: 100%; min-height: 266px; border-radius: 24px; padding: clamp(24px, 4vw, 44px); margin-bottom: 20px;
@@ -137,7 +152,7 @@
   .th-sw[aria-expanded="true"] { min-height: 230px; flex-grow: 0; }
 }
 /* ---------- Type: a live weight slider across all seven loaded Antonia H1 weights ---------- */
-.th-type { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 5vw, 64px); align-items: center; margin-top: 80px; }
+.th-type { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 5vw, 64px); align-items: center; margin-top: 44px; }
 .th-slider { display: grid; gap: 8px; }
 .th-slider label { font: 500 14px/1 var(--font-body); color: var(--text-secondary); display: flex; justify-content: space-between; }
 .th-slider input { width: 100%; accent-color: var(--th-signal); height: 28px; }
@@ -160,7 +175,7 @@
 .th-identity { padding: 88px 0 0; }
 .th-identity h2 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
 .th-switcher { margin-top: 32px; }
-.th-stage { position: relative; width: 1110px; height: 470px; max-width: 100%; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.th-stage { position: relative; width: 1038px; height: 470px; max-width: 100%; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); }
 @media (max-width: 1078px) { .th-stage { width: 100%; aspect-ratio: 1038 / 470; height: auto; } }
 .th-frame {
   position: absolute; inset: 0;
