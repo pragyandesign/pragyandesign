@@ -414,6 +414,9 @@ ul { list-style: none; padding: 0; }
 /* ---------- Timeline eyebrow ---------- */
 .timeline__eyebrow { margin-bottom: 20px; }
 
+/* ---------- How I use LLM heading: align with the card below ---------- */
+.llm-section-title { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; }
+
 /* ---------- How I use LLM: white card, 4-up icon grid ---------- */
 .llm-card {
   max-width: 1000px; margin: 40px auto 0; padding: 48px 40px;
