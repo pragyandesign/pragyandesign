@@ -8,8 +8,8 @@
   function setPlayIcon(isPlaying) {
     const pauseIcon = playBtn.querySelector('.icon-pause');
     const playIcon = playBtn.querySelector('.icon-play');
-    pauseIcon.hidden = !isPlaying;
-    playIcon.hidden = isPlaying;
+    pauseIcon.removeAttribute('hidden');
+    playIcon.removeAttribute('hidden');
     pauseIcon.style.display = isPlaying ? 'block' : 'none';
     playIcon.style.display = isPlaying ? 'none' : 'block';
     playBtn.setAttribute('aria-pressed', String(isPlaying));
@@ -19,8 +19,8 @@
   function setMuteIcon(isMuted) {
     const muteIcon = muteBtn.querySelector('.icon-mute');
     const soundIcon = muteBtn.querySelector('.icon-sound');
-    muteIcon.hidden = !isMuted;
-    soundIcon.hidden = isMuted;
+    muteIcon.removeAttribute('hidden');
+    soundIcon.removeAttribute('hidden');
     muteIcon.style.display = isMuted ? 'block' : 'none';
     soundIcon.style.display = isMuted ? 'none' : 'block';
     muteBtn.setAttribute('aria-pressed', String(isMuted));
