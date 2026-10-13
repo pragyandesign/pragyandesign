@@ -109,7 +109,7 @@ ul { list-style: none; padding: 0; }
 
 /* ---------- Stats: 3-up, 1px rule top/bottom, divider between items ---------- */
 .stats {
-  max-width: calc(var(--container) + var(--pad) * 2); margin: 86px auto 0; padding: 0 var(--pad);
+  max-width: calc(var(--container) + var(--pad) * 2); margin: 100px auto 0; padding: 0 var(--pad);
   display: flex; flex-wrap: wrap;
   border-top: 1px solid var(--ink-black); border-bottom: 1px solid var(--ink-black);
 }
