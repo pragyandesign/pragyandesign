@@ -185,7 +185,7 @@
 .th-frame.is-active { opacity: 1; transform: scale(1); }
 .th-frame[data-key="horizontal-light"], .th-frame[data-key="stacked-light"] { background: #FFFFFF; }
 .th-frame[data-key="horizontal-dark"], .th-frame[data-key="stacked-dark"] { background: var(--th-void); }
-.th-frame img { max-width: 56%; max-height: 56%; object-fit: contain; transform: translateY(-24px); }
+.th-frame img { max-width: 56%; max-height: 56%; object-fit: contain; }
 .th-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
 .th-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--border-subtle); transition: background-color .4s, transform .4s; }
 .th-dots i.is-active { background: var(--th-signal); transform: scale(1.3); }
