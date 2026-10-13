@@ -366,3 +366,17 @@
   display:block!important;
   margin:0!important;
 }
+
+
+/* Visual identity card refinement: smaller lockups, unchanged icon, taller stage. */
+.sa-stage {
+  height: clamp(280px, 40vw, 420px);
+}
+.sa-frame:not([data-key="icon"]) img {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+}
