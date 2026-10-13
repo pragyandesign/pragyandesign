@@ -87,7 +87,7 @@ ul { list-style: none; padding: 0; }
   gap: 40px; align-items: center;
 }
 .hero h1 {
-  font: 700 clamp(2.5rem, 7vw, 64px)/1.08 var(--font-display);
+  font: 700 clamp(2.5rem, 7vw, 60px)/1.08 var(--font-display);
   letter-spacing: -0.02em; color: var(--ink-black);
 }
 .hero__tag {
@@ -106,6 +106,26 @@ ul { list-style: none; padding: 0; }
 }
 .portrait img, .portrait canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .portrait img { object-fit: cover; object-position: 50% 25%; }   /* fallback if the effect can't run */
+
+/* ---------- Stats: 3-up, 1px rule top/bottom, divider between items ---------- */
+.stats {
+  max-width: calc(var(--container) + var(--pad) * 2); margin: 56px auto 0; padding: 0 var(--pad);
+  display: flex; flex-wrap: wrap;
+  border-top: 1px solid var(--ink-black); border-bottom: 1px solid var(--ink-black);
+}
+.stats__item {
+  flex: 1 1 0; min-width: 200px; padding: 20px 30px 24px;
+  border-left: 1px solid var(--ink-black);
+}
+.stats__item:first-child { border-left: none; padding-left: 0; }
+.stats__num { font: 700 40px/1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black); }
+.stats__label { margin-top: 6px; font: 500 18px/1.4 var(--font-body); color: var(--ink-black); }
+
+@media (max-width: 760px) {
+  .stats { flex-direction: column; }
+  .stats__item { border-left: none; border-top: 1px solid var(--ink-black); padding: 18px 0; }
+  .stats__item:first-child { border-top: none; }
+}
 
 /* ---------- Sections ---------- */
 .section { max-width: calc(var(--container) + var(--pad) * 2); margin: 0 auto; padding: 100px var(--pad) 0; }
@@ -379,18 +399,18 @@ ul { list-style: none; padding: 0; }
 /* Caption: small tracked eyebrow/label text used for section tags and button labels */
 .caption { font: 600 13px/1.2 var(--font-body); letter-spacing: 0.05em; color: var(--text-secondary); }
 
-/* ---------- Featured Work card: 1051 x 390, 440x358 image, 30px gap ---------- */
+/* ---------- Featured Work card: 1051 x 372, 440x340 image, 30px gap ---------- */
 .fcard__eyebrow { margin-top: 40px; margin-bottom: 16px; }
 .fcard {
   position: relative;
-  max-width: 1051px; min-height: 390px; padding: 16px; border-radius: 24px;
+  max-width: 1051px; min-height: 372px; padding: 16px; border-radius: 24px;
   background: var(--bg-raised); box-shadow: var(--shadow-sm);
   display: flex; gap: 30px;
   transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
 .fcard:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .fcard__media {
-  flex: 0 0 440px; width: 440px; max-width: 440px; height: 358px; border-radius: 12px; overflow: hidden;
+  flex: 0 0 440px; width: 440px; max-width: 440px; height: 340px; border-radius: 12px; overflow: hidden;
   background: var(--bg-sunken);
 }
 .fcard__media img, .fcard__media video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
@@ -414,14 +434,11 @@ ul { list-style: none; padding: 0; }
 /* ---------- Timeline eyebrow ---------- */
 .timeline__eyebrow { margin-bottom: 20px; }
 
-/* ---------- How I use LLM heading: align with the card below ---------- */
-.llm-section-title { width: 100%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; }
-
 /* ---------- How I use LLM: white card, 4-up icon grid ---------- */
 .llm-card {
-  max-width: 1000px; margin: 40px auto 0; padding: 48px 40px;
+  max-width: 1058px; min-height: 301px; margin: 40px auto 0; padding: 40px;
   background: var(--bg-raised); border-radius: 24px; box-shadow: var(--shadow-sm);
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; align-items: center;
 }
 .llm-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
 .llm-icon {
@@ -440,11 +457,11 @@ ul { list-style: none; padding: 0; }
 }
 
 /* ---------- About Me heading: left-aligned with the card below it ---------- */
-.about-head { max-width: 1000px; margin: 60px auto 0; }
+.about-head { max-width: 1058px; margin: 60px auto 0; }
 
-/* ---------- About Me: 1000 x 701 card, 486x661 photo, right stack ---------- */
+/* ---------- About Me: 1058 x 701 card, 486x661 photo, right stack ---------- */
 .about {
-  max-width: 1000px; min-height: 701px; margin: 24px auto 0; padding: 30px;
+  max-width: 1058px; min-height: 701px; margin: 24px auto 0; padding: 30px;
   display: flex; gap: 30px;
   background: var(--bg-sunken); border-radius: 24px;
 }
@@ -478,7 +495,7 @@ ul { list-style: none; padding: 0; }
 
 .about__content { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
 
-.about__card { width: 450px; max-width: 100%; background: var(--bg-raised); border-radius: 16px; }
+.about__card { width: 450px; max-width: 100%; background: var(--bg-raised); border-radius: 12px; }
 .about__card--name { min-height: 150px; padding: 0 28px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
 .about__name { font: 700 28px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black); }
 .about__role { font: 500 18px/1.3 var(--font-body); color: #2B5D4A; }
@@ -515,4 +532,29 @@ ul { list-style: none; padding: 0; }
   .about__card--name, .about__card--bio { padding: 20px; }
   .about__name { font-size: 24px; }
   .about__lead, .about__lead-accent { font-size: 19px; }
+}
+
+/* ---------- Hiring CTA: H1 title, H4 subtext, H2 email, 50px icon ---------- */
+.hire { padding-top: 90px; padding-bottom: 20px; }
+.hire__title {
+  max-width: 640px;
+  font: 700 40px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black);
+}
+.hire__sub { margin-top: 16px; font: 500 18px/1.4 var(--font-body); color: var(--ink-black); }
+.hire__email {
+  margin-top: 28px; display: inline-flex; align-items: center; flex-wrap: wrap; gap: 14px;
+  max-width: 100%; text-decoration: none; color: var(--ink-black);
+}
+.hire__email span {
+  min-width: 0; overflow-wrap: anywhere;
+  font: 700 32px/1.2 var(--font-display); letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--action-primary); padding-bottom: 4px;
+}
+.hire__email svg { flex: none; width: 50px; height: 50px; transition: transform var(--dur-fast) var(--ease-standard); }
+.hire__email:hover svg { transform: translate(3px, -3px); }
+
+@media (max-width: 560px) {
+  .hire__title { font-size: clamp(1.75rem, 8vw, 40px); }
+  .hire__email span { font-size: clamp(1.1rem, 5vw, 32px); }
+  .hire__email svg { width: 32px; height: 32px; }
 }
