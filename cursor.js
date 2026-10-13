@@ -115,7 +115,7 @@
     var control = target.closest("a, button, [role=button]");
     if (control) {
       var controlText = (control.innerText || control.textContent || "")
-        .replace(/\\s+/g, " ").trim();
+        .replace(/\s+/g, " ").trim();
       if (controlText) return controlText;
       if (control.classList.contains("brand")) return "Home";
     }
@@ -127,7 +127,7 @@
     if (card) {
       var cta = card.querySelector(".ccard__body .btn");
       if (cta) {
-        var ctaText = (cta.innerText || cta.textContent || "").replace(/\\s+/g, " ").trim();
+        var ctaText = (cta.innerText || cta.textContent || "").replace(/\s+/g, " ").trim();
         if (ctaText) return ctaText;
       }
       return "View Case Study";
