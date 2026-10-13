@@ -27,36 +27,35 @@
   color: var(--bottle-900);
 }
 
-/* ---------- Media: 1050 x 400, radius 24 ---------- */
+/* ---------- Media player: full frame, controls below ---------- */
+.fun-player {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 48px;
+}
 .fun-media {
   position: relative;
-  margin-top: 48px;
   width: 100%;
-  max-width: 1050px;
-  aspect-ratio: 1050 / 400;
+  aspect-ratio: 16 / 9;
   border-radius: 24px;
   overflow: hidden;
-  background: var(--bg-sunken);
+  background: #000;
 }
-.fun-media video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; cursor: pointer; }
-
-/* ---------- Media controls: minimal glass pill, Apple-style ---------- */
+.fun-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #000;
+  cursor: pointer;
+}
 .fun-media__controls {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  opacity: 1;
-  transform: translate(-50%, 0);
-  transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard);
-}
-.fun-media:hover .fun-media__controls,
-.fun-media:focus-within .fun-media__controls {
-  opacity: 1;
-  transform: translate(-50%, 0);
+  margin-top: 16px;
 }
 .media-btn {
   width: 63px;
@@ -75,19 +74,16 @@
 }
 .media-btn:hover { background: #E9E9E9; transform: scale(1.04); box-shadow: 0 5px 16px rgb(0 0 0 / .14); }
 .media-btn:active { transform: scale(.97); }
-.media-btn:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.media-btn:focus-visible { outline: 2px solid var(--action-primary); outline-offset: 4px; }
 .media-btn svg { width: 26px; height: 26px; }
+.media-btn svg[hidden] { display: none !important; }
 .media-btn .icon-play { margin-left: 1px; }
 
 @media (max-width: 760px) {
-  .fun-media__controls { bottom: 14px; gap: 8px; }
+  .fun-player { margin-top: 32px; }
+  .fun-media__controls { margin-top: 12px; gap: 8px; }
   .media-btn { width: 54px; height: 54px; }
   .media-btn svg { width: 24px; height: 24px; }
-}
-
-@media (hover: none) {
-  /* Touch devices have no hover; keep the controls visible. */
-  .fun-media__controls { opacity: 1; transform: translate(-50%, 0); }
 }
 
 /* ---------- Entry: eyebrow + title + two paragraphs ---------- */
@@ -133,7 +129,6 @@
 
 @media (max-width: 860px) {
   .fun-intro { padding-top: 32px; }
-  .fun-media { margin-top: 32px; }
   .fun-entry { margin-top: 48px; }
   .fun-footnote { margin-top: 56px; }
 }
