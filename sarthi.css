@@ -61,7 +61,7 @@
 .sa-logocap { text-align: center; margin-top: 12px; }
 
 /* ---------- Context ---------- */
-.sa-context { padding: 112px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 610px; gap: 40px; align-items: center; }
+.sa-context { padding: 200px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 610px; gap: 40px; align-items: center; }
 .sa-context h2 { font: 700 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); margin-top: 10px; }
 .sa-context p { font: 500 16px/1.6 var(--font-body); color: var(--text-secondary); margin-top: 16px; max-width: 56ch; }
 .sa-oldlogo { position: relative; width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: #FFFFFF; box-shadow: var(--shadow-sm); overflow: hidden; }
