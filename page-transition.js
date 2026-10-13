@@ -17,19 +17,12 @@
       // to its default state, which reads as a stutter/jump.
       window.addEventListener("pageshow", function () {
         var main = document.querySelector("main");
-        var cleanup = function (event) {
-          if (event && (event.target !== main || event.animationName !== "pageFadeIn")) return;
-          document.documentElement.classList.remove("page-enter");
-        };
+        var cleanup = function () { document.documentElement.classList.remove("page-enter"); };
         if (main) {
-          main.addEventListener("animationend", cleanup);
-          // Defensive fallback in case clip-path/animation support is unavailable.
-          window.setTimeout(function () {
-            document.documentElement.classList.remove("page-enter");
-            main.removeEventListener("animationend", cleanup);
-          }, 360);
+          main.addEventListener("animationend", cleanup, { once: true });
         } else {
-          window.setTimeout(function () { document.documentElement.classList.remove("page-enter"); }, 360);
+          // Fallback if there's no <main> to listen on: match the CSS duration exactly.
+          window.setTimeout(cleanup, 420);
         }
       }, { once: true });
     }
@@ -49,6 +42,6 @@
     event.preventDefault();
     sessionStorage.setItem(KEY, "1");
     document.documentElement.classList.add("page-exit");
-    window.setTimeout(function () { location.href = url.href; }, 180);
+    window.setTimeout(function () { location.href = url.href; }, 160);
   });
 })();
