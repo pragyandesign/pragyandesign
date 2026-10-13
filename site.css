@@ -538,7 +538,7 @@ ul { list-style: none; padding: 0; }
 }
 
 /* ---------- Hiring CTA: H1 title, H4 subtext, H2 email, 50px icon ---------- */
-.hire { padding-top: 90px; padding-bottom: 20px; }
+.hire { padding-top: 120px; padding-bottom: 20px; }
 .hire__title {
   max-width: 640px;
   font: 700 40px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black);
