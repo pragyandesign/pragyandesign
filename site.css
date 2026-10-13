@@ -513,32 +513,3 @@ ul { list-style: none; padding: 0; }
   .about__name { font-size: 24px; }
   .about__lead, .about__lead-accent { font-size: 19px; }
 }
-
-/* ---------- Fast, opacity-led page transitions ---------- */
-/* Keep the navigation/header stationary; transition the page content only. */
-html.page-exit body > main,
-html.page-exit body > .footer-wrap {
-  animation: pageFadeOut 180ms ease-in both;
-  pointer-events: none;
-}
-html.page-enter body > main,
-html.page-enter body > .footer-wrap {
-  animation: pageFadeIn 300ms ease-out both;
-}
-@keyframes pageFadeOut {
-  from { opacity: 1; clip-path: inset(0 0 0 0); }
-  to   { opacity: 0; clip-path: inset(0 0 100% 0); }
-}
-@keyframes pageFadeIn {
-  from { opacity: 0; clip-path: inset(0 0 100% 0); }
-  to   { opacity: 1; clip-path: inset(0 0 0 0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  html.page-exit body > main,
-  html.page-exit body > .footer-wrap,
-  html.page-enter body > main,
-  html.page-enter body > .footer-wrap {
-    animation: none !important;
-  }
-}
-
