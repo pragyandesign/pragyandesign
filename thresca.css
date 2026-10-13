@@ -49,7 +49,7 @@
 .th-back svg { width: 14px; height: 14px; }
 
 /* ---------- Hero ---------- */
-.th-hero { padding: 112px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
+.th-hero { padding: 70px 0 0; display: grid; grid-template-columns: minmax(0, 1fr) 500px; gap: 40px; align-items: start; }
 .th-title { font: 700 clamp(2.4rem, 6.2vw, 60px)/1.08 var(--font-display-alt); letter-spacing: -0.02em; color: var(--bottle-900); margin-top: 6px; }
 .th-title .ch { display: inline-block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.14em; vertical-align: bottom; }
 .th-title .ch > i { display: block; font-style: normal; transform: translate3d(0, 108%, 0); }
