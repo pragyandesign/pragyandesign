@@ -91,7 +91,7 @@
 }
 
 /* ---------- Process cards (identical color system to sarthi.css) ---------- */
-.th-process { padding: 64px 0 0; }
+.th-process { padding: 112px 0 0; }
 .th-pcard {
   position: sticky; top: calc(84px + var(--n, 0) * 18px); transform-origin: 50% 0; will-change: transform;
   width: 100%; min-height: 266px; border-radius: 24px; padding: clamp(24px, 4vw, 44px); margin-bottom: 20px;
@@ -175,7 +175,7 @@
 .th-identity { padding: 88px 0 0; }
 .th-identity h2 { font: 600 32px/1.2 var(--font-display-alt); letter-spacing: -0.01em; color: var(--bottle-900); }
 .th-switcher { margin-top: 32px; }
-.th-stage { position: relative; width: 1038px; height: 470px; max-width: 100%; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.th-stage { position: relative; width: 1110px; height: 470px; max-width: 100%; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); }
 @media (max-width: 1078px) { .th-stage { width: 100%; aspect-ratio: 1038 / 470; height: auto; } }
 .th-frame {
   position: absolute; inset: 0;
