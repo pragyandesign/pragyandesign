@@ -76,7 +76,7 @@
 .th-context-empty { width: 100%; max-width: 610px; aspect-ratio: 610 / 350; border-radius: 24px; background: var(--bg-raised); box-shadow: var(--shadow-sm); }
 
 /* ---------- Process cards (identical color system to sarthi.css) ---------- */
-.th-process { padding: 64px 0 0; }
+.th-process { padding: 160px 0 0; }
 .th-pcard {
   position: sticky; top: calc(84px + var(--n, 0) * 18px); transform-origin: 50% 0; will-change: transform;
   width: 100%; min-height: 266px; border-radius: 24px; padding: clamp(24px, 4vw, 44px); margin-bottom: 20px;
@@ -137,7 +137,7 @@
   .th-sw[aria-expanded="true"] { min-height: 230px; flex-grow: 0; }
 }
 /* ---------- Type: a live weight slider across all seven loaded Antonia H1 weights ---------- */
-.th-type { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 5vw, 64px); align-items: center; margin-top: 44px; }
+.th-type { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 5vw, 64px); align-items: center; margin-top: 80px; }
 .th-slider { display: grid; gap: 8px; }
 .th-slider label { font: 500 14px/1 var(--font-body); color: var(--text-secondary); display: flex; justify-content: space-between; }
 .th-slider input { width: 100%; accent-color: var(--th-signal); height: 28px; }
