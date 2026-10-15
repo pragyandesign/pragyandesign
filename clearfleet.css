@@ -18,7 +18,7 @@
   }
 }
 
-.cfp-body p { color: var(--text-primary); font: 500 17px/1.6 var(--font-body); max-width: 72ch; }
+.cfp-body p { color: var(--text-secondary); font: 500 17px/1.6 var(--font-body); max-width: 72ch; }
 .cfp-body p + p { margin-top: 24px; }
 .cfp-body b { font-weight: 700; color: var(--action-primary); }
 
@@ -105,7 +105,7 @@
 .cfp-steps { display: grid; gap: 14px; align-content: start; }
 .cfp-step { display: flex; gap: 14px; align-items: flex-start; border: 1.5px solid var(--border-subtle); border-radius: 16px; padding: 16px 18px; background: var(--bg-page); }
 .cfp-step__n { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--action-primary); color: #fff; display: flex; align-items: center; justify-content: center; font: 700 13px/1 var(--font-body); }
-.cfp-step p { margin: 0; color: var(--text-primary); font: 600 14px/1.5 var(--font-body); }
+.cfp-step p { margin: 0; color: var(--text-secondary); font: 600 14px/1.5 var(--font-body); }
 
 /* ---------- Key design moments ---------- */
 .cfp-moment { margin-top: 44px; }
@@ -127,7 +127,7 @@
 .cfp-card .tag { font: 700 12px/1 var(--font-body); text-transform: uppercase; letter-spacing: .03em; }
 .cfp-card--no .tag { color: var(--danger-text); }
 .cfp-card--yes .tag { color: var(--info-text); }
-.cfp-card p { margin-top: 10px; font: 600 15px/1.5 var(--font-body); color: var(--text-primary); }
+.cfp-card p { margin-top: 10px; font: 600 15px/1.5 var(--font-body); color: var(--text-secondary); }
 
 /* ---------- Impact ---------- */
 .cfp-targets { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
