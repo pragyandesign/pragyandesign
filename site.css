@@ -670,3 +670,31 @@ body { color: #000000; }
 .pcard:hover .pcard__media video {
   transform: none !important;
 }
+
+
+/* Keep project cards and their media static on hover; reserve motion for controls. */
+.pcard,
+.pcard:hover,
+.pcard:focus-within,
+.ccard,
+.ccard:hover,
+.ccard:focus-within,
+.fcard,
+.fcard:hover,
+.fcard:focus-within {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.pcard:hover .pcard__media img,
+.pcard:hover .pcard__media video,
+.ccard:hover img,
+.ccard:hover video,
+.fcard:hover img,
+.fcard:hover video {
+  transform: none !important;
+}
+
+/* Give the hero copy and portrait a more deliberate separation. */
+.hero {
+  column-gap: clamp(56px, 6vw, 96px);
+}
