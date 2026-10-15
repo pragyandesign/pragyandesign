@@ -20,11 +20,11 @@
   --btn-label: var(--text-on-action);
   /* Secondary button + card outline colour. Mockup used orange (2.52:1 on eggshell).
      To restore your mockup: var(--action-primary) */
-  --btn-secondary: var(--text-primary);
+  --btn-secondary: var(--action-primary);
   /* ------------------------------------------------------------------------ */
 
-  --ink-black: #003223;              /* H1 and section titles — bottle green, not pure black */
-  --on-dark-secondary: #A49C94;      /* sub text on bottle green (5.24:1) */
+  --ink-black: #171617;              /* H1 and section titles — bottle green, not pure black */
+  --on-dark-secondary: #CDCBCB;      /* sub text on bottle green (5.24:1) */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
