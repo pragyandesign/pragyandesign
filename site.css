@@ -638,3 +638,21 @@ body { color: #000000; }
 .footer-wrap .footer *:not(iframe):not(svg) {
   color: #000000;
 }
+
+
+/* Specific overrides: About Me's two right-hand cards must remain pure white. */
+.about .about__content .about__card--name,
+.about .about__content .about__card--bio {
+  background-color: #FFFFFF !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep footer card solid and make every footer text/link black. */
+.footer-wrap .footer,
+.footer-wrap .footer h2,
+.footer-wrap .footer a,
+.footer-wrap .footer li,
+.footer-wrap .copyright {
+  color: #000000 !important;
+}
