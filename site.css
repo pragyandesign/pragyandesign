@@ -570,3 +570,18 @@ body { color: #575757; }
 .btn--primary:hover, .btn--primary:focus-visible { background: #06351B; color: #DFFCA1; }
 .btn--secondary { border-color: #094020; color: #094020; }
 .btn--secondary:hover { background: #094020; color: #DFFCA1; }
+
+
+/* Card surface and stroke update — footer card intentionally excluded */
+:root { --bg-raised: #E2E1D9; --bg-sunken: #E2E1D9; }
+.card,
+.project-card,
+.work-card,
+.about__card,
+.prototype-card,
+[class*="__card"]:not(.footer-card):not(.footer__card),
+[class*="-card"]:not(.footer-card):not(.footer__card) {
+  background-color: #E2E1D9;
+  border: 1.5px solid #094020;
+  box-sizing: border-box;
+}
