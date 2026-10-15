@@ -172,18 +172,18 @@
 .cfp-cards2 .cfp-card--yes .tag { color: var(--info-text); }
 
 
-/* Key Design Moments: transparent card interiors, with the red/blue outlines retained. */
+/* Key Design Moments: use the exact requested pale red/blue fills and matching outlines. */
 .cfp-section#moments .cfp-cards2 .cfp-card--no {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: #FEF2F2 !important;
+  background-color: #FEF2F2 !important;
   border: 1.5px solid #DC2626 !important;
 }
 .cfp-section#moments .cfp-cards2 .cfp-card--no .tag {
   color: #DC2626 !important;
 }
 .cfp-section#moments .cfp-cards2 .cfp-card--yes {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: #EFF6FF !important;
+  background-color: #EFF6FF !important;
   border: 1.5px solid #2563EB !important;
 }
 .cfp-section#moments .cfp-cards2 .cfp-card--yes .tag {
