@@ -657,3 +657,16 @@ body { color: #000000; }
 .footer-wrap .copyright {
   color: #000000 !important;
 }
+
+
+/* Project cards stay visually still on hover; button hover effects remain available. */
+.pcard,
+.pcard:hover,
+.pcard:focus-within {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.pcard:hover .pcard__media img,
+.pcard:hover .pcard__media video {
+  transform: none !important;
+}
