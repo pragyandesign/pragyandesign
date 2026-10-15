@@ -170,3 +170,20 @@
 }
 .cfp-cards2 .cfp-card--no .tag { color: var(--danger-text); }
 .cfp-cards2 .cfp-card--yes .tag { color: var(--info-text); }
+
+
+/* Exact original colors for the rejected/chosen cards in Key Design Moments. */
+.cfp-section#moments .cfp-cards2 .cfp-card--no {
+  background-color: #FEF2F2 !important;
+  border: 1.5px solid #DC2626 !important;
+}
+.cfp-section#moments .cfp-cards2 .cfp-card--no .tag {
+  color: #DC2626 !important;
+}
+.cfp-section#moments .cfp-cards2 .cfp-card--yes {
+  background-color: #EFF6FF !important;
+  border: 1.5px solid #2563EB !important;
+}
+.cfp-section#moments .cfp-cards2 .cfp-card--yes .tag {
+  color: #2563EB !important;
+}
