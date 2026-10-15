@@ -23,7 +23,7 @@
   --btn-secondary: var(--action-primary);
   /* ------------------------------------------------------------------------ */
 
-  --ink-black: #171617;              /* H1 and section titles — bottle green, not pure black */
+  --ink-black: #094020;              /* H1 and section titles — bottle green, not pure black */
   --on-dark-secondary: #CDCBCB;      /* sub text on bottle green (5.24:1) */
 }
 
@@ -32,7 +32,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 84px; color-scheme: light; }
 body {
   background: var(--bg-page);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font: 400 16px/1.5 var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -500,16 +500,16 @@ ul { list-style: none; padding: 0; }
 
 .about__card { width: 100%; max-width: none; background: var(--bg-raised); border-radius: 12px; }
 .about__card--name { flex: 0 0 150px; min-height: 150px; padding: 0 28px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
-.about__name { font: 700 28px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black); }
-.about__role { font: 500 18px/1.3 var(--font-body); color: #2B5D4A; }
+.about__name { font: 700 28px/1.2 var(--font-display); letter-spacing: -0.01em; color: #171617; }
+.about__role { font: 500 18px/1.3 var(--font-body); color: #094020; }
 
 .about__card--bio { flex: 1 1 auto; min-height: 0; padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
-.about__lead { font: 400 22px/1.45 var(--font-body); color: var(--text-primary); }
+.about__lead { font: 400 22px/1.45 var(--font-body); color: var(--text-secondary); }
 .about__lead-accent {
   font: italic 600 22px/1.45 "Fraunces", var(--font-body), serif;
   color: var(--action-primary); margin-right: 5px;
 }
-.about__p { font: 400 14px/1.6 var(--font-body); color: #2B5D4A; }
+.about__p { font: 400 14px/1.6 var(--font-body); color: #575757; }
 
 .about__btn {
   flex: 0 0 56px; width: 100%; max-width: none; height: 56px; padding: 0 6px 0 24px;
@@ -561,3 +561,12 @@ ul { list-style: none; padding: 0; }
   .hire__email span { font-size: clamp(1.1rem, 5vw, 32px); }
   .hire__email svg { width: 32px; height: 32px; }
 }
+
+
+/* Pragyan color system — shared UI */
+:root { --btn-label: #DFFCA1; --btn-secondary: #094020; --ink-black: #094020; --on-dark-secondary: #CDCBCB; }
+body { color: #575757; }
+.btn--primary { background: #094020; color: #DFFCA1; }
+.btn--primary:hover, .btn--primary:focus-visible { background: #06351B; color: #DFFCA1; }
+.btn--secondary { border-color: #094020; color: #094020; }
+.btn--secondary:hover { background: #094020; color: #DFFCA1; }
