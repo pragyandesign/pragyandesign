@@ -585,3 +585,56 @@ body { color: #575757; }
   border: 1.5px solid #094020;
   box-sizing: border-box;
 }
+
+
+/* Refinements: translucent card surfaces, clear text hierarchy, footer contrast */
+:root { --text-secondary: #000000; }
+body { color: #000000; }
+.nav__links a,
+.nav__toggle,
+.hero__sub,
+.ccard__desc,
+.about__lead,
+.hire__sub,
+.copyright { color: #000000; }
+
+/* Secondary/supporting copy uses the paragraph-white token as a readable grey on white. */
+.pcard__desc,
+.about__p,
+.cfp-section p,
+.cfp-flow-text p,
+.cfp-flow-note,
+.cfp-step p,
+.cfp-card p,
+.cfp-target span { color: #575757; }
+
+/* Cards: 40% surface/stroke opacity without fading their content. */
+.card,
+.project-card,
+.work-card,
+.prototype-card,
+[class*="__card"]:not(.footer-card):not(.footer__card),
+[class*="-card"]:not(.footer-card):not(.footer__card) {
+  background-color: color-mix(in srgb, #E2E1D9 40%, transparent);
+  border-color: color-mix(in srgb, #094020 40%, transparent);
+}
+
+/* About Me: the two right-side information cards stay crisp white and borderless. */
+.about__content > .about__card--name,
+.about__content > .about__card--bio {
+  background: #FFFFFF;
+  border: none;
+}
+
+/* Footer remains a solid card; all footer copy and links are black. */
+.footer {
+  background: #E2E1D9;
+}
+.footer,
+.footer h2,
+.footer li a,
+.footer .copyright,
+.copyright,
+.footer-wrap .footer *:not(iframe):not(svg) {
+  color: #000000;
+}
