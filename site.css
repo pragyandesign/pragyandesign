@@ -640,10 +640,10 @@ body { color: #000000; }
 }
 
 
-/* About Me's two right-hand cards: 40% surface opacity, no stroke or shadow. */
+/* About Me's two right-hand cards: 25% surface opacity, no stroke or shadow. */
 .about .about__content .about__card--name,
 .about .about__content .about__card--bio {
-  background-color: color-mix(in srgb, #E2E1D9 40%, transparent) !important;
+  background-color: color-mix(in srgb, #E2E1D9 25%, transparent) !important;
   border: none !important;
   box-shadow: none !important;
 }
