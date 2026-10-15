@@ -172,16 +172,18 @@
 .cfp-cards2 .cfp-card--yes .tag { color: var(--info-text); }
 
 
-/* Exact original colors for the rejected/chosen cards in Key Design Moments. */
+/* Key Design Moments: transparent card interiors, with the red/blue outlines retained. */
 .cfp-section#moments .cfp-cards2 .cfp-card--no {
-  background-color: #FEF2F2 !important;
+  background: transparent !important;
+  background-color: transparent !important;
   border: 1.5px solid #DC2626 !important;
 }
 .cfp-section#moments .cfp-cards2 .cfp-card--no .tag {
   color: #DC2626 !important;
 }
 .cfp-section#moments .cfp-cards2 .cfp-card--yes {
-  background-color: #EFF6FF !important;
+  background: transparent !important;
+  background-color: transparent !important;
   border: 1.5px solid #2563EB !important;
 }
 .cfp-section#moments .cfp-cards2 .cfp-card--yes .tag {
