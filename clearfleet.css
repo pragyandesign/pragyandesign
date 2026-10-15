@@ -157,3 +157,16 @@
 /* Final spacing and shadow refinements */
 .cfp-section#impact + .cfp-section { padding-top: 50px; }
 .footer-wrap { margin-top: 50px; }
+
+
+/* Preserve the original red/blue treatment for the two Key Design Moments cards. */
+.cfp-cards2 .cfp-card--no {
+  background: var(--danger-bg);
+  border: 1.5px solid var(--danger-border);
+}
+.cfp-cards2 .cfp-card--yes {
+  background: var(--info-bg);
+  border: 1.5px solid var(--info-border);
+}
+.cfp-cards2 .cfp-card--no .tag { color: var(--danger-text); }
+.cfp-cards2 .cfp-card--yes .tag { color: var(--info-text); }
