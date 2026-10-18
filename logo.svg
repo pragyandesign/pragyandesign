@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1997.39 366.12">
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000.01 366.12">
   <defs>
     <style>
-      .cls-1 {
-        fill: #dee9a0;
-      }
-
-      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
         fill: #1b1a17;
       }
 
-      .cls-2, .cls-7, .cls-8 {
+      .cls-1, .cls-6, .cls-7 {
         letter-spacing: -.01em;
+      }
+
+      .cls-8 {
+        fill: #023223;
       }
 
       .cls-9 {
@@ -20,38 +20,38 @@
         font-weight: 700;
       }
 
-      .cls-3 {
+      .cls-2 {
         letter-spacing: -.03em;
       }
 
-      .cls-4 {
+      .cls-3 {
         letter-spacing: -.05em;
       }
 
-      .cls-7, .cls-10 {
-        fill: #0b4021;
+      .cls-6, .cls-10 {
+        fill: #f26522;
       }
 
-      .cls-8 {
+      .cls-7 {
         fill: #ffd815;
       }
 
-      .cls-5 {
+      .cls-4 {
         letter-spacing: -.03em;
       }
 
-      .cls-6 {
+      .cls-5 {
         letter-spacing: -.01em;
       }
     </style>
   </defs>
   <g id="Layer_1-2" data-name="Layer 1">
     <g>
-      <text class="cls-9" transform="translate(492.21 237.61)"><tspan class="cls-3" x="0" y="0">P</tspan><tspan class="cls-4" x="125" y="0">r</tspan><tspan class="cls-6" x="204" y="0">a</tspan><tspan class="cls-2" x="318.4" y="0">g</tspan><tspan class="cls-5" x="441.6" y="0">y</tspan><tspan class="cls-2" x="556.8" y="0">an</tspan><tspan class="cls-8" x="791.59" y="0"> </tspan><tspan class="cls-7" x="836.99" y="0">Design</tspan></text>
+      <text class="cls-9" transform="translate(494.83 237.61)"><tspan class="cls-2" x="0" y="0">P</tspan><tspan class="cls-3" x="125" y="0">r</tspan><tspan class="cls-5" x="204" y="0">a</tspan><tspan class="cls-1" x="318.4" y="0">g</tspan><tspan class="cls-4" x="441.6" y="0">y</tspan><tspan class="cls-1" x="556.8" y="0">an</tspan><tspan class="cls-7" x="791.59" y="0"> </tspan><tspan class="cls-6" x="836.99" y="0">Design</tspan></text>
       <g>
         <g>
-          <path class="cls-1" d="M163.57,361.12H23.56c-10.24,0-18.56-8.32-18.56-18.56v-140.01c-1.69-1.01-3.35-2.06-5-3.13v143.14c0,12.99,10.57,23.56,23.56,23.56h143.14c-1.07-1.65-2.12-3.31-3.13-5Z"/>
-          <path class="cls-1" d="M366.12,23.56v319c0,12.99-10.57,23.56-23.56,23.56h-175.86c-1.07-1.65-2.12-3.31-3.13-5H23.56c-10.24,0-18.56-8.32-18.56-18.56v-140.01c-1.69-1.01-3.35-2.06-5-3.13V23.56C0,10.57,10.57,0,23.56,0h319c12.99,0,23.56,10.57,23.56,23.56Z"/>
+          <path class="cls-8" d="M163.57,361.12H23.56c-10.24,0-18.56-8.32-18.56-18.56v-140.01c-1.69-1.01-3.35-2.06-5-3.13v143.14c0,12.99,10.57,23.56,23.56,23.56h143.14c-1.07-1.65-2.12-3.31-3.13-5Z"/>
+          <path class="cls-8" d="M366.12,23.56v319c0,12.99-10.57,23.56-23.56,23.56h-175.86c-1.07-1.65-2.12-3.31-3.13-5H23.56c-10.24,0-18.56-8.32-18.56-18.56v-140.01c-1.69-1.01-3.35-2.06-5-3.13V23.56C0,10.57,10.57,0,23.56,0h319c12.99,0,23.56,10.57,23.56,23.56Z"/>
         </g>
         <path class="cls-10" d="M223,79c0,79.53-64.47,144-144,144-27.06,0-52.37-7.47-74-20.45-1.69-1.01-3.35-2.06-5-3.13V23.56C0,10.57,10.57,0,23.56,0h175.86c1.07,1.65,2.12,3.31,3.13,5,12.98,21.63,20.45,46.94,20.45,74Z"/>
         <path class="cls-10" d="M366.12,166.7v175.86c0,12.99-10.57,23.56-23.56,23.56h-175.86c-1.07-1.65-2.12-3.31-3.13-5-12.98-21.63-20.45-46.94-20.45-74,0-79.53,64.47-144,144-144,27.06,0,52.37,7.47,74,20.45,1.69,1.01,3.35,2.06,5,3.13Z"/>
