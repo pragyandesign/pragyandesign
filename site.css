@@ -20,11 +20,11 @@
   --btn-label: var(--text-on-action);
   /* Secondary button + card outline colour. Mockup used orange (2.52:1 on eggshell).
      To restore your mockup: var(--action-primary) */
-  --btn-secondary: var(--action-primary);
+  --btn-secondary: var(--text-primary);
   /* ------------------------------------------------------------------------ */
 
-  --ink-black: #094020;              /* H1 and section titles — bottle green, not pure black */
-  --on-dark-secondary: #CDCBCB;      /* sub text on bottle green (5.24:1) */
+  --ink-black: #003223;              /* H1 and section titles — bottle green, not pure black */
+  --on-dark-secondary: #A49C94;      /* sub text on bottle green (5.24:1) */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -32,7 +32,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 84px; color-scheme: light; }
 body {
   background: var(--bg-page);
-  color: var(--text-secondary);
+  color: var(--text-primary);
   font: 400 16px/1.5 var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -500,16 +500,16 @@ ul { list-style: none; padding: 0; }
 
 .about__card { width: 100%; max-width: none; background: var(--bg-raised); border-radius: 12px; }
 .about__card--name { flex: 0 0 150px; min-height: 150px; padding: 0 28px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
-.about__name { font: 700 28px/1.2 var(--font-display); letter-spacing: -0.01em; color: #171617; }
-.about__role { font: 500 18px/1.3 var(--font-body); color: #094020; }
+.about__name { font: 700 28px/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink-black); }
+.about__role { font: 500 18px/1.3 var(--font-body); color: #2B5D4A; }
 
 .about__card--bio { flex: 1 1 auto; min-height: 0; padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
-.about__lead { font: 400 22px/1.45 var(--font-body); color: var(--text-secondary); }
+.about__lead { font: 400 22px/1.45 var(--font-body); color: var(--text-primary); }
 .about__lead-accent {
   font: italic 600 22px/1.45 "Fraunces", var(--font-body), serif;
   color: var(--action-primary); margin-right: 5px;
 }
-.about__p { font: 400 14px/1.6 var(--font-body); color: #575757; }
+.about__p { font: 400 14px/1.6 var(--font-body); color: #2B5D4A; }
 
 .about__btn {
   flex: 0 0 56px; width: 100%; max-width: none; height: 56px; padding: 0 6px 0 24px;
@@ -562,116 +562,6 @@ ul { list-style: none; padding: 0; }
   .hire__email svg { width: 32px; height: 32px; }
 }
 
-
-/* Pragyan color system — shared UI */
-:root { --btn-label: #DFFCA1; --btn-secondary: #094020; --ink-black: #094020; --on-dark-secondary: #CDCBCB; }
-body { color: #575757; }
-.btn--primary { background: #094020; color: #DFFCA1; }
-.btn--primary:hover, .btn--primary:focus-visible { background: #06351B; color: #DFFCA1; }
-.btn--secondary { border-color: #094020; color: #094020; }
-.btn--secondary:hover { background: #094020; color: #DFFCA1; }
-
-
-/* Card surface and stroke update — footer card intentionally excluded */
-:root { --bg-raised: #E2E1D9; --bg-sunken: #E2E1D9; }
-.card,
-.project-card,
-.work-card,
-.about__card,
-.prototype-card,
-[class*="__card"]:not(.footer-card):not(.footer__card),
-[class*="-card"]:not(.footer-card):not(.footer__card) {
-  background-color: #E2E1D9;
-  border: 1.5px solid #094020;
-  box-sizing: border-box;
-}
-
-
-/* Refinements: translucent card surfaces, clear text hierarchy, footer contrast */
-:root { --text-secondary: #000000; }
-body { color: #000000; }
-.nav__links a,
-.nav__toggle,
-.hero__sub,
-.ccard__desc,
-.about__lead,
-.hire__sub,
-.copyright { color: #000000; }
-
-/* Secondary/supporting copy uses the paragraph-white token as a readable grey on white. */
-.pcard__desc,
-.about__p,
-.cfp-section p,
-.cfp-flow-text p,
-.cfp-flow-note,
-.cfp-step p,
-.cfp-card p,
-.cfp-target span { color: #575757; }
-
-/* Cards: 40% surface/stroke opacity without fading their content. */
-.card,
-.project-card,
-.work-card,
-.prototype-card,
-[class*="__card"]:not(.footer-card):not(.footer__card),
-[class*="-card"]:not(.footer-card):not(.footer__card) {
-  background-color: color-mix(in srgb, #E2E1D9 40%, transparent);
-  border-color: color-mix(in srgb, #094020 40%, transparent);
-}
-
-/* About Me: the two right-side information cards stay crisp white and borderless. */
-.about__content > .about__card--name,
-.about__content > .about__card--bio {
-  background: #FFFFFF;
-  border: none;
-}
-
-/* Footer remains a solid card; all footer copy and links are black. */
-.footer {
-  background: #E2E1D9;
-}
-.footer,
-.footer h2,
-.footer li a,
-.footer .copyright,
-.copyright,
-.footer-wrap .footer *:not(iframe):not(svg) {
-  color: #000000;
-}
-
-
-/* About Me's two right-hand cards: solid white, no stroke or shadow. */
-.about .about__content .about__card--name,
-.about .about__content .about__card--bio {
-  background: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Keep footer card solid and make every footer text/link black. */
-.footer-wrap .footer,
-.footer-wrap .footer h2,
-.footer-wrap .footer a,
-.footer-wrap .footer li,
-.footer-wrap .copyright {
-  color: #000000 !important;
-}
-
-
-/* Project cards stay visually still on hover; button hover effects remain available. */
-.pcard,
-.pcard:hover,
-.pcard:focus-within {
-  transform: none !important;
-  box-shadow: none !important;
-}
-.pcard:hover .pcard__media img,
-.pcard:hover .pcard__media video {
-  transform: none !important;
-}
-
-
 /* Keep project cards and their media static on hover; reserve motion for controls. */
 .pcard,
 .pcard:hover,
@@ -697,4 +587,13 @@ body { color: #000000; }
 /* Give the hero copy and portrait a more deliberate separation. */
 .hero {
   column-gap: clamp(56px, 6vw, 96px);
+}
+
+/* About Me's two right-hand cards remain solid white, borderless and shadow-free. */
+.about .about__content .about__card--name,
+.about .about__content .about__card--bio {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: none !important;
 }
