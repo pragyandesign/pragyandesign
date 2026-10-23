@@ -312,7 +312,7 @@
 }
 
 
-/* ---------- Final Artifacts horizontal galleries ---------- */
+/* ---------- Final Artifacts horizontal desktop gallery ---------- */
 @media (min-width: 861px) {
   #artifacts { overflow: clip; }
   .cfp-artifacts-intro { margin-bottom: 48px; }
@@ -349,7 +349,6 @@
   }
   .cfp-artifact-card .cfp-browser { margin-top: 0; }
   .cfp-artifact-card .cfp-screen-cap { margin-top: 18px; }
-  .cfp-artifact-mobile { margin-top: 112px; }
   .cfp-artifact-states { margin-top: 64px; }
 }
 @media (max-width: 860px) {
@@ -358,30 +357,6 @@
   .cfp-artifact-viewport { overflow: visible; }
   .cfp-artifact-track { display: block; width: auto; transform: none !important; }
   .cfp-artifact-card { width: 100%; min-width: 0; margin-top: 28px; }
-  .cfp-artifact-mobile { margin-top: 64px; }
+  .cfp-artifact-mobile { margin-top: 48px; }
   .cfp-artifact-states { margin-top: 48px; }
-
-  /* Driver screens use a horizontal, swipeable strip with the next screen peeking in. */
-  .cfp-phones {
-    display: flex;
-    gap: 24px;
-    width: calc(100vw - 24px);
-    max-width: none;
-    margin: 28px 0 0;
-    padding: 0 24px 18px 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 0;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-  }
-  .cfp-phone-block {
-    flex: 0 0 min(76vw, 320px);
-    min-width: 0;
-    scroll-snap-align: start;
-  }
-  .cfp-phone-block:last-child { margin-right: 24px; }
-  .cfp-phone { width: 100%; }
-  .cfp-phone img { width: 100%; height: auto; }
 }
