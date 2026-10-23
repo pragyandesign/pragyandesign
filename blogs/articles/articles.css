@@ -1,0 +1,112 @@
+/* ==========================================================
+   Articles page: https://pragyan.design/blogs/articles
+   Loads AFTER /tokens.css and /site.css, so nav, footer, buttons,
+   fonts and colour tokens all come from the homepage. Only what is
+   new on this page lives here.
+   Numbers are taken from the Figma export (1200px frame).
+   ========================================================== */
+
+:root {
+  --article-muted: #55625E;             /* subtext + source label */
+  --article-img-w: 450px;
+  /* Visible image window. The Figma export shows each 450px-wide image
+     cropped to 127px tall. If you want the full 450 x 284.41 image instead,
+     change this one line to: 450 / 284.41 */
+  --article-img-ratio: 450 / 127;
+}
+
+/* ---------- Header: H1 + subtext ---------- */
+.articles {
+  max-width: calc(var(--container) + var(--pad) * 2);
+  margin: 0 auto;
+  padding: 56px var(--pad) 54px;        /* 54 + footer-wrap's 100 = the 154px gap above the footer in the design */
+}
+.articles__title {
+  font: 700 40px/1.2 var(--font-display);        /* H1 */
+  letter-spacing: -0.01em;
+  color: var(--ink-black);                       /* bottle green */
+}
+.articles__sub {
+  margin-top: 6px; max-width: 440px;
+  font: 500 16px/20px var(--font-body);          /* Switzer Medium 16 */
+  color: var(--article-muted);                   /* #55625E */
+}
+
+/* ---------- Grid: 2 x 450px cards, 100px between columns ---------- */
+.agrid {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, var(--article-img-w)));
+  column-gap: clamp(24px, 8.4vw, 100px);
+  row-gap: 89px;
+  align-items: start;                            /* cards keep their own height, like the design */
+}
+
+/* ---------- Card ---------- */
+.acard { position: relative; display: flex; flex-direction: column; }
+
+.acard__media {
+  aspect-ratio: var(--article-img-ratio);
+  border-radius: 12px 12px 0 0;                  /* rounded top, square bottom, as designed */
+  overflow: hidden;
+  background: var(--bg-sunken, #EADFD3);
+}
+.acard__media img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: var(--pos, 50% 50%);
+}
+
+/* Source row: Medium logo + DESIGN BOOTCAMP (Caption B) */
+.acard__meta { display: flex; align-items: center; gap: 10px; margin-top: 15px; }
+.acard__logo { flex: none; width: 18px; height: 18px; display: block; }
+.acard__source {
+  font: 600 12px/18px var(--font-body);
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--article-muted);
+}
+
+/* Headline: Sora SemiBold 22, bottle green */
+.acard__title {
+  margin-top: 15px;
+  font: 600 22px/28px var(--font-display);
+  color: var(--ink-black);
+}
+/* Subtext: H5B */
+.acard__desc {
+  margin-top: 8px;
+  font: 500 16px/21px var(--font-body);
+  color: var(--article-muted);
+}
+
+/* Link: Body B + Lucide arrow-right 18x18. ::after makes the whole card clickable. */
+.acard__link {
+  display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+  margin-top: 12px;
+  font: 600 14px/20px var(--font-body);
+  color: var(--action-primary);
+  text-decoration: none;
+}
+.acard__link::after { content: ""; position: absolute; inset: 0; }
+.acard__link svg {
+  width: 18px; height: 18px; flex: none;
+  transition: transform var(--dur-fast, 150ms) var(--ease-standard, ease);
+}
+.acard:hover .acard__link svg,
+.acard__link:focus-visible svg { transform: translateX(4px); }
+.acard:hover .acard__title {
+  text-decoration: underline; text-decoration-color: var(--action-primary);
+  text-decoration-thickness: 2px; text-underline-offset: 5px;
+}
+.acard__link:focus-visible { outline: 2px solid var(--action-primary); outline-offset: 4px; border-radius: 4px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .articles { padding-top: 32px; padding-bottom: 24px; }
+  .articles__title { font-size: clamp(1.75rem, 8vw, 40px); }
+  .agrid { grid-template-columns: minmax(0, 1fr); margin-top: 48px; row-gap: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acard__link svg { transition: none; }
+  .acard:hover .acard__link svg { transform: none; }
+}
