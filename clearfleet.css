@@ -189,3 +189,19 @@
 .cfp-section#moments .cfp-cards2 .cfp-card--yes .tag {
   color: #2563EB !important;
 }
+
+/* Remove the phone-frame effect from the five driver mobile screens only. */
+.cfp-phone {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+.cfp-phone img {
+  border-radius: 0;
+  box-shadow: none;
+  filter: none;
+}
+.cfp-phone__bar {
+  display: none;
+}
+
