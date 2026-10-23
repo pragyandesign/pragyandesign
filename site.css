@@ -597,3 +597,11 @@ ul { list-style: none; padding: 0; }
   border: none !important;
   box-shadow: none !important;
 }
+
+/* ---------- Brand cards: logo image by default, reel plays on hover ---------- */
+.ccard__media .poster { z-index: 0; }
+.ccard__media video.hover-video { z-index: 1; opacity: 0; transition: opacity 250ms ease; }
+.ccard__media.is-playing video.hover-video { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .ccard__media video.hover-video { display: none; }
+}

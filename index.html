@@ -115,7 +115,8 @@
         <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2026</div>
         <article class="ccard"><div class="ccard__in">
           <div class="ccard__media">
-            <video width="501" height="501" autoplay loop muted playsinline aria-label="Thresca brand reel">
+            <img class="poster" src="thresca-poster.webp" alt="Thresca logo" width="440" height="340" loading="lazy">
+            <video class="hover-video" loop muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
               <source src="thresca-reel.mp4" type="video/mp4">
             </video>
           </div>
@@ -134,7 +135,8 @@
         <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2025</div>
         <article class="ccard"><div class="ccard__in">
           <div class="ccard__media">
-            <video width="811" height="601" autoplay loop muted playsinline aria-label="Sarthi Ayurvedic brand reel">
+            <img class="poster" src="sarthi-poster.webp" alt="Sarthi Ayurvedic Hospital &amp; Panchkarma Centre logo" width="440" height="340" loading="lazy">
+            <video class="hover-video" loop muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
               <source src="sarthi-reel.mp4" type="video/mp4">
             </video>
           </div>
@@ -158,7 +160,8 @@
         <div class="case__year"><span class="case__dot" aria-hidden="true"></span>2024</div>
         <article class="ccard"><div class="ccard__in">
           <div class="ccard__media">
-            <video width="713" height="431" autoplay loop muted playsinline aria-label="Aurawear brand reel">
+            <img class="poster" src="aurawear-poster.webp" alt="Aurawear logo" width="440" height="340" loading="lazy">
+            <video class="hover-video" loop muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
               <source src="aurawear-reel.mp4" type="video/mp4">
             </video>
           </div>
@@ -281,6 +284,51 @@
     <span>2026 Pragyan Chaudhary. All rights reserved</span>
   </div>
 </div>
+
+<!-- Brand cards: show the logo image; play the reel on hover/focus (or while in view on touch screens) -->
+<script>
+(function () {
+  var media = document.querySelectorAll('.ccard__media');
+  if (!media.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (reduce) return;                                   // reduced motion: images only
+
+  function bind(box) {
+    var v = box.querySelector('video.hover-video');
+    if (!v) return null;
+    var timer;
+    return {
+      play: function () {
+        clearTimeout(timer);
+        var p = v.play();
+        if (p && p.then) p.then(function () { box.classList.add('is-playing'); }).catch(function () {});
+      },
+      stop: function () {
+        box.classList.remove('is-playing');
+        clearTimeout(timer);
+        timer = setTimeout(function () { v.pause(); v.currentTime = 0; }, 260);  // after the fade-out
+      }
+    };
+  }
+
+  media.forEach(function (box) {
+    var c = bind(box);
+    if (!c) return;
+    var card = box.closest('.ccard') || box;
+    if (canHover) {
+      card.addEventListener('mouseenter', c.play);
+      card.addEventListener('mouseleave', c.stop);
+      card.addEventListener('focusin', c.play);
+      card.addEventListener('focusout', c.stop);
+    } else if ('IntersectionObserver' in window) {   // touch: no hover, so play while the card is on screen
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) { e.isIntersecting ? c.play() : c.stop(); });
+      }, { threshold: 0.6 }).observe(card);
+    }
+  });
+})();
+</script>
 
 <script src="main.js"></script>
 <script src="cursor.js"></script>
