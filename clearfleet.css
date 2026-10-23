@@ -310,3 +310,89 @@
     margin-top: 48px;
   }
 }
+
+
+/* ---------- Final Artifacts horizontal desktop gallery ---------- */
+@media (min-width: 861px) {
+  #artifacts {
+    overflow: clip;
+  }
+  .cfp-artifacts-intro {
+    margin-bottom: 48px;
+  }
+  .cfp-artifact-group--desktop {
+    position: relative;
+    min-height: 0;
+  }
+  .cfp-artifact-sticky-grid {
+    position: sticky;
+    top: 112px;
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+  .cfp-artifact-sticky-grid > h2,
+  .cfp-artifact-states > h2,
+  .cfp-artifact-mobile .cfp-grid > h2 {
+    font: 700 2rem/1.15 var(--font-display);
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    align-self: start;
+  }
+  .cfp-artifact-viewport {
+    overflow: hidden;
+    min-width: 0;
+  }
+  .cfp-artifact-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+  }
+  .cfp-artifact-card {
+    flex: 0 0 clamp(300px, calc((100vw - 452px) * 0.75), 560px);
+    width: clamp(300px, calc((100vw - 452px) * 0.75), 560px);
+    min-width: 0;
+  }
+  .cfp-artifact-card .cfp-browser {
+    margin-top: 0;
+  }
+  .cfp-artifact-card .cfp-screen-cap {
+    margin-top: 18px;
+  }
+  .cfp-artifact-states {
+    margin-top: 64px;
+  }
+}
+@media (max-width: 860px) {
+  .cfp-artifact-group--desktop {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+  .cfp-artifact-sticky-grid {
+    position: static;
+    display: block;
+  }
+  .cfp-artifact-viewport {
+    overflow: visible;
+  }
+  .cfp-artifact-track {
+    display: block;
+    width: auto;
+    transform: none !important;
+  }
+  .cfp-artifact-card {
+    width: 100%;
+    min-width: 0;
+    margin-top: 28px;
+  }
+  .cfp-artifact-mobile {
+    margin-top: 48px;
+  }
+  .cfp-artifact-states {
+    margin-top: 48px;
+  }
+}
