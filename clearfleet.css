@@ -360,3 +360,75 @@
   .cfp-artifact-mobile { margin-top: 48px; }
   .cfp-artifact-states { margin-top: 48px; }
 }
+
+
+/* Desktop-only correction: restore a static artifact layout, retaining the
+   reduced web-app screenshot size and making the driver screens more compact. */
+@media (min-width: 861px) {
+  #artifacts {
+    overflow: visible;
+  }
+  .cfp-artifacts-intro {
+    margin-bottom: 48px;
+  }
+  .cfp-artifact-group--desktop {
+    height: auto !important;
+    min-height: 0 !important;
+    margin-top: 0;
+  }
+  .cfp-artifact-sticky-grid {
+    position: static;
+    display: block;
+  }
+  .cfp-artifact-sticky-grid > h2,
+  .cfp-artifact-mobile .cfp-grid > h2 {
+    margin-bottom: 28px;
+  }
+  .cfp-artifact-viewport {
+    overflow: visible;
+  }
+  .cfp-artifact-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 32px;
+    width: 100%;
+    transform: none !important;
+  }
+  .cfp-artifact-card {
+    width: 100%;
+    min-width: 0;
+    flex: initial;
+  }
+  .cfp-artifact-card .cfp-browser {
+    margin-top: 0;
+  }
+  .cfp-artifact-card .cfp-browser__win img {
+    width: 100%;
+    height: auto;
+  }
+  .cfp-artifact-mobile {
+    margin-top: 72px;
+  }
+  .cfp-artifact-mobile .cfp-grid {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 56px;
+  }
+  .cfp-artifact-mobile .cfp-grid > h2 {
+    margin-bottom: 0;
+  }
+  .cfp-artifact-mobile .cfp-phones {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 24px;
+    max-width: 720px;
+    margin-top: 28px;
+  }
+  .cfp-artifact-mobile .cfp-phone-block,
+  .cfp-artifact-mobile .cfp-phone-block:last-child:nth-child(odd) {
+    grid-column: auto;
+    min-width: 0;
+  }
+  .cfp-artifact-mobile .cfp-phone img {
+    width: 100%;
+    height: auto;
+  }
+}
