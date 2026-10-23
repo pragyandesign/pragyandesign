@@ -205,3 +205,24 @@
   display: none;
 }
 
+
+/* Remove browser-frame effects from the five desktop product screens only. */
+.cfp-browser {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+.cfp-browser__bar {
+  display: none;
+}
+.cfp-browser__win {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.cfp-browser__win img {
+  border-radius: 0;
+  box-shadow: none;
+  filter: none;
+}
