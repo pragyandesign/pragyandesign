@@ -173,8 +173,9 @@
 
     <div class="cfp-artifact-mobile">
       <div class="cfp-grid">
-        <h3 class="cfp-sub-h3">Driver Android app</h3>
-                <p>The driver side of the same flow, from the home screen to reporting a breakdown.</p>
+        <h2>Driver Android app</h2>
+        <div class="cfp-body">
+          <p>The driver side of the same flow, from the home screen to reporting a breakdown.</p>
         
                 <div class="cfp-phones">
                   <div class="cfp-phone-block">
@@ -198,6 +199,7 @@
                     <div class="cfp-phone-cap"><h4>Report Breakdown</h4><p>The driver reports the issue</p></div>
                   </div>
                 </div>
+        </div>
       </div>
     </div>
 
@@ -326,6 +328,62 @@
   </footer>
   <div class="copyright">2026 Pragyan Chaudhary. All rights reserved</div>
 </div>
+
+
+<script>
+(() => {
+  const group = document.querySelector('[data-horizontal-group]');
+  if (!group) return;
+  const stickyGrid = group.querySelector('.cfp-artifact-sticky-grid');
+  const viewport = group.querySelector('.cfp-artifact-viewport');
+  const track = group.querySelector('.cfp-artifact-track');
+  const desktop = window.matchMedia('(min-width: 861px)');
+  let travel = 0;
+  let frame = 0;
+
+  function measure() {
+    if (!desktop.matches) {
+      group.style.height = '';
+      group.style.minHeight = '';
+      track.style.transform = '';
+      travel = 0;
+      return;
+    }
+    travel = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    const stickyHeight = stickyGrid.offsetHeight;
+    group.style.height = (stickyHeight + travel) + 'px';
+    group.style.minHeight = '0';
+    update();
+  }
+
+  function update() {
+    frame = 0;
+    if (!desktop.matches || !travel) {
+      track.style.transform = 'translate3d(0,0,0)';
+      return;
+    }
+    const top = group.getBoundingClientRect().top;
+    const progress = Math.max(0, Math.min(1, (112 - top) / travel));
+    track.style.transform = 'translate3d(' + (-travel * progress) + 'px,0,0)';
+  }
+
+  function requestUpdate() {
+    if (!frame) frame = requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(measure);
+    observer.observe(viewport);
+    observer.observe(track);
+  }
+  if (desktop.addEventListener) desktop.addEventListener('change', measure);
+  else desktop.addListener(measure);
+  measure();
+})();
+</script>
 
 <script src="cursor.js"></script>
 </body>
